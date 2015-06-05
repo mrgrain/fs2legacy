@@ -191,25 +191,20 @@ function upload_img($IMAGE, $SUBPATH, $NAME, $MAX_SIZE, $MAX_WIDTH, $MAX_HEIGHT,
             break;
         default:
             return 1;  // Error 1: Ung�ltiger Dateityp!
-            break 2;
     }
 
     // Check Options
     if ($IMAGE['tmp_name'] != 0) {
         return 2;  // Error 2: Fehler beim Datei-Upload!
-        break;
     }
     if ($IMAGE['size'] > $MAX_SIZE) {
         return 3;  // Error 3: Das Bild ist zu gro�! (Dateigr��e)
-        break;
     }
     if ($image_data[0] > $MAX_WIDTH || $image_data[1] > $MAX_HEIGHT) {
         return 4;  // Error 4: Das Bild ist zu gro�! (Abmessungen)
-        break;
     }
     if ($THIS_SIZE == TRUE && ($image_data[0] != $MAX_WIDTH || $image_data[1] != $MAX_HEIGHT)) {
         return 5;  // Error 5: Das Bild ist entspricht nicht den erforderlichen Abmessungen!
-        break;
     }
 
     // Create Image
@@ -272,7 +267,6 @@ function create_thumb_from($image, $thumb_max_width, $thumb_max_height, $quality
             break;
         default:
             return 1;  // Fehler 1: Ung�ltiger Dateityp!
-            break 2;
     }
 
 
@@ -327,7 +321,6 @@ function create_thumb_from($image, $thumb_max_width, $thumb_max_height, $quality
             break;
         default:
             return 1;  // Fehler 1: Ung�ltiger Dateityp!
-            break 2;
     }
 
     //Thumbnail verkleinern
@@ -338,24 +331,20 @@ function create_thumb_from($image, $thumb_max_width, $thumb_max_height, $quality
         case 1: //GIF
             if (!imagegif($thumb, $thumb_path, $quality)) {
                 return 2;  // Fehler 2: Es konnte kein Thumbnail erstellt werden!
-                break 2;
             }
             break;
         case 2: //JPG
             if (!imagejpeg($thumb, $thumb_path, $quality)) {
                 return 2;  // Fehler 2: Es konnte kein Thumbnail erstellt werden!
-                break 2;
             }
             break;
         case 3: //PNG
             if (!imagepng($thumb, $thumb_path)) {
                 return 2;  // Fehler 2: Es konnte kein Thumbnail erstellt werden!
-                break 2;
             }
             break;
         default:
             return 1;  // Fehler 1: Ung�ltiger Dateityp!
-            break 2;
     }
 
     //Chmod setzen & Cache leeren

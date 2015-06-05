@@ -1,0 +1,8 @@
+# frontend asset files
+/vendor
+composer.phar
+/node_modules
+/.sass-cache
+
+# IDE related files
+/.idea

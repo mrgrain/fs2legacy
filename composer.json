@@ -1,0 +1,18 @@
+{
+  "name": "frogsystem/fs2legacy",
+  "license": "CC BY-SA 3.0 DE",
+  "authors": [
+    {
+      "name": "Moritz Kornher",
+      "email": "mail@moritzkornher.de"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "src/frogsystem/fs2legacy/functions.php"
+    ],
+    "psr-4": {
+      "Frogsystem\\Legacy\\": "src/frogsystem/fs2legacy"
+    }
+  }
+}

@@ -15,6 +15,9 @@ $list = array(
     'stylefunctions.php',
     'urlfunctions.php',
     'userfunctions.php',
+
+    'adminfunctions.php',
+    'templatepagefunctions.php',
 );
 
 // include the files
@@ -111,6 +114,3 @@ function date_loc($DATE_STRING, $TIMESTAMP)
 
     return $localized_date;
 }
-
-
-?>
