@@ -1,5 +1,5 @@
 <?php
-namespace Frogsystem\Frogsystem\Config;
+namespace Frogsystem\Legacy\Services\Config;
 
 class ConfigEnv extends ConfigData
 {

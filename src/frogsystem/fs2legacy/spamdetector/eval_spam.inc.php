@@ -91,7 +91,7 @@ function spamEvaluation($title, $poster_id, $poster_name, $comment_text, $use_b8
 {
     $comment_text = strtolower($comment_text);
     if ($use_b8) {
-        require_once FS2SOURCE . '/libs/spamdetector/b8/b8.php';
+        require_once __DIR__ . '/b8/b8.php';
         if ($b8 == NULL) {
             $success = 'No b8 instance passed to spamEvaluation() function!';
         } else {

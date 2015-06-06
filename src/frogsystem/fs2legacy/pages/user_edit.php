@@ -181,7 +181,7 @@ else {
         }
     } else { // Show Login-Page
         $_SESSION['last_url'] = 'user_edit';
-        include(FS2SOURCE . '/data/login.php');
+        include(FS2SOURCE . '/pages/login.php');
     }
 }
 ?>

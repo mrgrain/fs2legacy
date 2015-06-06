@@ -1,6 +1,6 @@
 <?php
-require_once(FS2SOURCE . '/libs/class_Feed.php');
-$feed = FS2SOURCE . '/libs/feeds/' . $_GET['xml'] . '.php';
+require_once(FS2SOURCE . '/lib/class_Feed.php');
+$feed = FS2SOURCE . '/feeds/' . $_GET['xml'] . '.php';
 if (file_exists($feed)) {
     header('Content-type: application/xml');
     include($feed);

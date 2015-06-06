@@ -1,20 +1,44 @@
 <?php
-namespace Frogsystem\FS2Core;
+namespace Frogsystem\Legacy;
 
-use Frogsystem\Metamorphosis\WebApp;
+use Frogsystem\Spawn\Container;
+use Frogsystem\Spawn\Contracts\PluggableInterface;
 
-abstract class GlobalData extends WebApp {
-
-    protected $dc = 0;
-
-    // todo: remove all calls to this methods from frogsystem
-    private function depcrecate($method)
+class GlobalData extends Container implements PluggableInterface
+{
+    /**
+     * This is a pseudo container and therefore uses it delegate to lookup missing entries.
+     * @param string $id
+     * @return mixed
+     * @throws \Frogsystem\Spawn\Exceptions\NotFoundException
+     */
+    function __get($id)
     {
-        $this->dc++;
-        if (0 == ($this->dc % 500)) {
-            //trigger_error("Use of Frogsystem2::{$method}() is deprecated. Please access via container or use DI.", E_USER_DEPRECATED);
-        }
+        return $this->delegate->get($id);
     }
+
+    /**
+     * Executed whenever a pluggable gets plugged in.
+     * @return mixed
+     */
+    public function plugin()
+    {
+        global $FD;
+        $FD = $this;
+    }
+
+    /**
+     * Executed whenever a pluggable gets unplugged.
+     * @return mixed
+     */
+    public function unplug()
+    {
+        // legacy destroy global
+        global $FD;
+        unset($FD);
+    }
+
+
 
     public function text($type, $tag) {
         $this->depcrecate('text');
@@ -85,5 +109,15 @@ abstract class GlobalData extends WebApp {
     public function configExists() {
         $this->depcrecate('configExists');
         return call_user_func_array(array($this->config, 'configExists'), func_get_args());
+    }
+
+
+    private $dc = 0;
+    private function depcrecate($method)
+    {
+        $this->dc++;
+        if (0 == ($this->dc % 500)) {
+            trigger_error("Use of Frogsystem2::{$method}() is deprecated. Please access via container or use DI.", E_USER_DEPRECATED);
+        }
     }
 }

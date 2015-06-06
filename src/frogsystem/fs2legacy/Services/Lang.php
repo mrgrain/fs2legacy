@@ -1,5 +1,5 @@
 <?php
-namespace Frogsystem\Frogsystem;
+namespace Frogsystem\Legacy\Services;
 
 class Lang
 {

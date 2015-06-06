@@ -1,8 +1,7 @@
 <?php
-namespace Frogsystem\Frogsystem;
+namespace Frogsystem\Legacy\Services;
 
-
-class LegacySession {
+class Session {
 
     function __construct()
     {

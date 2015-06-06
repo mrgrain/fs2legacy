@@ -195,6 +195,3 @@ function get_seo()
         if (preg_match('/\/dlfile--.*\.html$/', $_SERVER['HTTP_REFERER']))
             $_SERVER['HTTP_REFERER'] .= '?go=dlfile';
 }
-
-
-?>

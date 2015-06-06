@@ -22,7 +22,7 @@ $list = array(
 
 // include the files
 foreach ($list as $file) {
-    include_once(__DIR__ . '/includes/' . $file);
+    include_once(__DIR__ . '/../helpers/' . $file);
 }
 
 

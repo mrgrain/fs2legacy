@@ -7,12 +7,18 @@
       "email": "mail@moritzkornher.de"
     }
   ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "files": [
-      "src/frogsystem/fs2legacy/functions.php"
+      "src/frogsystem/fs2legacy/autoload/classloader.php",
+      "src/frogsystem/fs2legacy/autoload/helpers.php"
     ],
     "psr-4": {
       "Frogsystem\\Legacy\\": "src/frogsystem/fs2legacy"
     }
+  },
+  "require": {
+    "frogsystem/metamorphosis": "dev-master"
   }
 }

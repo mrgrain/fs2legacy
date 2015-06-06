@@ -63,7 +63,6 @@ if (!isset($_POST['article_text']) && !isset($_POST['sended'])) {
 else {
     // goto
     $goto = 'articles_preview';
-    $FD->setConfig('env', 'get_go', $goto);
     $FD->setConfig('goto', $goto);
     $FD->setConfig('env', 'goto', $goto);
 

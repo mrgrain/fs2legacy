@@ -1,13 +1,12 @@
 <?php
 /**
- * @file     class_sql.php
- * @folder   /libs
+ * @file     Database.php
  * @version  0.5
  * @author   Sweil, Satans Kruemelmonster, Thoronador
  *
  * this class provides several methods for database-access
  */
-namespace Frogsystem\Frogsystem;
+namespace Frogsystem\Legacy\Services;
 
 class Database
 {

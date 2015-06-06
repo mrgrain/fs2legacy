@@ -1,152 +1,72 @@
 <?php
-namespace Frogsystem\FS2Core;
+namespace Frogsystem\Metamorphosis;
 
-use Frogsystem\Frogsystem\LegacyConfig;
-use Frogsystem\Frogsystem\LegacyText;
-use Frogsystem\Frogsystem\Router;
-use Frogsystem\Spawn\Contracts\PluggableContainer;
-use Frogsystem\Spawn\Container;
+use Frogsystem\Legacy\Services\Config;
+use Frogsystem\Metamorphosis\Providers\RoutesProvider;
+use Psr\Http\Message\ResponseInterface;
 
-class Routes extends Container implements PluggableContainer
+/**
+ * Class Routes
+ * @package Frogsystem\Metamorphosis
+ */
+class Routes extends RoutesProvider
 {
-
-    function __construct(Router $router, LegacyConfig $config, LegacyText $text)
-    {
-        $this->router = $router;
-        $this->config = $config;
-        $this->text = $text;
-    }
+    protected $controller = 'Frogsystem\Legacy\PageController';
+    protected $method = 'page';
 
     /**
-     * Executed whenever a pluggable gets plugged in.
-     * @return mixed
+     * Add the legacy route
      */
     public function plugin()
     {
-        // Route Urls
-        $this->router->any('/admin', function () {
-            include(__DIR__ . '/src/admin/admin.php');
-        });
-        $this->router->any('/', function () {
+        // Admin
+        $this->map->get('legacy.admin', '/admin', $this->controller('AdminController', 'index'))->allows(['POST']);
 
-            // Constructor Calls
-            global $APP;
-            userlogin();
-            setTimezone($this->config->cfg('timezone'));
-            run_cronjobs();
-            count_all($this->config->cfg('goto'));
-            save_visitors();
-            if (!$this->config->configExists('main', 'count_referers') || $this->config->cfg('main', 'count_referers') == 1) {
-                save_referer();
-            }
-            set_style();
-            $APP = load_applets();
+        // Index
+        $this->map->get('legacy.index', '/', $this->controller('PageController', 'index'))->allows(['POST']);
 
-            // Get Body-Template
-            $theTemplate = new \template(); //todo: abstract templates in a simple way for now
-            $theTemplate->setFile('0_main.tpl');
-            $theTemplate->load('MAIN');
-            $theTemplate->tag('content', $this->get_content($this->config->cfg('goto')));
-            $theTemplate->tag('copyright', get_copyright());
+        // Named article
+        $this->map->get('legacy.article', '/{name}.html', $this->controller('PageController', 'articles'))
+            ->tokens(['name' => '[^/.]+'])
+            ->allows(['POST']);
 
-            $template_general = (string) $theTemplate;
-            // TODO: "Template Manipulation Hook"
-
-            // Display Page
-            echo tpl_functions_init(get_maintemplate($template_general));
-        });
-
-        $lang = $this->text;
-        $this->router->fail(function (\Exception $exception) use ($lang) {
-            // closures
-            $header = function ($content, $replace = false, $http_response_code = null) {
-                header($content, $replace, $http_response_code);
-            };
-
-            // log connection error
-            error_log($exception->getMessage(), 0);
-
-            // Set header
-            $header(http_response_text(503), true, 503);
-            $header('Retry-After: '.(string)(60*15)); // 15 Minutes
-
-            // No-Connection-Page Template
-            $template = '
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-    <html>
-        <head>
-            <title>' . $lang['frontend']->get("no_connection") . '</title>
-        </head>
-        <body>
-            <p>
-                <b>' . $lang['frontend']->get("no_connection_to_the_server") . '</b>
-            </p>
-        </body>
-    </html>
-        ';
-
-            // Display No-Connection-Page
-            echo $template;
-        });
+        // Pages
+        $this->map->get('legacy.affiliates', '/affiliates', $this->page('affiliates'))->allows(['POST']);
+        $this->map->get('legacy.articles', '/articles', $this->page('articles'))->allows(['POST']);
+        $this->map->get('legacy.captcha', '/captcha', $this->page('captcha'))->allows(['POST']);
+        $this->map->get('legacy.comments', '/comments', $this->page('comments'))->allows(['POST']);
+        $this->map->get('legacy.confirm', '/confirm', $this->page('confirm'))->allows(['POST']);
+        $this->map->get('legacy.dlfile', '/dlfile', $this->page('dlfile'))->allows(['POST']);
+        $this->map->get('legacy.download', '/download', $this->page('download'))->allows(['POST']);
+        $this->map->get('legacy.feed', '/feed', $this->page('feed'))->allows(['POST']);
+        $this->map->get('legacy.gallery', '/gallery', $this->page('gallery'))->allows(['POST']);
+        $this->map->get('legacy.login', '/login', $this->page('login'))->allows(['POST']);
+        $this->map->get('legacy.logout', '/logout', $this->page('logout'))->allows(['POST']);
+        $this->map->get('legacy.news', '/news', $this->page('news'))->allows(['POST']);
+        $this->map->get('legacy.news_search', '/news_search', $this->page('news_search'))->allows(['POST']);
+        $this->map->get('legacy.polls', '/polls', $this->page('polls'))->allows(['POST']);
+        $this->map->get('legacy.press', '/press', $this->page('press'))->allows(['POST']);
+        $this->map->get('legacy.register', '/register', $this->page('register'))->allows(['POST']);
+        $this->map->get('legacy.search', '/search', $this->page('search'))->allows(['POST']);
+        $this->map->get('legacy.shop', '/shop', $this->page('shop'))->allows(['POST']);
+        $this->map->get('legacy.style_selection', '/style_selection', $this->page('style_selection'))->allows(['POST']);
+        $this->map->get('legacy.user', '/user', $this->page('user'))->allows(['POST']);
+        $this->map->get('legacy.user_edit', '/user_edit', $this->page('user_edit'))->allows(['POST']);
+        $this->map->get('legacy.user_list', '/user_list', $this->page('user_list'))->allows(['POST']);
+        $this->map->get('legacy.viewer', '/viewer', $this->page('viewer'))->allows(['POST']);
     }
 
-
-    /**
-     * Executed whenever a pluggable gets unplugged.
-     * @return mixed
-     */
-    public function unplug()
+    public function page($name)
     {
-    }
+        // Return closure
+        return function (ResponseInterface $response, Config $config) use ($name) {
+            // set old config
+            $config->setConfig('goto', $name);
+            $config->setConfig('env', 'goto', $name);
 
-
-    protected function get_content($GOTO)
-    {
-        global $FD;
-
-        // Display Content
-        initstr($template);
-
-        // Script-File in /data/
-        if (file_exists(__DIR__ . '/src/pages/' . $GOTO . '.php')) {
-            include(__DIR__ . '/src/pages/' . $GOTO . '.php');
-        } elseif (file_exists(__DIR__ . '/src/pages/' . $GOTO)) {
-            include(__DIR__ . '/src/pages/' . $GOTO);
-        } else {
-
-            // Articles from DB
-            $stmt = $FD->db()->conn()->prepare(
-                'SELECT COUNT(article_id) FROM ' . $FD->env('DB_PREFIX') . 'articles
-                       WHERE `article_url` = ? LIMIT 0,1');
-            $stmt->execute(array($GOTO));
-            $num = $stmt->fetchColumn();
-            if ($num >= 1) {
-
-                // Forward Aliases
-                $alias = $FD->db()->conn()->query(
-                    'SELECT alias_forward_to FROM ' . $FD->env('DB_PREFIX') . "aliases
-                           WHERE `alias_active` = 1 AND `alias_go` = 'articles.php'");
-                $alias = $alias->fetch(PDO::FETCH_ASSOC);
-                if (!empty($alias)) {
-                    $FD->setConfig('env', 'goto', $alias['alias_forward_to']);
-                    include(__DIR__ . '/src/pages/' . $alias['alias_forward_to']);
-                } else {
-                    $FD->setConfig('env', 'goto', 'articles');
-                    include(__DIR__ . '/src/pages/articles.php');
-                }
-
-                // File-Download
-            } elseif ($GOTO == 'dl' && isset ($_GET['fileid']) && isset ($_GET['dl'])) {
-
-                // 404-Error Page, no content found
-            } else {
-                $FD->setConfig('goto', '404');
-                $FD->setConfig('env', 'goto', '404');
-                include(__DIR__ . '/src/pages/404.php');
-            }
-        }
-
-        // Return Content
-        return $template;
+            // call controller method
+            $controller = $this->app->find($this->controller);
+            return $controller->$this->method($response);
+        };
     }
 }

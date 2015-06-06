@@ -1,8 +1,7 @@
 <?php
-namespace Frogsystem\Frogsystem;
+namespace Frogsystem\Legacy\Services;
 
-
-class LegacyText implements \ArrayAccess {
+class Text implements \ArrayAccess {
 
     private $container = [];
 

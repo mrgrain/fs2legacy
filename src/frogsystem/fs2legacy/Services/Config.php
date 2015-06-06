@@ -1,7 +1,7 @@
 <?php
-namespace Frogsystem\Frogsystem;
+namespace Frogsystem\Legacy\Services;
 
-class LegacyConfig {
+class Config {
 
     protected $app;
     protected $db;
@@ -15,7 +15,7 @@ class LegacyConfig {
 
 
     // load config
-    // use reloadConfig if you want to get the data fresh from the databse
+    // use reloadConfig if you want to get the data fresh from the database
     public function loadConfig($name) {
         // only if config not yet exists
         if (!$this->configExists($name))

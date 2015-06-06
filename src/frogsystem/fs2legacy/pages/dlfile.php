@@ -6,9 +6,9 @@ $FD->setConfig('info', 'canonical', array('id'));
 $FD->loadConfig('downloads');
 
 if ($FD->cfg('downloads', 'dl_comments') == 1) {
-    include_once(FS2SOURCE . '/libs/downloads/dlcomments.php');
+    include_once(FS2SOURCE . '/downloads/dlcomments.php');
 } else {
-    include_once(FS2SOURCE . '/libs/downloads/dlfile.php');
+    include_once(FS2SOURCE . '/downloads/dlfile.php');
 }
 
 ?>
