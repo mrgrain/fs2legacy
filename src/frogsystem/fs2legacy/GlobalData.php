@@ -14,6 +14,9 @@ class GlobalData extends Container implements PluggableInterface
      */
     function __get($id)
     {
+        if (isset($this->delegate->$id)) {
+            return $this->delegate->$id;
+        }
         return $this->delegate->get($id);
     }
 

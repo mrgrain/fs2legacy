@@ -7,6 +7,7 @@ use Frogsystem\Legacy\Services\Session;
 use Frogsystem\Legacy\Services\Text;
 use Frogsystem\Metamorphosis\WebApplication;
 use Frogsystem\Spawn\Contracts\PluggableInterface;
+use Interop\Container\ContainerInterface;
 
 /**
  * @property Config config
@@ -17,9 +18,9 @@ use Frogsystem\Spawn\Contracts\PluggableInterface;
 class Legacy extends WebApplication implements PluggableInterface
 {
 
-    public function __construct()
+    public function __construct(ContainerInterface $delegate = null)
     {
-        parent::__construct();
+        parent::__construct($delegate);
 
         // Constants
         $this->setConstants();
@@ -33,13 +34,15 @@ class Legacy extends WebApplication implements PluggableInterface
             = $this['Frogsystem\\Legacy\\Services\\Config']
             = $this->find('Frogsystem\\Legacy\\Services\\Config', [$this]);
 
-        $this['text'] = $this->once(function() {
-            $args = [];
-            if ($local = $this->config->config('language_text')) {
-                $args[] = $local;
-            }
-            return $this->make('Frogsystem\\Legacy\\Services\\Text', $args);
-        });
+        $this->text
+            = $this['Frogsystem\\Legacy\\Services\\Text']
+            = $this->once(function() {
+                $args = [];
+                if ($local = $this->config->config('language_text')) {
+                    $args[] = $local;
+                }
+                return $this->make('Frogsystem\\Legacy\\Services\\Text', $args);
+            });
     }
 
     public function run()

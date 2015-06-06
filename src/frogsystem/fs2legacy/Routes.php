@@ -1,5 +1,5 @@
 <?php
-namespace Frogsystem\Metamorphosis;
+namespace Frogsystem\Legacy;
 
 use Frogsystem\Legacy\Services\Config;
 use Frogsystem\Metamorphosis\Providers\RoutesProvider;

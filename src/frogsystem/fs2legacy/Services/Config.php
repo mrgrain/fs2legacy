@@ -52,10 +52,10 @@ class Config {
     // create config object
     private function createConfigObject($name, $data, $json) {
         // Load corresponding class and get config array
-        $class_name = "Frogsystem\\Frogsystem\\Config\\Config" . ucfirst(strtolower($name));
+        $class_name = "Frogsystem\\Legacy\\Services\\Config\\Config" . ucfirst(strtolower($name));
 
         if (!class_exists($class_name)) {
-            $class_name = "Frogsystem\\Frogsystem\\Config\\ConfigData";
+            $class_name = "Frogsystem\\Legacy\\Services\\Config\\ConfigData";
         }
 
         return new $class_name($data, $json);
