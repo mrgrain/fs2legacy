@@ -11,7 +11,7 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Routes extends RoutesProvider
 {
-    protected $controller = 'Frogsystem\Legacy\PageController';
+    protected $controller = 'Frogsystem\Legacy\Controllers\PageController';
     protected $method = 'page';
 
     /**

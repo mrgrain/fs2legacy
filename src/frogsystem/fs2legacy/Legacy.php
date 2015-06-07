@@ -7,7 +7,6 @@ use Frogsystem\Legacy\Services\Session;
 use Frogsystem\Legacy\Services\Text;
 use Frogsystem\Metamorphosis\WebApplication;
 use Frogsystem\Spawn\Contracts\PluggableInterface;
-use Interop\Container\ContainerInterface;
 
 /**
  * @property Config config
@@ -17,8 +16,13 @@ use Interop\Container\ContainerInterface;
  */
 class Legacy extends WebApplication implements PluggableInterface
 {
+    /** @var  WebApplication */
+    protected $delegate;
 
-    public function __construct(ContainerInterface $delegate = null)
+    /** @var string The Kernel class */
+    protected $kernel = 'Frogsystem\Legacy\Kernel';
+
+    public function __construct(WebApplication $delegate = null)
     {
         parent::__construct($delegate);
 
@@ -59,7 +63,8 @@ class Legacy extends WebApplication implements PluggableInterface
     public function plugin()
     {
         // Load default kernel into the application
-        $this->load($this->find('Frogsystem\Legacy\Kernel'));
+        $this->delegate->set(get_called_class(), $this);
+        $this->delegate->load($this->find($this->kernel));
     }
 
     public function unplug()

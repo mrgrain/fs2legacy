@@ -7,6 +7,15 @@ use Frogsystem\Spawn\Contracts\PluggableInterface;
 class GlobalData extends Container implements PluggableInterface
 {
     /**
+     * Request Legacy Container
+     * @param Legacy $container
+     */
+    public function __construct(Legacy $container = null)
+    {
+        parent::__construct($container);
+    }
+
+    /**
      * This is a pseudo container and therefore uses it delegate to lookup missing entries.
      * @param string $id
      * @return mixed

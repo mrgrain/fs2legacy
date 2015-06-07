@@ -6,7 +6,6 @@ use Frogsystem\Legacy\Services\Database;
 use Frogsystem\Metamorphosis\Contracts\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Uri;
 
 class UrlMiddleware implements MiddlewareInterface
 {
@@ -37,7 +36,7 @@ class UrlMiddleware implements MiddlewareInterface
 
         // Check $_GET['go']
         $this->config->setConfig('env', 'get_go_raw', isset($_GET['go']) ? $_GET['go'] : null);
-        if ($_GET['go']) {
+        if (isset($_GET['go'])) {
             // current uri
             $uri = $request->getUri()->withPath('/'.$_GET['go']);
 
