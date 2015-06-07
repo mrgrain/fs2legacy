@@ -123,13 +123,7 @@ class GlobalData extends Container implements PluggableInterface
         return call_user_func_array(array($this->config, 'configExists'), func_get_args());
     }
 
-
-    private $dc = 0;
     private function depcrecate($method)
     {
-        $this->dc++;
-        if (0 == ($this->dc % 500)) {
-            trigger_error("Use of Frogsystem2::{$method}() is deprecated. Please access via container or use DI.", E_USER_DEPRECATED);
-        }
     }
 }
