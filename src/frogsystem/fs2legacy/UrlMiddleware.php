@@ -60,6 +60,6 @@ SQL
             $request = $request->withUri($uri);
         }
 
-        return $next($response);
+        return $next($request, $response);
     }
 }
