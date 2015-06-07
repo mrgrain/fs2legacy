@@ -21,6 +21,7 @@ class Kernel extends WebApplicationKernel
      * @var array
      */
     protected $pluggables = [
+        'Frogsystem\Legacy\ServiceProvider',
         'Frogsystem\Legacy\GlobalData',
         'Frogsystem\Legacy\Routes',
     ];

@@ -28,36 +28,27 @@ class Legacy extends WebApplication implements PluggableInterface
         // Debugging aka environment
         $this->setDebugMode(FS2_DEBUG);
 
-        //todo shorthands for aliasing
-        $this->session = $this->find('Frogsystem\\Legacy\\Services\\Session');
-        $this->config
-            = $this['Frogsystem\\Legacy\\Services\\Config']
-            = $this->find('Frogsystem\\Legacy\\Services\\Config', [$this]);
+        // internals
+        $this->session = $this->once(function() {
+            return $this->find('Frogsystem\\Legacy\\Services\\Session');
+        });
 
-        $this->text
-            = $this['Frogsystem\\Legacy\\Services\\Text']
-            = $this->once(function() {
-                $args = [];
-                if ($local = $this->config->config('language_text')) {
-                    $args[] = $local;
-                }
-                return $this->make('Frogsystem\\Legacy\\Services\\Text', $args);
-            });
+        $this->config = $this->once(function() {
+            return $this->find('Frogsystem\\Legacy\\Services\\Config');
+        });
+
+        $this->text = $this->once(function() {
+            return $this->find('Frogsystem\\Legacy\\Services\\Text');
+        });
+
+        $this->db = $this->once(function() {
+            return $this->find('Frogsystem\\Legacy\\Services\\Database');
+        });
     }
 
     public function run()
     {
-        $this->db = new Database(
-            $this->config->env('DB_HOST'),
-            $this->config->env('DB_NAME'),
-            $this->config->env('DB_USER'),
-            $this->config->env('DB_PASSWORD'),
-            $this->config->env('DB_PREFIX')
-        );
-        $this->set('Frogsystem\\Legacy\\Database', $this->db);
-
         $this->config->loadConfigsByHook('startup');
-
         $this->text->setLocal($this->config->config('language_text'));
     }
 

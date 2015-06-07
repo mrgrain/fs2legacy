@@ -1,13 +1,15 @@
 <?php
 namespace Frogsystem\Legacy\Services;
 
+use Frogsystem\Legacy\Legacy;
+
 class Config {
 
     protected $app;
     protected $db;
     private $config = [];
 
-    function __construct(Frogsystem2 $app)
+    function __construct(Legacy $app)
     {
         $this->app = $app;
         $this->config['env'] = new Config\ConfigEnv();
@@ -44,8 +46,9 @@ class Config {
         $data = $data->fetchAll(\PDO::FETCH_ASSOC);
         foreach ($data as $config) {
             // Load corresponding class and get config array
-            if ($reload || !$this->configExists($config['config_name']))
+            if ($reload || !$this->configExists($config['config_name'])) {
                 $this->config[$config['config_name']] = $this->createConfigObject($config['config_name'], $config['config_data'], true);
+            }
         }
     }
 
