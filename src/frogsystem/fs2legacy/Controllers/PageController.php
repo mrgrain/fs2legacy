@@ -16,14 +16,16 @@ class PageController
     function index(ResponseInterface $response)
     {
         $goto = $this->config->cfg('home_real');
-        $this->$goto($response);
+        $this->config->setConfig('goto', $goto);
+        $this->config->setConfig('env', 'goto', $goto);
+        return $this->page($response);
     }
 
     function articles(ResponseInterface $response, $name)
     {
         $this->config->setConfig('goto', $name);
         $this->config->setConfig('env', 'goto', $name);
-        $this->page($response, 'articles');
+        return $this->page($response, 'articles');
     }
 
     function page(ResponseInterface $response)
