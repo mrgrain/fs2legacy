@@ -1,5 +1,5 @@
 <?php
-namespace Frogsystem\Legacy;
+namespace Frogsystem\Legacy\Controllers;
 
 use Frogsystem\Legacy\Services\Config;
 use Psr\Http\Message\ResponseInterface;

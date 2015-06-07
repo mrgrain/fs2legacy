@@ -66,7 +66,7 @@ class Routes extends RoutesProvider
 
             // call controller method
             $controller = $this->app->find($this->controller);
-            return $controller->$this->method($response);
+            return $controller->{$this->method}($response);
         };
     }
 }
