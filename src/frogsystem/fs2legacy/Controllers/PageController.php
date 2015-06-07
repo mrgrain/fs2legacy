@@ -51,7 +51,8 @@ class PageController
         $template_general = (string) $theTemplate;
 
         // Display Page
-        return $response->getBody()->write(tpl_functions_init(get_maintemplate($template_general)));
+        $response->getBody()->write(tpl_functions_init(get_maintemplate($template_general)));
+        return $response;
     }
 
 
