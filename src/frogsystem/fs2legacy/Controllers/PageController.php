@@ -28,7 +28,12 @@ class PageController
         return $this->page($response, 'articles');
     }
 
-    function page(ResponseInterface $response)
+    /**
+     * @param ResponseInterface $response
+     * @param null $file Force to load a specific page file
+     * @return ResponseInterface
+     */
+    function page(ResponseInterface $response, $file = null)
     {
         // Constructor Calls
         global $APP;
@@ -47,7 +52,7 @@ class PageController
         $theTemplate = new \template();
         $theTemplate->setFile('0_main.tpl');
         $theTemplate->load('MAIN');
-        $theTemplate->tag('content', $this->get_content($this->config->cfg('goto')));
+        $theTemplate->tag('content', $this->get_content($file ?: $this->config->cfg('goto')));
         $theTemplate->tag('copyright', get_copyright());
 
         $template_general = (string) $theTemplate;
