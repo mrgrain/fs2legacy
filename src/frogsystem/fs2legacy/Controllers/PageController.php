@@ -14,7 +14,7 @@ class PageController
         $this->config = $config;
     }
 
-    function index(ResponseInterface $response)
+    function index(View $response)
     {
         $goto = $this->config->cfg('home_real');
         $this->config->setConfig('goto', $goto);
@@ -22,7 +22,7 @@ class PageController
         return $this->page($response);
     }
 
-    function articles(ResponseInterface $response, $name)
+    function articles(View $response, $name)
     {
         $this->config->setConfig('goto', $name);
         $this->config->setConfig('env', 'goto', $name);

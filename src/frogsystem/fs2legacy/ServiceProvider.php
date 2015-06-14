@@ -34,5 +34,8 @@ class ServiceProvider extends \Frogsystem\Metamorphosis\Providers\ServiceProvide
                 $config->env('DB_PREFIX')
             );
         });
+
+        $this->app['Frogsystem\\Metamorphosis\\Contracts\\Renderer'] =
+            $this->app->one('Frogsystem\\Legacy\\PageRenderer');
     }
 }
