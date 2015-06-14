@@ -23,7 +23,7 @@ class PageRenderer implements Renderer
         $this->config = $config;
 
         // Load applets
-        $this->loadApplets();
+        $this->applets = $this->loadApplets();
 
         // set default data
         $this->data['copyright'] = get_copyright();
