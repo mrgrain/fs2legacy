@@ -101,7 +101,7 @@ class PageRenderer implements Renderer
         return $new_applet_data;
     }
 
-    protected function loadApplet($file, $output, $args)
+    public static function loadApplet($file, $output, $args)
     {
         // Setup $SCRIPT Var
         unset($SCRIPT, $template);

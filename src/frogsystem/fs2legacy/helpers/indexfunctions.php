@@ -454,7 +454,7 @@ function tpl_func_applets($original, $main_argument, $other_arguments)
     // Maybe load Applet on demand
     if ($APP[$main_argument]['applet_include'] != 1 || count($other_arguments) > 0) {
         // Return Content
-        return load_an_applet($main_argument, $APP[$main_argument]['applet_output'], $other_arguments);
+        return Frogsystem\Legacy\PageRenderer::loadApplet($main_argument, $APP[$main_argument]['applet_output'], $other_arguments);
     } else {
         // Return Content
         return $APP[$main_argument]['applet_template'];
