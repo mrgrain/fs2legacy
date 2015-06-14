@@ -79,7 +79,7 @@ class PageRenderer implements Renderer
             'SELECT applet_include, applet_file, applet_output
                         FROM ' . $this->config->env('DB_PREFIX') . 'applets
                         WHERE `applet_active` = 1');
-        $applet_data = $applet_data->fetchAll(PDO::FETCH_ASSOC);
+        $applet_data = $applet_data->fetchAll(\PDO::FETCH_ASSOC);
 
         // Write Applets into Array & get Applet Template
 
