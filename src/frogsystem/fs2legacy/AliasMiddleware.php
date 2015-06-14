@@ -21,13 +21,12 @@ class AliasMiddleware implements MiddlewareInterface
 
     /**
      * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
      * @param callable $next
      */
-    public function handle(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function handle(ServerRequestInterface $request, callable $next)
     {
         $request = $request->withUri($this->forward_aliases($request->getUri()));
-        return $next($request, $response);
+        return $next($request);
     }
 
     protected function forward_aliases(UriInterface $uri)

@@ -20,10 +20,9 @@ class UrlMiddleware implements MiddlewareInterface
 
     /**
      * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
      * @param callable $next
      */
-    public function handle(ServerRequestInterface $request, ResponseInterface $response, callable $next)
+    public function handle(ServerRequestInterface $request, callable $next)
     {
         // path
         $path = $request->getUri()->getPath();
@@ -60,6 +59,6 @@ SQL
             $request = $request->withUri($uri);
         }
 
-        return $next($request, $response);
+        return $next($request);
     }
 }
