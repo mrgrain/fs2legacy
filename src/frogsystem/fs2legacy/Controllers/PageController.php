@@ -2,6 +2,7 @@
 namespace Frogsystem\Legacy\Controllers;
 
 use Frogsystem\Legacy\Services\Config;
+use Frogsystem\Metamorphosis\Response\View;
 use Psr\Http\Message\ResponseInterface;
 
 class PageController
@@ -29,37 +30,18 @@ class PageController
     }
 
     /**
-     * @param ResponseInterface $response
+     * @param View $view
      * @param null $file Force to load a specific page file
      * @return ResponseInterface
+     * @internal param ResponseInterface $response
      */
-    function page(ResponseInterface $response, $file = null)
+    function page(View $view, $file = null)
     {
-        // Constructor Calls
-        global $APP;
-        userlogin();
-        setTimezone($this->config->cfg('timezone'));
-        run_cronjobs();
-        count_all($this->config->cfg('goto'));
-        save_visitors();
-        if (!$this->config->configExists('main', 'count_referers') || $this->config->cfg('main', 'count_referers') == 1) {
-            save_referer();
-        }
-        set_style();
-        $APP = load_applets();
-
-        // Get Body-Template
-        $theTemplate = new \template();
-        $theTemplate->setFile('0_main.tpl');
-        $theTemplate->load('MAIN');
-        $theTemplate->tag('content', $this->get_content($file ?: $this->config->cfg('goto')));
-        $theTemplate->tag('copyright', get_copyright());
-
-        $template_general = (string) $theTemplate;
-
         // Display Page
-        $response->getBody()->write(tpl_functions_init(get_maintemplate($template_general)));
-        return $response;
+        return $view->render('0_main.tpl/MAIN', [
+            'content' => $this->get_content($file ?: $this->config->cfg('goto')),
+            'copyright' =>  get_copyright(),
+        ]);
     }
 
 

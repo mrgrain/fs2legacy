@@ -87,12 +87,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/frogsystem/metamorphosis.git",
-                "reference": "bbd05e560280bea493b0979f7b0396da18605970"
+                "reference": "e28f8e82a2a5e4aa45afdf0d53993e3f44316a20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/frogsystem/metamorphosis/zipball/bbd05e560280bea493b0979f7b0396da18605970",
-                "reference": "bbd05e560280bea493b0979f7b0396da18605970",
+                "url": "https://api.github.com/repos/frogsystem/metamorphosis/zipball/e28f8e82a2a5e4aa45afdf0d53993e3f44316a20",
+                "reference": "e28f8e82a2a5e4aa45afdf0d53993e3f44316a20",
                 "shasum": ""
             },
             "require": {
@@ -130,7 +130,7 @@
             ],
             "description": "Simple web application framework, build around PSR-7 and container-interop standards.",
             "homepage": "https://github.com/frogsystem/metamorphosis",
-            "time": "2015-06-14 05:02:51"
+            "time": "2015-06-14 10:01:00"
         },
         {
             "name": "frogsystem/spawn",

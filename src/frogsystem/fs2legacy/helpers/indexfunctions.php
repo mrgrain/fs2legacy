@@ -1,8 +1,4 @@
 <?php
-
-
-
-
 //////////////////////////////
 //// Set correct Timezone ////
 //////////////////////////////
@@ -295,93 +291,6 @@ function get_canonical_url()
     return url($goto, array(), true);
 }
 
-
-//////////////////////
-//// Load Applets ////
-//////////////////////
-function load_applets()
-{
-    global $FD;
-
-    // Load Applets from DB
-    $applet_data = $FD->db()->conn()->query(
-        'SELECT applet_include, applet_file, applet_output
-                        FROM ' . $FD->env('DB_PREFIX') . 'applets
-                        WHERE `applet_active` = 1');
-    $applet_data = $applet_data->fetchAll(PDO::FETCH_ASSOC);
-
-    // Write Applets into Array & get Applet Template
-    initstr($template);
-    $new_applet_data = array();
-    foreach ($applet_data as $entry) {
-        // prepare data
-        $entry['applet_file'] .= '.php';
-        settype($entry['applet_output'], 'boolean');
-
-        // include applets & load template
-        if ($entry['applet_include'] == 1) {
-            $entry['applet_template'] = load_an_applet($entry['applet_file'], $entry['applet_output'], array());
-        }
-
-        $new_applet_data[$entry['applet_file']] = $entry;
-    }
-
-    // Return Content
-    return $new_applet_data;
-}
-
-//////////////////////
-//// Load Applets ////
-//////////////////////
-function load_an_applet($file, $output, $args)
-{
-    global $FD;
-    // Setup $SCRIPT Var
-    unset($SCRIPT, $template);
-    $SCRIPT['argc'] = array_unshift($args, $file);
-    $SCRIPT['argv'] = $args;
-
-    //start output buffering
-    ob_start();
-
-    // include applet & load template
-    try {
-        include(FS2APPLETS . '/' . $file);
-    } catch (Exception $e) {
-    }
-
-    //end & clean output buffering
-    $return_data = ob_get_clean();
-
-    // set empty str
-    if (!isset($template)) {
-        initstr($template);
-    }
-
-    //create return value
-    if ($output) {
-        return ($return_data . $template);
-    }
-    return '';
-}
-
-
-////////////////////////////////////
-//// Init Template Replacements ////
-////////////////////////////////////
-function tpl_functions_init($TEMPLATE)
-{
-    global $NAV, $APP, $FD;
-
-    // data arrays
-    $NAV = array();
-    //~ $APP = load_applets();
-
-    // Snippets
-    $SNP = array();
-
-    return tpl_functions($TEMPLATE, $FD->cfg('system', 'var_loop'), array(), true);
-}
 
 ///////////////////////////////
 //// Template Replacements ////

@@ -54,6 +54,12 @@ class Legacy extends WebApplication implements PluggableInterface
     {
         $this->config->loadConfigsByHook('startup');
         $this->text->setLocal($this->config->config('language_text'));
+
+        // Constructor Calls
+        userlogin();
+        setTimezone($this->config->cfg('timezone'));
+        run_cronjobs();
+        set_style();
     }
 
     /**

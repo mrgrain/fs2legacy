@@ -13,8 +13,9 @@ class Kernel extends WebApplicationKernel
      * @var array
      */
     protected $middleware = [
-        'Frogsystem\Legacy\UrlMiddleware',
-        'Frogsystem\Legacy\AliasMiddleware',
+        'Frogsystem\Legacy\Middleware\UrlMiddleware',
+        'Frogsystem\Legacy\Middleware\AliasMiddleware',
+        'Frogsystem\Legacy\Middleware\AnalyticsMiddleware',
     ];
 
     /**

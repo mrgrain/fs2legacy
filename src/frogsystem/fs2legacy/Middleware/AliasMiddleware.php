@@ -1,5 +1,5 @@
 <?php
-namespace Frogsystem\Legacy;
+namespace Frogsystem\Legacy\Middleware;
 
 use Frogsystem\Legacy\Services\Config;
 use Frogsystem\Legacy\Services\Database;
