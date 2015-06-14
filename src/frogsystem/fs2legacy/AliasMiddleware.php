@@ -22,6 +22,7 @@ class AliasMiddleware implements MiddlewareInterface
     /**
      * @param ServerRequestInterface $request
      * @param callable $next
+     * @return ResponseInterface
      */
     public function handle(ServerRequestInterface $request, callable $next)
     {
