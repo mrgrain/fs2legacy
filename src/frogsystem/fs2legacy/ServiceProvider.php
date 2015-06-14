@@ -12,7 +12,7 @@ class ServiceProvider extends \Frogsystem\Metamorphosis\Providers\ServiceProvide
     public function plugin()
     {
         $this->app['Frogsystem\\Legacy\\Services\\Session']
-            = $this->app->one('Frogsystem\\Legacy\\Services\\Session');
+            = $this->app->make('Frogsystem\\Legacy\\Services\\Session');
 
         $this->app['Frogsystem\\Legacy\\Services\\Config']
             = $this->app->one('Frogsystem\\Legacy\\Services\\Config');

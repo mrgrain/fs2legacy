@@ -1,7 +1,5 @@
 <?php
 
-// inlcude functions
-require_once('functions-admin.php');
 
 ######################
 ### ASSETS ###########
