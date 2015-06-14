@@ -110,6 +110,7 @@ class PageRenderer implements Renderer
 
         // include applet & load template
         ob_start();
+        global $FD;
         include(static::APPLET_PATH.DIRECTORY_SEPARATOR.$file);
         $return_data = ob_get_clean();
 
