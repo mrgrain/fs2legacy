@@ -1,50 +1,5 @@
 <?php
 
-// expires in 100 tagen (100*86400)
-function serve_asset($path, $content_type, $expires = 8640000)
-{
-    if (!isset($_GET[$path])) return;
-
-    // the possible file
-    $file = FS2ADMIN . "/$path/" . urlencode($_GET[$path]);
-
-    // type is requested
-    if (file_exists($file)) {
-        // header conent type
-
-        // generat cache data
-        $tsstring = gmdate('D, d M Y H:i:s ', filemtime($file)) . 'GMT';
-        $etag = hash_file('md5', $file);
-
-        $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false;
-        $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] : false;
-
-        if ((($if_none_match && $if_none_match == "\"{$etag}\"") || (!$if_none_match)) &&
-            ($if_modified_since && $if_modified_since == $tsstring)
-        ) {
-            header('HTTP/1.1 304 Not Modified');
-            exit();
-
-        } else {
-            header("Last-Modified: $tsstring");
-            header("ETag: \"{$etag}\"");
-        }
-
-        // eval contenttype
-        if (is_callable($content_type)) {
-            $content_type = $content_type($_GET[$path]);
-        }
-
-        // send out content type, expire time and the file
-        header("Expires: " . gmdate('D, d M Y H:i:s ', time() + $expires) . 'GMT');
-        header("Content-Type: " . $content_type);
-        header("Pragma: cache");
-        header("Cache-Control: cache");
-        readfile($file);
-        exit;
-    }
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //// get timezonelist                                                                        ////
 //// thx@Rob Kaper <http://de.php.net/manual/en/function.date-default-timezone-set.php#84459>////

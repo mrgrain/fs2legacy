@@ -5,31 +5,49 @@ use Frogsystem\Legacy\AdminPageRenderer;
 use Frogsystem\Legacy\Services\Lang;
 use Frogsystem\Metamorphosis\Controller;
 use Frogsystem\Metamorphosis\Response\View;
+use League\Flysystem\FileNotFoundException;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Adapter\Local as Adapter;
 use StringCutter;
+use Zend\Diactoros\Response;
 
 class AdminController extends Controller
 {
-    public function assets()
+    public function assets(Response $response, $asset)
     {
-        $imgct = function ($name) {
-            switch (strtolower(pathinfo($name, PATHINFO_EXTENSION))) {
-                case 'png':
-                    return 'image/png';
-                case 'gif':
-                    return 'image/gif';
-                case 'jpg':
-                case 'jpeg':
-                default:
-                    return 'image/jpeg';
-            }
-        };
-        serve_asset('css', 'text/css');
-        serve_asset('js', 'application/javascript');
-        serve_asset('images', $imgct);
-        serve_asset('editor', $imgct);
-        serve_asset('html-editor', $imgct);
-        serve_asset('icons', $imgct);
+        $filesystem = new Filesystem(new Adapter(FS2ADMIN));
+        $expires = 8640000;
 
+        try {
+            // generate cache data
+            $tsstring = gmdate('D, d M Y H:i:s ', $filesystem->getTimestamp($asset)) . 'GMT';
+            $etag = md5($filesystem->read($asset));
+
+            $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false;
+            $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] : false;
+
+            if ((($if_none_match && $if_none_match == "\"{$etag}\"") || (!$if_none_match)) &&
+                ($if_modified_since && $if_modified_since == $tsstring)
+            ) {
+                return $response->withStatus('304');
+
+            } else {
+                $response = $response
+                    ->withHeader('Last-Modified', $tsstring)
+                    ->withHeader('ETag', "\"{$etag}\"");
+            }
+
+            // send out content type, expire time and the file
+            $response->getBody()->write($filesystem->read($asset));
+            return $response
+                ->withHeader('Expires', gmdate('D, d M Y H:i:s ', time() + $expires) . 'GMT')
+                ->withHeader('Content-Type', $filesystem->getMimetype($asset))
+                ->withHeader('Pragma', 'cache')
+                ->withHeader('Cache-Control', 'cache');
+
+        } catch (FileNotFoundException $e) {
+            throw $e;
+        }
     }
 
     public function index(View $view, AdminPageRenderer $renderer)

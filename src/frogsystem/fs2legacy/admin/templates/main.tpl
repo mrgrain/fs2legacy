@@ -6,11 +6,11 @@
     <head>
         <title>Frogsystem 2 - <!--TEXT::title--></title>
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        <link rel="shortcut icon" href="?icons=favicon.ico">
+        <link rel="shortcut icon" href="assets/icons/favicon.ico">
 
-        <link rel="stylesheet" type="text/css" href="?css=admin.css">
-        <link rel="stylesheet" type="text/css" href="?css=codemirror.css">
-        <link rel="stylesheet" type="text/css" href="?css=noscript.css" id="noscriptcss">
+        <link rel="stylesheet" type="text/css" href="assets/css/admin.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/codemirror.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/noscript.css" id="noscriptcss">
 
         <script src="?js=admin.js" type="text/javascript"></script>
     </head>
@@ -89,7 +89,7 @@
 
 <!--section-start::default_menu-->
 <div class="leftmenu top" style="height:43px;">
-    <img src="?icons=arrow.gif" alt="->">&nbsp;<b>Hallo Admin!</b>
+    <img src="assets/icons/arrow.gif" alt="->">&nbsp;<b>Hallo Admin!</b>
     <div><br>
         Herzlich<br>Willkommen
         im<br>Admin-CP des<br>Frogsystem 2!

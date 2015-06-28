@@ -21,10 +21,12 @@ class Routes extends RoutesProvider
      */
     public function plugin()
     {
-        $this->map->attach('legacy', '/', function (Map $map) {
+        $this->map->attach('legacy.', '/', function (Map $map) {
 
             // Admin
-            $map->get('admin', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST']);
+            $map->get('admin.index', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST']);
+            $map->get('admin.assets', 'admin/assets/{asset}', $this->controller('AdminController', 'assets'))
+                ->tokens(['asset' => '.+']);
 
             // Index
             $map->get('index', '', $this->controller('PageController', 'index'))->allows(['POST']);
