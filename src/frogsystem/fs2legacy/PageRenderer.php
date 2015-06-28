@@ -35,7 +35,7 @@ class PageRenderer implements Renderer
      * @param array $data
      * @return string
      */
-    public function render($view, array $data)
+    public function render($view, array $data = [])
     {
         // Get Body-Template
         $template = $this->getTemplate($view);

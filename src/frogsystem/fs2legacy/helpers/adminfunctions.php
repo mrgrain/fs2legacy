@@ -79,9 +79,6 @@ function get_timezones()
 //////////////////////////////////
 function get_content_container($TOP_TEXT, $CONTENT_TEXT, $OVERALL_STYLE = 'width:100%;', $TOP_STYLE = FALSE, $CONTENT_STYLE = FALSE)
 {
-    // $top_style = ( $TOP_STYLE === FALSE ? '' : ' style="'.$TOP_STYLE.'"' );
-    // $content_style = ( $CONTENT_STYLE === FALSE ? '' : ' style="'.$CONTENT_STYLE.'"' );
-
     $template = '
         <div class="cb">
             <div class="cb-title">

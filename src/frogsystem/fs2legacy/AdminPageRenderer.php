@@ -35,7 +35,7 @@ class AdminPageRenderer extends PageRenderer
      * @param array $conds
      * @return string
      */
-    public function render($view, array $data, $conds = array())
+    public function render($view, array $data = [], $conds = [])
     {
         // view parts
         $file = strtok($view, '/');

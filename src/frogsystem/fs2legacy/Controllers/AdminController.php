@@ -43,10 +43,10 @@ class AdminController extends Controller
         $page = $this->detectPage();
         $content = $this->getPageContent($page['file']);
         $leftmenu = $this->getLeftMenu($page['menu']);
-        $default_menu = $renderer->render('main/default_menu', []);
+        $default_menu = $renderer->render('main.tpl/default_menu', []);
 
         // display page
-        return $view->render('main/full', [
+        return $view->render('main.tpl/full', [
             'title' => $page['title'],
             'title_short' => StringCutter::cut($FD->config('title'), 50, '...'),
             'version' => $FD->config('version'),
@@ -56,7 +56,8 @@ class AdminController extends Controller
             'log_link' => (is_authorized() ? 'logout' : 'login'),
             'log_image' => (is_authorized() ? 'logout.gif' : 'login.gif'),
             'log_text' => (is_authorized() ? $FD->text("menu", "admin_logout_text") :  $FD->text("menu", "admin_login_text")),
-            'leftmenu' => !empty($leftmenu) ? $leftmenu : $default_menu
+            'leftmenu' => (!empty($leftmenu) ? $leftmenu : $default_menu),
+            'content' => $content,
         ]);
     }
 
@@ -67,6 +68,7 @@ class AdminController extends Controller
 
     protected function getPageContent($file)
     {
+        global $FD;
         ob_start();
         require(FS2ADMIN . '/' . $file);
         return ob_get_clean();
@@ -89,7 +91,7 @@ class AdminController extends Controller
                 FROM ' . $FD->env('DB_PREFIX') . 'admin_cp P, ' . $FD->env('DB_PREFIX') . 'admin_groups G
                 WHERE P.`group_id` = G.`group_id` AND P.`page_id` = ? AND P.`page_int_sub_perm` != 1');
         $acp_arr->execute(array($go));
-        $acp_arr = $acp_arr->fetch(PDO::FETCH_ASSOC);
+        $acp_arr = $acp_arr->fetch(\PDO::FETCH_ASSOC);
 
         // if page exisits
         if (!empty($acp_arr)) {

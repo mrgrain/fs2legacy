@@ -46,7 +46,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="?go=<!--TEXT::topmenu-->" target="_self" class="small">
+                        <a href="?go=<!--TEXT::log_link-->" target="_self" class="small">
                             <!--TEXT::log_text-->
                         </a>
                     </td>
@@ -60,18 +60,21 @@
             <div id="bg_padding">
 
                 <!-- Left Menu -->
-                <div id="navi_container">';
+                <div id="navi_container">
                     <!--TEXT::leftmenu-->
                 </div>
                 <!-- /Left Menu -->
 
                 <!-- Content Container -->
-                <div id="content_container">';
-
-                    $top = '<h2 class="cb-text">(' . $PAGE_DATA_ARR['title'] . ')</h2>';
-                    echo get_content_container($top, $content);
-
-                    echo '
+                <div id="content_container">
+                    <div class="cb">
+                        <div class="cb-title">
+                            <h2 class="cb-text"><!--TEXT::title--></h2>
+                        </div>
+                        <div class="cb-content">
+                            <!--TEXT::content-->
+                        </div>
+                    </div>
                 </div>
                 <!-- /Content Container -->
 

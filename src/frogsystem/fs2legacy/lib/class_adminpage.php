@@ -21,6 +21,9 @@ class adminpage
     private $lang = null;
     private $common = null;
 
+    /**
+     * @var lang
+     */
 
     function __construct($pagefile, Lang $page, Lang $common)
     {
@@ -131,10 +134,12 @@ class adminpage
             // replace data from langfiles
             if ($lang) {
                 // replace language
-                $tmpval = preg_replace("/<!--LANG::(.*?)-->/e", '$this->langValue(\'$1\')', $tmpval);
+                $tmpval = preg_replace_callback("/<!--LANG::(.*?)-->/", function($matches){
+                    return $this->langValue($matches[1]);
+                }, $tmpval);
 
                 // replace common
-                $tmpval = preg_replace("/<!--COMMON::(.*?)-->/e", '$this->commonValue(\'$1\')', $tmpval);
+                $tmpval = preg_replace_callback("/<!--COMMON::(.*?)-->/", function($matches){ return $this->commonValue($matches[1]);}, $tmpval);
             }
 
             // clear rest
@@ -181,7 +186,7 @@ class adminpage
             return \$match[0];       
         ");
 
-        $tpl = preg_replace('/(?|<!\-\-(IF)::(.+?)\-\->|<!\-\-(ELSE)\-\->|<!\-\-(ENDIF)\-\->)/e', '$tokenizer(array(\'$0\',\'$1\',\'$2\'),$num,$name,$push)', $tpl);
+        $tpl = preg_replace_callback('/(?|<!\-\-(IF)::(.+?)\-\->|<!\-\-(ELSE)\-\->|<!\-\-(ENDIF)\-\->)/', $tokenizer, $tpl);
 
         return $tpl;
     }
