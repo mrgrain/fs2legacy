@@ -28,7 +28,7 @@ class AnalyticsMiddleware implements MiddlewareInterface
         $response =  $next($request);
 
         // Save statistics after all manipulations
-        count_all($this->config->cfg('goto'));
+        //count_all($this->config->cfg('goto'));
         save_visitors();
         if (!$this->config->configExists('main', 'count_referers') || $this->config->cfg('main', 'count_referers') == 1) {
             save_referer();

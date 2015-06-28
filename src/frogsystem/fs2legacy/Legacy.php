@@ -30,7 +30,7 @@ class Legacy extends WebApplication implements PluggableInterface
         $this->setConstants();
 
         // Debugging aka environment
-        $this->setDebugMode(FS2_DEBUG);
+        $this->setDebugMode(defined('FS2_DEBUG') ? FS2_DEBUG : false);
 
         // internals
         $this->session = $this->once(function() {

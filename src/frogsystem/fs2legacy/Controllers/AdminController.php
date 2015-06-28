@@ -50,12 +50,12 @@ class AdminController extends Controller
         }
     }
 
-    public function index(View $view, AdminPageRenderer $renderer)
+    public function index(AdminPageRenderer $renderer)
     {
         global $FD;
 
         // Renderer
-        $view->setRenderer($renderer);
+        $view = new View($renderer);
 
         // Content
         $page = $this->detectPage();
