@@ -20,7 +20,7 @@ if (POPUP !== true) {
         echo '
 <body id="find_body">
     <div id="find_head">
-        &nbsp;<img border="0" src="?images=pointer.png" alt="->" class="middle">&nbsp;
+        &nbsp;<img border="0" src="assets/images/pointer.png" alt="->" class="middle">&nbsp;
         <strong>' . $PAGE_DATA_ARR['title'] . '</strong>
     </div>
     <div align="left">

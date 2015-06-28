@@ -104,9 +104,9 @@ time_appendix:                           Uhr
 at_date:                                 am
 
 # Frequently used Images
-sub_arrow:                               <img class="middle" src="?images=sub-arrow.gif" alt="'->">
-checkbox:                                <img class="checkbox" src="?images=checkbox.png" alt="[_]">
-radio:                                   <img class="checkbox" src="?images=radio.png" alt="(_)">
+sub_arrow:                               <img class="middle" src="assets/images/sub-arrow.gif" alt="'->">
+checkbox:                                <img class="checkbox" src="assets/images/checkbox.png" alt="[_]">
+radio:                                   <img class="checkbox" src="assets/images/radio.png" alt="(_)">
 
 
 # Action Selection
@@ -121,7 +121,7 @@ selection_import:                        Auswahl importieren
 
 
 # Button Captions
-button_arrow:                            <img class="middle" src="?images=pointer.png" alt="->">
+button_arrow:                            <img class="middle" src="assets/images/pointer.png" alt="->">
 do_action_button:                        Ausf�hren
 do_action_button_long:                   Aktion ausf�hren
 save_changes_button:                     �nderungen speichern

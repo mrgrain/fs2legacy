@@ -11270,9 +11270,9 @@ function colorcb(cb, hover, type) {
 
     if (checkbox.is(":checked")) {
         if (hover) {
-            cb.attr("src", "?images=" + type + "-" + color + "-active-hover.png");
+            cb.attr("src", "assets/images/" + type + "-" + color + "-active-hover.png");
         } else {
-            cb.attr("src", "?images=" + type + "-" + color + "-active.png");
+            cb.attr("src", "assets/images/" + type + "-" + color + "-active.png");
         }
 
         if (type == "radio") {
@@ -11282,9 +11282,9 @@ function colorcb(cb, hover, type) {
         }
     } else {
         if (hover) {
-            cb.attr("src", "?images=" + type + "-" + color + "-hover.png");
+            cb.attr("src", "assets/images/" + type + "-" + color + "-hover.png");
         } else {
-            cb.attr("src", "?images=" + type + ".png");
+            cb.attr("src", "assets/images/" + type + ".png");
         }
 
         if (type == "radio") {

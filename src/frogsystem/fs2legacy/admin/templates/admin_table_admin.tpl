@@ -46,7 +46,7 @@
         <tr>
             <td class="buttontd" colspan="7">
                 <button class="button_new" type="submit">
-                    <img class="middle" alt="->" src="?images=pointer.png">
+                    <img class="middle" alt="->" src="assets/images/pointer.png">
                     Aktion ausf&uuml;hren
                 </button>
             </td>

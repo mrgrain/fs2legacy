@@ -611,7 +611,7 @@ function get_original_array($EDITOR_NAME, $FILE, $ROWS, $COLS)
     if (file_exists($file_path)) {
         $original['button'] = '
                                             <div class="html-editor-button html-editor-button-original atright" onClick="toggelOriginal(this, editor_' . $EDITOR_NAME . ', \'' . $EDITOR_NAME . '\')" title="Original anzeigen">
-                                                <img src="?images=null.gif" alt="Original anzeigen" border="0">
+                                                <img src="assets/images/null.gif" alt="Original anzeigen" border="0">
                                             </div>
         ';
 
@@ -712,21 +712,21 @@ function create_templateeditor($editor_arr, $HIGHLIGHTER, $FILE, $MANYFILES)
                                         <div class="html-editor-row">
                                             ' . $original['button'] . '
                                             <div class="html-editor-button html-editor-button-big" onClick="toggleFullscreen(this,editor_' . $editor_arr['name'] . ')" title="Vollbild">
-                                                <img src="?images=null.gif" alt="Vollbild" border="0">
+                                                <img src="assets/images/null.gif" alt="Vollbild" border="0">
                                             </div>
                                             <div class="html-editor-line"></div>
                                             <div class="html-editor-button html-editor-button-undo" onClick="editorUndo(this,editor_' . $editor_arr['name'] . ')" title="R�ckg�ngig">
-                                                <img src="?images=null.gif" alt="R�ckg�ngig" border="0">
+                                                <img src="assets/images/null.gif" alt="R�ckg�ngig" border="0">
                                             </div>
                                             <div class="html-editor-button html-editor-button-redo" onClick="editorRedo(this,editor_' . $editor_arr['name'] . ')" title="Wiederholen">
-                                                <img src="?images=null.gif" alt="Wiederholen" border="0">
+                                                <img src="assets/images/null.gif" alt="Wiederholen" border="0">
                                             </div>
                                             <div class="html-editor-line"></div>
                                             <div class="html-editor-button html-editor-button-active html-editor-button-line-numbers" onClick="toggleLineNumbers(this,editor_' . $editor_arr['name'] . ')" title="Zeilen-Nummerierung">
-                                                <img src="?images=null.gif" alt="Zeilen-Nummerierung" border="0">
+                                                <img src="assets/images/null.gif" alt="Zeilen-Nummerierung" border="0">
                                             </div>
                                             <div class="html-editor-button html-editor-button-textwrap" onClick="toggleTextWrapping(this,editor_' . $editor_arr['name'] . ')" title="Zeilenumbruch">
-                                                <img src="?images=null.gif" alt="Zeilenumbruch" border="0">
+                                                <img src="assets/images/null.gif" alt="Zeilenumbruch" border="0">
                                             </div>
                                             ' . $help_template . '
                                             ' . $dropdowns['global_vars'] . '

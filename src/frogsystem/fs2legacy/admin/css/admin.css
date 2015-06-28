@@ -597,7 +597,7 @@ td.nw {
     padding-right: 9px;
     width: 100%;
     height: 27px;
-    background-image: url("?images=button.jpg");
+    background-image: url("../images/button.jpg");
     background-repeat: repeat;
     font-weight: bold;
     color: #FFFFFF;
@@ -611,7 +611,7 @@ td.nw {
 
 .button_new:hover, .button_new:focus {
     text-decoration: none;
-    background-image: url("?images=button_hover.jpg");
+    background-image: url("../images/button_hover.jpg");
 }
 
 a.image_hover {
@@ -657,7 +657,7 @@ table.configtable .config .small, table.configtable .configthin .small, table.co
 }
 
 td.line, td.line_red {
-    background-image: url("?images=line_green.jpg");
+    background-image: url("../images/line_green.jpg");
     background-repeat: repeat-x;
     background-position: left 25px;
     height: 45px;
@@ -669,7 +669,7 @@ td.line, td.line_red {
 }
 
 td.line_red {
-    background-image: url("?images=line_red.jpg");
+    background-image: url("../images/line_red.jpg");
 }
 
 td.space {
@@ -685,7 +685,7 @@ td.buttontd {
 }
 
 td.combi_button {
-    background-image: url("?images=button.jpg");
+    background-image: url("../images/button.jpg");
     background-repeat: repeat;
     border: 1px solid #000000;
     white-space: nowrap;
@@ -853,7 +853,7 @@ select, option, label {
     width: 159px;
     height: 38px;
     z-index: 5;
-    background: #019934 url("?images=topmenu_left.jpg");
+    background: #019934 url("../images/topmenu_left.jpg");
     background-repeat: no-repeat;
     margin-left: 170px;
 }
@@ -864,7 +864,7 @@ select, option, label {
     width: 630px;
     height: 35px;
     z-index: 5;
-    background: #019934 url("?images=topmenu.jpg");
+    background: #019934 url("../images/topmenu.jpg");
     background-repeat: repeat-x;
     margin-left: 329px;
     padding: 0px;
@@ -900,12 +900,12 @@ ul.topmenu li a {
 
 ul.topmenu li a:hover, ul.topmenu li a:focus, ul.topmenu li a:active {
     text-decoration: none;
-    background: url("?images=topmenu_hover.jpg") left top repeat-x;
+    background: url("../images/topmenu_hover.jpg") left top repeat-x;
 }
 
 ul.topmenu li.selected a {
     font-weight: bold;
-    background: url("?images=topmenu_hover.jpg") left top repeat-x;
+    background: url("../images/topmenu_hover.jpg") left top repeat-x;
 }
 
 /**************************************************/
@@ -917,7 +917,7 @@ ul.topmenu li.selected a {
     width: 59px;
     height: 29px;
     z-index: 5;
-    background: #dddddd url("?images=login_bg.jpg");
+    background: #dddddd url("../images/login_bg.jpg");
     background-repeat: no-repeat;
     margin-left: 888px;
     padding-left: 12px;
@@ -951,7 +951,7 @@ ul.topmenu li.selected a {
     position: relative;
     min-height: 45px;
     padding: 12px 0px 0px 7px;
-    background: #dddddd url("?images=leftmenu.jpg") no-repeat;
+    background: #dddddd url("../images/leftmenu.jpg") no-repeat;
     background-repeat: no-repeat;
 }
 
@@ -962,7 +962,7 @@ ul.topmenu li.selected a {
 }
 
 .leftmenu[class~='top'] {
-    background-image: url("?images=leftmenu_top.jpg");
+    background-image: url("../images/leftmenu_top.jpg");
     min-height: 43px;
     padding-top: 10px;
 }
@@ -1005,11 +1005,11 @@ ul.topmenu li.selected a {
 /* background design styles */
 /**************************************************/
 body {
-    background: #2a2a2a url("?images=bg.jpg");
+    background: #2a2a2a url("../images/bg.jpg");
 }
 
 #bg {
-    background: #485247 url("?images=bg_loop.jpg");
+    background: #485247 url("../images/bg_loop.jpg");
     background-repeat: repeat-y;
     position: absolute;
     width: 991px;
@@ -1038,7 +1038,7 @@ body {
     height: 71px;
     padding-top: 5px;
     padding-left: 10px;
-    background: #dddddd url("?images=head.jpg") no-repeat;
+    background: #dddddd url("../images/head.jpg") no-repeat;
     color: #363636;
     font-family: "Palatino Linotype", "Palatino", "Times New Roman", Times, serif;
     font-size: 20pt;
@@ -1092,7 +1092,7 @@ body {
 .cb {
     padding: 15px 25px 30px;
     margin: 30px 10px 30px 30px;
-    background: #d4d4d4 url("?images=cb_bg.jpg") repeat;
+    background: #d4d4d4 url("../images/cb_bg.jpg") repeat;
     text-align: left;
     border-radius: 25px;
     box-shadow: 3px 3px 5px #444;
@@ -1114,12 +1114,12 @@ body {
 /**************************************************/
 hr.green {
     background-color: #008800;
-    background-image: url("?images=line_green.jpg");
+    background-image: url("../images/line_green.jpg");
 }
 
 hr.red {
     background-color: #FF0000;
-    background-image: url("?images=line_red.jpg");
+    background-image: url("../images/line_red.jpg");
 }
 
 /**************************************************/
@@ -1203,7 +1203,7 @@ table.content tr h3 + hr, tr.line h3 + hr {
     border: none;
     margin-top: 7px;
     background-color: #008800;
-    background-image: url("?images=line_green.jpg");
+    background-image: url("../images/line_green.jpg");
 }
 
 table.content .space {
@@ -1257,7 +1257,7 @@ table.config tr > td:first-child:not(:only-child) {
     width: 100%;
     height: 25px;
     padding-top: 1px;
-    background-image: url("?images=topmenu.jpg");
+    background-image: url("../images/topmenu.jpg");
     background-repeat: repeat-x;
     font-family: "Century Gothic", "Futura", Arial, Helvetica, sans-serif;
     font-size: 10pt;
@@ -1265,14 +1265,14 @@ table.config tr > td:first-child:not(:only-child) {
 }
 
 #find_container {
-    background-image: url("?images=content_loop_small.jpg");
+    background-image: url("../images/content_loop_small.jpg");
     background-repeat: repeat-y;
     width: 308px;
     text-align: left;
 }
 
 #find_top {
-    background-image: url("?images=content_top_small.jpg");
+    background-image: url("../images/content_top_small.jpg");
     background-repeat: no-repeat;
     width: 308px;
     height: 25px;
@@ -1285,7 +1285,7 @@ table.config tr > td:first-child:not(:only-child) {
 }
 
 #find_foot {
-    background-image: url("?images=content_foot_small.jpg");
+    background-image: url("../images/content_foot_small.jpg");
     background-repeat: no-repeat;
     width: 308px;
     height: 53px;
@@ -1405,7 +1405,7 @@ table.content .button, a.link_button {
     height: 27px;
     margin-top: 15px;
     padding-right: 10px;
-    background: #019934 url("?images=button.jpg");
+    background: #019934 url("../images/button.jpg");
     background-repeat: repeat-x;
     background-position: top left;
     border: 1px solid #000000;

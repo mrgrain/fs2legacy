@@ -37,7 +37,7 @@ fscode:                                            FSCode ist
 para:                                              Absatzbehandlung ist
 kib:                                               KiB
 mib:                                               MiB
-arrow:                                             <img class="middle" src="?images=pointer.png" alt="->">
+arrow:                                             <img class="middle" src="assets/images/pointer.png" alt="->">
 save_long:                                         �nderungen speichern
 do_button:                                         Ausf�hren
 do_button_long:                                    Aktion ausf�hren
