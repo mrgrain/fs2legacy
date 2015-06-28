@@ -22,6 +22,10 @@ class AdminController extends Controller
             // generate cache data
             $tsstring = gmdate('D, d M Y H:i:s ', $filesystem->getTimestamp($asset)) . 'GMT';
             $etag = md5($filesystem->read($asset));
+            $mimetype = $filesystem->getMimetype($asset);
+            if (0 !== strpos($mimetype, 'image')) {
+                $mimetype = 'text/css';
+            }
 
             $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $_SERVER['HTTP_IF_MODIFIED_SINCE'] : false;
             $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? $_SERVER['HTTP_IF_NONE_MATCH'] : false;
@@ -41,7 +45,7 @@ class AdminController extends Controller
             $response->getBody()->write($filesystem->read($asset));
             return $response
                 ->withHeader('Expires', gmdate('D, d M Y H:i:s ', time() + $expires) . 'GMT')
-                ->withHeader('Content-Type', $filesystem->getMimetype($asset))
+                ->withHeader('Content-Type', $mimetype)
                 ->withHeader('Pragma', 'cache')
                 ->withHeader('Cache-Control', 'cache');
 

@@ -579,7 +579,7 @@ td.nw {
     width: 150px;
 }
 
-.input_highlight:focus, input_highlight:active {
+.input_highlight:focus, .input_highlight:active {
     background-color: #64DC6A;
 }
 
