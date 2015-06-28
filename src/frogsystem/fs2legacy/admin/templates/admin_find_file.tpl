@@ -34,7 +34,7 @@
     </tr>
 
     <tr class="pointer thin" style="cursor:default !important;">
-        <td class="center"><img src="?icons=folder.gif" alt="[<!--COMMON::folder-->]"></td>
+        <td class="center"><img src="assets/icons/folder.gif" alt="[<!--COMMON::folder-->]"></td>
         <td colspan="2">
             &nbsp;<a href="<!--TEXT::up_url-->">[<!--LANG::up-->]</a>
         </td>
@@ -49,7 +49,7 @@
 
 <!--section-start::folder-->
 <tr class="pointer thin" style="cursor:default !important;">
-    <td class="center"><img src="?icons=folder.gif" alt="[<!--COMMON::folder-->]"></td>
+    <td class="center"><img src="assets/icons/folder.gif" alt="[<!--COMMON::folder-->]"></td>
     <td>
         &nbsp;<a href="<!--TEXT::folder_url-->" title="<!--LANG::change_dir-->"><!--TEXT::folder_name--></a>
         <input class="url" type="hidden" value="<!--TEXT::http_url-->">
@@ -64,7 +64,7 @@
 
 <!--section-start::file-->
 <tr class="pointer file thin" title="<!--LANG::get_filepath-->">
-    <td class="center"><img src="?icons=file.gif" alt="[<!--COMMON::file-->]"></td>
+    <td class="center"><img src="assets/icons/file.gif" alt="[<!--COMMON::file-->]"></td>
     <td>
         &nbsp;<!--TEXT::file_name-->
         <input class="url" type="hidden" value="<!--TEXT::http_url-->">

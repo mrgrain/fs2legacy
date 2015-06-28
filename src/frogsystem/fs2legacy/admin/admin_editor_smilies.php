@@ -162,11 +162,11 @@ if ($num_rows > 0) {
     while ($smilie_arr = $index->fetch(PDO::FETCH_ASSOC)) {
         $i++;
         $pointer_up = '
-            <a class="image_hover" style="margin-right:3px; float:right; width:24px; height:24px; background-image:url(?icons=arrow_up.png)" href="' . $_SERVER['PHP_SELF'] . '?go=' . $_GET['go'] . '&oid=' . $smilie_arr['order'] . '&action=moveup" title="' . $FD->text('page', 'smilies_up') . '">
+            <a class="image_hover" style="margin-right:3px; float:right; width:24px; height:24px; background-image:url(assets/icons/arrow_up.png)" href="' . $_SERVER['PHP_SELF'] . '?go=' . $_GET['go'] . '&oid=' . $smilie_arr['order'] . '&action=moveup" title="' . $FD->text('page', 'smilies_up') . '">
                 <img border="0" src="?images=null.gif" alt="' . $FD->text('page', 'smilies_up') . '">
             </a>';
         $pointer_down = '
-            <a class="image_hover" style="margin-right:36px; float:right; width:24px; height:24px; background-image:url(?icons=arrow_down.png)" href="' . $_SERVER['PHP_SELF'] . '?go=' . $_GET['go'] . '&oid=' . $smilie_arr['order'] . '&action=movedown" title="' . $FD->text('page', 'smilies_down') . '">
+            <a class="image_hover" style="margin-right:36px; float:right; width:24px; height:24px; background-image:url(assets/icons/arrow_down.png)" href="' . $_SERVER['PHP_SELF'] . '?go=' . $_GET['go'] . '&oid=' . $smilie_arr['order'] . '&action=movedown" title="' . $FD->text('page', 'smilies_down') . '">
                 <img border="0" src="?images=null.gif" alt="' . $FD->text('page', 'smilies_down') . '">
             </a>';
         if ($smilie_arr['order'] == 1) {

@@ -12,7 +12,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/codemirror.css">
         <link rel="stylesheet" type="text/css" href="assets/css/noscript.css" id="noscriptcss">
 
-        <script src="?js=admin.js" type="text/javascript"></script>
+        <script src="assets/js/admin.js" type="text/javascript"></script>
     </head>
     <!-- /HTML Head -->
 
@@ -42,7 +42,7 @@
                 <tr valign="top">
                     <td id="topmenu_login_image">
                         <a href="?go=<!--TEXT::log_link-->" target="_self" class="small">
-                            <img src="?icons=<!--TEXT::log_image-->" alt="" title="<!--TEXT::log_text-->" border="0">
+                            <img src="assets/icons/<!--TEXT::log_image-->" alt="" title="<!--TEXT::log_text-->" border="0">
                         </a>
                     </td>
                     <td>

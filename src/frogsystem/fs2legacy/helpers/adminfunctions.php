@@ -694,7 +694,7 @@ function insert_tt($TITLE, $TEXT, $FORM_ID, $NEW_LINE = TRUE, $INSERT = TRUE, $B
         $second_title = '&nbsp;' . $TITLE;
     }
 
-    $template = $span_start . '<a class="tooltip" href="' . $insert_link . '">' . $first_title . '<span><img class="atright" border="0" alt="-&gt;" src="?icons=pointer.gif">' . $second_title . '<br>' . $TEXT . '</span></a>' . $span_end . '
+    $template = $span_start . '<a class="tooltip" href="' . $insert_link . '">' . $first_title . '<span><img class="atright" border="0" alt="-&gt;" src="assets/icons/pointer.gif">' . $second_title . '<br>' . $TEXT . '</span></a>' . $span_end . '
     ';
 
     return $template;
@@ -837,7 +837,7 @@ function get_leftmenu_group($GROUP_ID, $IS_FIRST, $GO)
     if (!empty($template)) {
         $template = '
         <div class="leftmenu' . $class . '">
-            <img src="?icons=arrow.gif" alt="->" class="middle">&nbsp;<strong class="middle">' . $FD->text('menu', 'group_' . $GROUP_ID) . '</strong>
+            <img src="assets/icons/arrow.gif" alt="->" class="middle">&nbsp;<strong class="middle">' . $FD->text('menu', 'group_' . $GROUP_ID) . '</strong>
             <ul>' . $template . '
             </ul>
         </div>';
