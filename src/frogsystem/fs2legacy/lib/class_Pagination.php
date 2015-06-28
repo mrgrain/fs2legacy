@@ -1,4 +1,5 @@
 <?php
+use Frogsystem\Legacy\Services\Lang;
 
 /**
  * @file     class_Pagination.php
@@ -73,11 +74,12 @@ class Pagination
         $this->calculateData();
 
         // Create Lang Object
-        $lang = new lang(false, 'admin/pagination');
+        $local = $FD->config('language_text');
+        $lang = new Lang($local, 'admin/pagination');
+        $common = new Lang($local, 'admin');
 
         // Load Template Object
-        $template = new adminpage('pagination.tpl');
-        $template->setLang($lang);
+        $template = new adminpage('pagination.tpl', $lang, $common);
 
         // get list of all pages
         $page_list = array();
@@ -188,11 +190,13 @@ class Pagination
     public function getPageTemplate($page, $selected = false)
     {
         // Create Lang Object
-        $lang = new lang(false, 'admin/pagination');
+        global $FD;
+        $local = $FD->config('language_text');
+        $lang = new Lang($local, 'admin/pagination');
+        $common = new Lang($local, 'admin');
 
         // Load Template Object
-        $template = new adminpage('pagination.tpl');
-        $template->setLang($lang);
+        $template = new adminpage('pagination.tpl', $lang, $common);
 
         $template->addText('page-number', $page);
         $template->addText('url', $this->getUrl($page));

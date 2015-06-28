@@ -1,5 +1,7 @@
 <?php
 //TODO: Beinhaltet fileaccess
+use Frogsystem\Legacy\Services\Lang;
+
 
 /**
  * @file     class_adminpage.php
@@ -20,9 +22,12 @@ class adminpage
     private $common = null;
 
 
-    function __construct($pagefile)
+    function __construct($pagefile, Lang $page, Lang $common)
     {
-        global $FD;
+        // set lang
+        $this->lang = $page;
+        $this->common = $common;
+
         $this->name = substr($pagefile, 0, -4);
 
         // load tpl file
@@ -31,6 +36,17 @@ class adminpage
         if (is_readable($path)) {
             $this->loadTpl(file_get_contents($path));
         }
+    }
+
+
+    public function setLang($lang = null)
+    {
+        $this->lang = $lang;
+    }
+
+    public function getLang()
+    {
+        return $this->lang;
     }
 
     public function addCond($name, $value)
@@ -76,7 +92,7 @@ class adminpage
             preg_match_all('/<!--section-import(\-nolang)?::([a-z-_]+)::([a-z-_]+)-->/is', $tmpval, $imports, PREG_SET_ORDER);
             foreach ($imports as $import) {
                 $importlang = (empty($import[1]) ? true : false);
-                $page = new adminpage($import[2] . '.tpl');
+                $page = new adminpage($import[2] . '.tpl', $this->lang, $this->common);
                 $tmpval = preg_replace('/<!--section-import' . $import[1] . '::' . $import[2] . '::' . $import[3] . '-->/is', $page->get($import[3], false, false, $importlang), $tmpval);
                 // replace all imports, recursive but don't touch conds or TEXTs
             }
@@ -136,6 +152,10 @@ class adminpage
     }
 
 
+
+    /**
+     * @deprecated
+     */
     public static function replacer($string, $callback)
     {
         return preg_replace_callback('/<!\-\-IF::([0-9]+?)\-\->(.*?)(?:<!\-\-ELSE::\1\-\->(.*?))?<!\-\-ENDIF::\1\-\->/s', $callback, $string);
@@ -173,28 +193,12 @@ class adminpage
 
     private function langValue($name)
     {
-        // get from local lang
-        if (!is_null($this->lang)) {
-            return $this->lang->get($name);
-
-            // get from default lang
-        } else {
-            global $FD;
-            return $FD->text('page', $name);
-        }
+        return $this->lang->get($name);
     }
 
     private function commonValue($name)
     {
-        // get from local lang
-        if (!is_null($this->common)) {
-            return $this->common->get($name);
-
-            // get from default lang
-        } else {
-            global $FD;
-            return $FD->text('admin', $name);
-        }
+        return $this->common->get($name);
     }
 
     private function loadTpl($tplcontents)
@@ -205,21 +209,4 @@ class adminpage
         }
         unset($dev);
     }
-
-    public function setLang($lang = null)
-    {
-        $this->lang = $lang;
-    }
-
-    public function setCommon($common = null)
-    {
-        $this->common = $common;
-    }
-
-    public function getLang()
-    {
-        return $this->lang;
-    }
 }
-
-?>

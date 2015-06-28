@@ -60,12 +60,6 @@ class GlobalData extends Container implements PluggableInterface
         return null;
     }
 
-    // get lang phrase object
-    public function setPageText($obj) {
-        $this->depcrecate('setPageText');
-        return $this->text['page'] = $obj;
-    }
-
     public function db() {
         $this->depcrecate('db');
         return $this->db;
