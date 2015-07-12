@@ -11,6 +11,8 @@ class AdminPageRenderer extends PageRenderer
 
     protected $db;
     protected $config;
+    /** @var \adminpage[] */
+    protected $template = [];
 
     public $applets = [];
 
@@ -59,13 +61,15 @@ class AdminPageRenderer extends PageRenderer
         return $template->get($section);
     }
 
-    protected function getTemplate($view)
+    public function getTemplate($view, $force = false)
     {
-        // lang
-        $lang = new Lang($this->config->config('language_text'), 'admin/' . $view);
-        $common =  new Lang($this->config->config('language_text'), 'admin');
+        if (!isset($this->template[$view]) || $force) {
+            // lang
+            $lang = new Lang($this->config->config('language_text'), 'admin/' . $view);
+            $common = new Lang($this->config->config('language_text'), 'admin');
 
-        $template = new \adminpage($view, $lang, $common);
-        return $template;
+            $this->template[$view] = new \adminpage($view, $lang, $common);
+        }
+        return $this->template[$view];
     }
 }

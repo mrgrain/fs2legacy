@@ -28,6 +28,11 @@ class UrlMiddleware implements MiddlewareInterface
         // path
         $path = $request->getUri()->getPath();
 
+        // admin
+        if (0 === strpos($path, "/admin")) {
+            return $next($request);
+        }
+
         // check seo
         if ($this->config->cfg('url_style') == 'seo' && 1 === preg_match('~^(.+)\.html$~', $path, $seo)) {
             $_GET['seoq'] = $seo;

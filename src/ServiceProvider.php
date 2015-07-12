@@ -19,8 +19,8 @@ class ServiceProvider extends \Frogsystem\Metamorphosis\Providers\ServiceProvide
 
         $this->app['Frogsystem\\Legacy\\Services\\Text'] = $this->app->once(function(Config $config) {
             $args = [];
-            if ($local = $config->config('language_text')) {
-                $args[] = $local;
+            if ($config->configExists('main', 'language_text')) {
+                $args[] = $config->config('language_text');
             }
             return $this->app->make('Frogsystem\\Legacy\\Services\\Text', $args);
         });

@@ -171,20 +171,21 @@ class adminpage
         $num = 0;
         $push = array();
 
-        $tokenizer = create_function("\$match,&\$num,&\$name,&\$push", "
-            if (\$match[1] == \"IF\") {
-                \$name[\$num] = \$match[2];
-                array_push(\$push, \$num);
-                return \"<!--IF::\".\$num++.\"-->\";
+        $tokenizer = function($match) use (&$num, &$name, &$push)
+        {
+            if ($match[1] == "IF") {
+                $name[$num] = $match[2];
+                array_push($push, $num);
+                return "<!--IF::".$num++."-->";
 
-            } elseif (\$match[1] == \"ELSE\") {
-                return \"<!--ELSE::\".end(\$push).\"-->\";
+            } elseif ($match[1] == "ELSE") {
+                return "<!--ELSE::".end($push)."-->";
 
-            } elseif (\$match[1] == \"ENDIF\") {
-                return \"<!--ENDIF::\".array_pop(\$push).\"-->\";
+            } elseif ($match[1] == "ENDIF") {
+                return "<!--ENDIF::".array_pop($push)."-->";
             }
-            return \$match[0];       
-        ");
+            return $match[0];
+        };
 
         $tpl = preg_replace_callback('/(?|<!\-\-(IF)::(.+?)\-\->|<!\-\-(ELSE)\-\->|<!\-\-(ENDIF)\-\->)/', $tokenizer, $tpl);
 

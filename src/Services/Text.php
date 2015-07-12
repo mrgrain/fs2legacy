@@ -1,10 +1,20 @@
 <?php
 namespace Frogsystem\Legacy\Services;
 
+/**
+ * Class Text
+ * @package Frogsystem\Legacy\Services
+ */
 class Text implements \ArrayAccess {
 
+    /**
+     * @var array
+     */
     private $container = [];
 
+    /**
+     * @param string|null $local
+     */
     public function __construct($local = null)
     {
         if (!$local) {
@@ -31,6 +41,10 @@ class Text implements \ArrayAccess {
         }
     }
 
+    /**
+     * @param mixed $offset
+     * @param mixed $value
+     */
     public function offsetSet($offset, $value) {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -39,19 +53,35 @@ class Text implements \ArrayAccess {
         }
     }
 
+    /**
+     * @param mixed $offset
+     * @return bool
+     */
     public function offsetExists($offset) {
         return isset($this->container[$offset]);
     }
 
+    /**
+     * @param mixed $offset
+     */
     public function offsetUnset($offset) {
         unset($this->container[$offset]);
     }
 
+
+    /**
+     * @param mixed $offset
+     * @return Lang
+     */
     public function offsetGet($offset) {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
 
+    /**
+     * @param string $default
+     * @return string
+     */
     protected function detectLanguage($default = 'de_DE')
     {
         $langs = array();

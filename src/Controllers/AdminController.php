@@ -2,7 +2,10 @@
 namespace Frogsystem\Legacy\Controllers;
 
 use Frogsystem\Legacy\AdminPageRenderer;
+use Frogsystem\Legacy\Services\Config;
+use Frogsystem\Legacy\Services\Database;
 use Frogsystem\Legacy\Services\Lang;
+use Frogsystem\Legacy\Services\Text;
 use Frogsystem\Metamorphosis\Controller;
 use Frogsystem\Metamorphosis\Response\View;
 use League\Flysystem\FileNotFoundException;
@@ -13,6 +16,18 @@ use Zend\Diactoros\Response;
 
 class AdminController extends Controller
 {
+
+    protected $config;
+    protected $text;
+    protected $db;
+
+    function __construct(Config $config, Text $text, Database $db)
+    {
+        $this->config = $config;
+        $this->text = $text;
+        $this->db = $db;
+    }
+
     public function assets(Response $response, $asset)
     {
         $filesystem = new Filesystem(new Adapter(FS2ADMIN));
@@ -56,29 +71,27 @@ class AdminController extends Controller
 
     public function index(AdminPageRenderer $renderer)
     {
-        global $FD;
-
         // Renderer
         $view = new View($renderer);
 
         // Content
         $page = $this->detectPage();
-        $content = $this->getPageContent($page['file']);
-        $leftmenu = $this->getLeftMenu($page['menu']);
+        $content = $this->getPageContent($page['file'], $page['template']);
+        $leftMenu = $this->getLeftMenu($page['menu']);
         $default_menu = $renderer->render('main.tpl/default_menu', []);
 
         // display page
         return $view->render('main.tpl/full', [
             'title' => $page['title'],
-            'title_short' => StringCutter::cut($FD->config('title'), 50, '...'),
-            'version' => $FD->config('version'),
-            'virtualhost' => $FD->config('virtualhost'),
-            'admin_link_to_page' => $FD->text('menu', 'admin_link_to_page'),
+            'title_short' => StringCutter::cut($this->config->config('title'), 50, '...'),
+            'version' =>$this->config->config('version'),
+            'virtualhost' => $this->config->config('virtualhost'),
+            'admin_link_to_page' => $this->text['menu']->get('admin_link_to_page'),
             'topmenu'=> get_topmenu($page['menu']),
             'log_link' => (is_authorized() ? 'logout' : 'login'),
             'log_image' => (is_authorized() ? 'logout.gif' : 'login.gif'),
-            'log_text' => (is_authorized() ? $FD->text("menu", "admin_logout_text") :  $FD->text("menu", "admin_login_text")),
-            'leftmenu' => (!empty($leftmenu) ? $leftmenu : $default_menu),
+            'log_text' => (is_authorized() ? $this->text['menu']->get("admin_logout_text") : $this->text['menu']->get("admin_login_text")),
+            'leftmenu' => (!empty($leftMenu) ? $leftMenu : $default_menu),
             'content' => $content,
         ]);
     }
@@ -88,7 +101,7 @@ class AdminController extends Controller
         return get_leftmenu($menu, ACP_GO);
     }
 
-    protected function getPageContent($file)
+    protected function getPageContent($file, $adminpage)
     {
         global $FD;
         ob_start();
@@ -98,24 +111,24 @@ class AdminController extends Controller
 
     protected function detectPage()
     {
-        global $FD;
-        ##################################
-        ### START OF DETECTING SUBPAGE ###
-        ##################################
-
         // security functions
-        !isset($_REQUEST['go']) ? $_REQUEST['go'] = null : 1;
+        if (!isset($_REQUEST['go'])) {
+            $_REQUEST['go'] = null;
+        }
         $go = $_REQUEST['go'];
 
         // get page-data from database
-        $acp_arr = $FD->db()->conn()->prepare(
-            'SELECT page_id, page_file, P.group_id AS group_id, menu_id
-                FROM ' . $FD->env('DB_PREFIX') . 'admin_cp P, ' . $FD->env('DB_PREFIX') . 'admin_groups G
-                WHERE P.`group_id` = G.`group_id` AND P.`page_id` = ? AND P.`page_int_sub_perm` != 1');
+        $acp_arr = $this->db->conn()->prepare(
+            <<<SQL
+SELECT `page_id`, `page_file`, P.`group_id` AS `group_id`, `menu_id`
+FROM `{$this->db->getPrefix()}admin_cp` P, `{$this->db->getPrefix()}admin_groups` G
+WHERE P.`group_id` = G.`group_id` AND P.`page_id` = ? AND P.`page_int_sub_perm` != 1
+SQL
+        );
         $acp_arr->execute(array($go));
         $acp_arr = $acp_arr->fetch(\PDO::FETCH_ASSOC);
 
-        // if page exisits
+        // if page exists
         if (!empty($acp_arr)) {
 
             // if page is start page
@@ -127,21 +140,21 @@ class AdminController extends Controller
             //if popup
             if ($acp_arr['group_id'] == 'popup') {
                 define('POPUP', true);
-                $title = $FD->text("menu", 'page_title_' . $acp_arr['page_id']);
+                $title = $this->text['menu']->get('page_title_' . $acp_arr['page_id']);
             } else {
                 define('POPUP', false);
-                $title = $FD->text("menu", 'group_' . $acp_arr['group_id']) . ' &#187; ' . $FD->text("menu", 'page_title_' . $acp_arr['page_id']);
+                $title = $this->text['menu']->get('group_' . $acp_arr['group_id']) . ' &#187; ' . $this->text['menu']->get('page_title_' . $acp_arr['page_id']);
             }
 
             // get the page-data
             $PAGE_DATA_ARR = createpage($title, has_perm($acp_arr['page_id']), $acp_arr['page_file'], $acp_arr['menu_id']);
 
             // Get Special Page Lang-Text-Files
-            $page_lang = new Lang($FD->config('language_text'), 'admin/' . substr($acp_arr['page_file'], 0, -4));
-            $common_lang = $FD->text['admin'];
+            $page_lang = new Lang($this->config->config('language_text'), 'admin/' . substr($acp_arr['page_file'], 0, -4));
+            $common_lang = $this->text['admin'];
 
-            // initialise templatesystem
-            $adminpage = new \adminpage($acp_arr['page_file'], $page_lang, $common_lang);
+            // initialise template system
+            $PAGE_DATA_ARR['template'] = new \adminpage($acp_arr['page_file'], $page_lang, $common_lang);
 
         } else {
             $PAGE_DATA_ARR['created'] = false;
@@ -152,15 +165,15 @@ class AdminController extends Controller
         if ($PAGE_DATA_ARR['created'] === false && $go == 'logout') {
             setcookie('login', '', time() - 3600, '/');
             $_SESSION = array();
-            $PAGE_DATA_ARR = createpage($FD->text("menu", "admin_logout_text"), true, 'admin_logout.php', 'dash');
+            $PAGE_DATA_ARR = createpage($this->text['menu']->get("admin_logout_text"), true, 'admin_logout.php', 'dash');
         } // login
         elseif ($PAGE_DATA_ARR['created'] === false && ($go == 'login' || empty($go))) {
             $go = 'login';
-            $PAGE_DATA_ARR = createpage($FD->text("menu", "admin_login_text"), true, 'admin_login.php', 'dash');
+            $PAGE_DATA_ARR = createpage($this->text['menu']->get("admin_login_text"), true, 'admin_login.php', 'dash');
         } // error
         elseif ($PAGE_DATA_ARR['created'] === false) {
             $go = '404';
-            $PAGE_DATA_ARR = createpage($FD->text("menu", "admin_error_page_title"), true, 'admin_404.php', 'error');
+            $PAGE_DATA_ARR = createpage($this->text['menu']->get("admin_error_page_title"), true, 'admin_404.php', 'error');
         }
 
 
@@ -168,17 +181,10 @@ class AdminController extends Controller
         define('ACP_GO', $go);
 
         return $PAGE_DATA_ARR;
-        ################################
-        ### END OF DETECTING SUBPAGE ###
-        ################################
     }
 
     protected function login()
     {
-        ######################
-        ### START OF LOGIN ###
-        ######################
-
         if (isset($_POST['stayonline']) && $_POST['stayonline'] == 1) {
             admin_set_cookie($_POST['username'], $_POST['userpassword']);
         }
@@ -192,9 +198,5 @@ class AdminController extends Controller
         if (isset($_POST['login']) && $_POST['login'] == 1 && !is_authorized()) {
             admin_login($_POST['username'], $_POST['userpassword'], false);
         }
-
-        ####################
-        ### END OF LOGIN ###
-        ####################
     }
 }
