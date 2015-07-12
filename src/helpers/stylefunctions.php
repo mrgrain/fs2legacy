@@ -131,13 +131,13 @@ function create_textarea($name, $text = '', $width = '', $height = '', $class = 
 
 
     if ($all == true OR $fs_font == 1) {
-        $buttons .= create_textarea_button('font.gif', 'FONT', 'Schriftart', "insert_com('$name', 'font', 'Bitte gib die gew�nschte Schriftart ein:', '')");
+        $buttons .= create_textarea_button('font.gif', 'FONT', 'Schriftart', "insert_com('$name', 'font', 'Bitte gib die gewünschte Schriftart ein:', '')");
     }
     if ($all == true OR $fs_color == 1) {
-        $buttons .= create_textarea_button('color.gif', 'COLOR', 'Schriftfarbe', "insert_com('$name', 'color', 'Bitte gib die gew�nschte Schriftfarbe (englisches Wort) ein:', '')");
+        $buttons .= create_textarea_button('color.gif', 'COLOR', 'Schriftfarbe', "insert_com('$name', 'color', 'Bitte gib die gewünschte Schriftfarbe (englisches Wort) ein:', '')");
     }
     if ($all == true OR $fs_size == 1) {
-        $buttons .= create_textarea_button('size.gif', 'SIZE', 'Schriftgr��e', "insert_com('$name', 'size', 'Bitte gib die gew�nschte Schriftgr��e (Zahl von 0-7) ein:', '')");
+        $buttons .= create_textarea_button('size.gif', 'SIZE', 'Schriftgröße', "insert_com('$name', 'size', 'Bitte gib die gewünschte Schriftgröße (Zahl von 0-7) ein:', '')");
     }
 
 
@@ -147,10 +147,10 @@ function create_textarea($name, $text = '', $width = '', $height = '', $class = 
 
 
     if ($all == true OR $fs_img == 1) {
-        $buttons .= create_textarea_button('img.gif', 'IMG', 'Bild einf�gen', "insert_mcom('$name', '[img]', '[/img]', 'Bitte gib die URL zu der Grafik ein:', 'http://')");
+        $buttons .= create_textarea_button('img.gif', 'IMG', 'Bild einfügen', "insert_mcom('$name', '[img]', '[/img]', 'Bitte gib die URL zu der Grafik ein:', 'http://')");
     }
     if ($all == true OR $fs_cimg == 1) {
-        $buttons .= create_textarea_button('cimg.gif', 'CIMG', 'Content-Image einf�gen', "insert_mcom('$name', '[cimg]', '[/cimg]', 'Bitte gib den Namen des Content-Images (mit Endung) ein:', '')");
+        $buttons .= create_textarea_button('cimg.gif', 'CIMG', 'Content-Image einfügen', "insert_mcom('$name', '[cimg]', '[/cimg]', 'Bitte gib den Namen des Content-Images (mit Endung) ein:', '')");
     }
 
 
@@ -160,13 +160,13 @@ function create_textarea($name, $text = '', $width = '', $height = '', $class = 
 
 
     if ($all == true OR $fs_url == 1) {
-        $buttons .= create_textarea_button('url.gif', 'URL', 'Link einf�gen', "insert_com('$name', 'url', 'Bitte gib die URL ein:', 'http://')");
+        $buttons .= create_textarea_button('url.gif', 'URL', 'Link einfügen', "insert_com('$name', 'url', 'Bitte gib die URL ein:', 'http://')");
     }
     if ($all == true OR $fs_home == 1) {
-        $buttons .= create_textarea_button('home.gif', 'HOME', 'Projektinternen Link einf�gen', "insert_com('$name', 'home', 'Bitte gib den projektinternen Verweisnamen ein:', '')");
+        $buttons .= create_textarea_button('home.gif', 'HOME', 'Projektinternen Link einfügen', "insert_com('$name', 'home', 'Bitte gib den projektinternen Verweisnamen ein:', '')");
     }
     if ($all == true OR $fs_email == 1) {
-        $buttons .= create_textarea_button('email.gif', '@', 'Email-Link einf�gen', "insert_com('$name', 'email', 'Bitte gib die Email-Adresse ein:', '')");
+        $buttons .= create_textarea_button('email.gif', '@', 'Email-Link einfügen', "insert_com('$name', 'email', 'Bitte gib die Email-Adresse ein:', '')");
     }
 
 
@@ -176,13 +176,13 @@ function create_textarea($name, $text = '', $width = '', $height = '', $class = 
 
 
     if ($all == true OR $fs_code == 1) {
-        $buttons .= create_textarea_button('code.gif', 'C', 'Code-Bereich einf�gen', "insert('$name', '[code]', '[/code]')");
+        $buttons .= create_textarea_button('code.gif', 'C', 'Code-Bereich einfügen', "insert('$name', '[code]', '[/code]')");
     }
     if ($all == true OR $fs_quote == 1) {
-        $buttons .= create_textarea_button('quote.gif', 'Q', 'Zitat einf�gen', "insert('$name', '[quote]', '[/quote]')");
+        $buttons .= create_textarea_button('quote.gif', 'Q', 'Zitat einfügen', "insert('$name', '[quote]', '[/quote]')");
     }
     if ($all == true OR $fs_noparse == 1) {
-        $buttons .= create_textarea_button('nofscode.gif', 'N', 'Nicht umzuwandelnden Bereich einf�gen', "insert('$name', '[nofscode]', '[/nofscode]')");
+        $buttons .= create_textarea_button('nofscode.gif', 'N', 'Nicht umzuwandelnden Bereich einfügen', "insert('$name', '[nofscode]', '[/nofscode]')");
     }
 
     // Get Template

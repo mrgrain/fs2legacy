@@ -119,7 +119,7 @@ elseif (isset($_POST['screenid'])) {
                                     Screenshot l&ouml;schen:
                                 </td>
                                 <td class="config">
-                                   <input onClick=\'delalert ("delscreen", "Soll der Screenshot wirklich gel�scht werden?")\' type="checkbox" name="delscreen" id="delscreen" value="1">
+                                   <input onClick=\'delalert ("delscreen", "Soll der Screenshot wirklich gelöscht werden?")\' type="checkbox" name="delscreen" id="delscreen" value="1">
                                 </td>
                             </tr>
                             <tr>

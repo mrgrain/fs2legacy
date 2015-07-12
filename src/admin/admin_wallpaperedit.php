@@ -285,7 +285,7 @@ elseif (isset($_POST['wallpaper_id']) AND isset($_POST['wp_action'])) {
                                         <option value="1920x1080">1920x1080</option>
                                         <option value="1920x1200">1920x1200</option>
                                     </select><br>
-                                    <input type="file" class="text" name="sizeimg_' . $j . '" size="40">&nbsp;<label for="' . $j . '" class="small middle pointer"><b>L&ouml;schen:</b></label><input class="pointer middle" name="delwp[' . $j . ']" id="' . $j . '" value="' . $_POST['size_id'][$j] . '" type="checkbox" onClick=\'delalert ("' . $j . '", "Soll die Gr��e ' . $i . ' des Wallpapers wirklich gel�scht werden?")\'>
+                                    <input type="file" class="text" name="sizeimg_' . $j . '" size="40">&nbsp;<label for="' . $j . '" class="small middle pointer"><b>L&ouml;schen:</b></label><input class="pointer middle" name="delwp[' . $j . ']" id="' . $j . '" value="' . $_POST['size_id'][$j] . '" type="checkbox" onClick=\'delalert ("' . $j . '", "Soll die Größe ' . $i . ' des Wallpapers wirklich gelöscht werden?")\'>
                                     <br>' . (isset($admin_sizes_arr['wp_exists'][$j]) ? $admin_sizes_arr['wp_exists'][$j] : '') . '
                                     <br>
                                 </td>

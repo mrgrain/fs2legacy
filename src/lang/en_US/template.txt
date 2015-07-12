@@ -2,7 +2,7 @@
 page_nav_help:                         Includes the page navigation
 
 nav_files_title:                       Navigation files
-nav_files_desc:                        Contents of navigation templates, see also <a class="small" href="http://wiki.frogsystem.de/nav-templates" target="_blank">ª Frogsystem 2-Wiki</a>
+nav_files_desc:                        Contents of navigation templates, see also <a class="small" href="http://wiki.frogsystem.de/nav-templates" target="_blank">¬ª Frogsystem 2-Wiki</a>
 
 style_css_title:                       CSS
 style_css_description:                 Contains the CSS definitions of the design. Please note that there are <a class="small" href="http://wiki.frogsystem.de/special-css-filenames" target="_blank">&raquo;special CSS filenames</a>.
@@ -76,7 +76,7 @@ user_applet_login_desc:                Small version of the login page
 user_applet_menu_title:                User menu
 user_applet_menu_desc:                 Small user menu with important links
 user_applet_menu_admincp_line:         Admin CP line, staff only
-user_applet_menu_user_edit_url:        URL of ÑEdit user profileì page
+user_applet_menu_user_edit_url:        URL of ‚ÄúEdit user profile‚Äù page
 user_applet_menu_logout_url:           URL of logout page
 user_applet_adminline_title:           User menu - Admin CP line
 user_applet_adminline_desc:            Line with link to admin CP, is only visible for staff members
@@ -136,7 +136,7 @@ user_profile_edit_image_max_width:     Max. width of user image
 user_profile_edit_image_max_height:    Max. height of user image
 user_profile_edit_image_max_size:      Max. file size of user image
 user_profile_edit_image_limits_text:   Limits of user image as text
-user_profile_edit_show_mail_checked:   Setzt die ÑE-Mail anzeigen?ì-Einstellung in der HTML-Checkbox
+user_profile_edit_show_mail_checked:   Setzt die ‚ÄúE-Mail anzeigen?‚Äù-Einstellung in der HTML-Checkbox
 
 user_list_title:                       User list
 user_list_desc:                        Page that shows all registered users
@@ -275,10 +275,10 @@ search_search_title:                   Search field
 search_search_desc:                    Search field on the main search page
 search_search_keyword:                 The keyword that was searched for.
 search_operators:                      The available search operators as CSV.
-search_search_in_news:                 Sets the ÑSearch in newsì setting of the HTML checkbox
-search_search_in_articles:             Sets the ÑSearch in articlesì setting of the HTML checkbox
-search_search_in_downloads:            Sets the ÑSearch in downloadsì setting of the HTML checkbox
-search_phonetic_search:                Sets the Ñphonetic searchì setting of the HTML checkbox
+search_search_in_news:                 Sets the ‚ÄúSearch in news‚Äù setting of the HTML checkbox
+search_search_in_articles:             Sets the ‚ÄúSearch in articles‚Äù setting of the HTML checkbox
+search_search_in_downloads:            Sets the ‚ÄúSearch in downloads‚Äù setting of the HTML checkbox
+search_phonetic_search:                Sets the ‚Äúphonetic search‚Äù setting of the HTML checkbox
 search_result_date_template_title:     Date template
 search_result_date_template_desc:      Template for the date of a search result
 search_result_line_title:              Search result line
@@ -300,7 +300,7 @@ search_results_body_desc:              Block of search results of a content type
 search_results_body_type_title:        Title of content type.
 search_results_body_results:           Includes the result lines.
 search_results_body_num_results:       Number of found results of a content type.
-search_results_body_more_results:      Includes the ÑMore resultsì link, if required.
+search_results_body_more_results:      Includes the ‚ÄúMore results‚Äù link, if required.
 search_body_title:                     Search page
 search_body_desc:                      Design of the complete search site
 search_body_search:                    Includes the search field.
@@ -361,10 +361,10 @@ dl_preview_list_title:                 Preview list
 dl_preview_list_desc:                  Summary of all found downloads in the category summary
 dl_preview_list_entries:               Includes the preview lines
 
-dl_page_title:                         Page title (category name/ÑSearch resultsì)
+dl_page_title:                         Page title (category name/‚ÄúSearch results‚Äù)
 
 dl_body_title:                         Download selection
-dl_body_desc:                          Seite von der aus Downloads ¸ber Kategorien und Suche ausgew‰hlt werden kˆnnen
+dl_body_desc:                          Page for selection of downloads (Categories and Search)
 dl_body_navigation:                    Includes the navigation
 dl_body_search:                        Includes the search
 dl_body_entries:                       Includes the preview list
@@ -529,7 +529,7 @@ press_body_help_12:                    URL of the language image for the languag
 press_container_title:                 Press report container
 press_container_description:           Container around the shown press reports.
 press_container_help_1:                Includes all matching press reports.
-press_main_body_title:                 ‹bersicht
+press_main_body_title:                 Overview
 press_main_body_description:           Design of the whole page.
 press_main_body_help_1:                Includes the navigation.
 press_main_body_help_2:                Includes the press report container with all matching press reports.

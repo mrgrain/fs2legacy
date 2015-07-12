@@ -483,7 +483,7 @@ if (isset ($_POST['user_id']) && $_POST['user_action']) {
                                     <br>
                                     <span class="small"><b>Nur ausw&auml;hlen, wenn das bisherige Bild &uuml;berschrieben werden soll!</b></span><br><br>
                                     <input class="pointer middle" type="checkbox" name="user_pic_delete" id="upd" value="1"
-                                        onClick=\'delalert ("upd", "Soll das aktuelle Benutzer-Bild wirklich gel�scht werden?")\'
+                                        onClick=\'delalert ("upd", "Soll das aktuelle Benutzer-Bild wirklich gelöscht werden?")\'
                                     >
                                     <span class="small middle"><b>Bild l&ouml;schen?</b></span><br><br>
             ';

@@ -39,8 +39,8 @@ kib:                                               KiB
 mib:                                               MiB
 arrow:                                             <img class="middle" src="assets/images/pointer.png" alt="->">
 save_long:                                         Save changes
-do_button:                                         Ausf�hren
-do_button_long:                                    Aktion ausf�hren
+do_button:                                         Do action
+do_button_long:                                    Do action
 search_button:                                     Search
 now_button:                                        Now
 today:                                             Today
@@ -365,7 +365,7 @@ delete_cat_title:                                  Delete category
 delete_cat_question:                               Do you really want to delete this category?
 delete_cat_move_to:                                Move news of deleted category to
 delete_cat_last:                                   The last category cannot be deleted.<br>Please create a new category first.
-delete_back_link:                                  zur�ck zur �bersicht
+delete_back_link:                                  back to overview
 edit_cat_title:                                    Main settings
 edit_cat_name:                                     Name
 edit_cat_name_desc:                                The name of the category.
@@ -449,7 +449,7 @@ delete_cat_title:                                  Delete category
 delete_cat_question:                               Do you really want to delete this category?
 delete_cat_move_to:                                Move news of deleted category to
 delete_cat_last:                                   The last category cannot be deleted.<br>Please create a new category first.
-delete_back_link:                                  zur�ck zur �bersicht
+delete_back_link:                                  back to overview
 edit_cat_title:                                    Main settings
 edit_cat_name:                                     Name
 edit_cat_name_desc:                                The name of the category.

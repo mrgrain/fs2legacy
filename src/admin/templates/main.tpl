@@ -5,7 +5,7 @@
     <!-- HTML Head -->
     <head>
         <title>Frogsystem 2 - <!--TEXT::title--></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta charset="UTF-8">
         <link rel="shortcut icon" href="assets/icons/favicon.ico">
 
         <link rel="stylesheet" type="text/css" href="assets/css/admin.css">

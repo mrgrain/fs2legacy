@@ -275,45 +275,45 @@ page_title_style_nav:           Edit navigation files
 page_link_style_nav:            Navigations
 
 # Templates
-page_title_tpl_main:            Edit „Main Template“
+page_title_tpl_main:            Edit Â»Main TemplateÂ«
 page_link_tpl_main:             Main Template
-page_title_tpl_general:         Edit „General“
+page_title_tpl_general:         Edit Â»GeneralÂ«
 page_link_tpl_general:          General
-page_title_tpl_viewer:          Edit „Image viewer“
+page_title_tpl_viewer:          Edit Â»Image viewerÂ«
 page_link_tpl_viewer:           Image viewer
-page_title_tpl_user:            Edit „Users“
+page_title_tpl_user:            Edit Â»UsersÂ«
 page_link_tpl_user:             Users
-page_title_tpl_articles:        Edit „Articles“
+page_title_tpl_articles:        Edit Â»ArticlesÂ«
 page_link_tpl_articles:         Articles
-page_title_tpl_news:            Edit „News“
+page_title_tpl_news:            Edit Â»NewsÂ«
 page_link_tpl_news:             News
-page_title_tpl_search:          Edit „Search“
+page_title_tpl_search:          Edit Â»SearchÂ«
 page_link_tpl_search:           Search
-page_title_tpl_poll:            Edit „Polls“
+page_title_tpl_poll:            Edit Â»PollsÂ«
 page_link_tpl_poll:             Polls
-page_title_tpl_press:           Edit „Press reports“
+page_title_tpl_press:           Edit Â»Press reportsÂ«
 page_link_tpl_press:            Press reports
-page_title_tpl_screens:         Edit „Screenshots“
+page_title_tpl_screens:         Edit Â»ScreenshotsÂ«
 page_link_tpl_screens:          Screenshots
-page_title_tpl_wp:              Edit „Wallpapers“
+page_title_tpl_wp:              Edit Â»WallpapersÂ«
 page_link_tpl_wp:               Wallpapers
-page_title_tpl_previewimg:      Edit „Preview Image“
+page_title_tpl_previewimg:      Edit Â»Preview ImageÂ«
 page_link_tpl_previewimg:       Preview Image
-page_title_tpl_dl:              Edit „Downloads“
+page_title_tpl_dl:              Edit Â»DownloadsÂ«
 page_link_tpl_dl:               Downloads
-page_title_tpl_shop:            Edit „Shop“
+page_title_tpl_shop:            Edit Â»ShopÂ«
 page_link_tpl_shop:             Shop
-page_title_tpl_affiliates:      Edit „Affiliates“
+page_title_tpl_affiliates:      Edit Â»AffiliatesÂ«
 page_link_tpl_affiliates:       Affiliates
-page_title_tpl_editor:          Edit „Editor“
+page_title_tpl_editor:          Edit Â»EditorÂ«
 page_link_tpl_editor:           Editor
-page_title_tpl_fscodes:         Edit „FSCodes“
+page_title_tpl_fscodes:         Edit Â»FSCodesÂ«
 page_link_tpl_fscodes:          FSCodes
-page_title_tpl_player:          Edit „Flash-Player“
+page_title_tpl_player:          Edit Â»Flash-PlayerÂ«
 page_link_tpl_player:           Flash-Player
-page_title_tpl_topdownloads:    Edit „Top Downloads“
+page_title_tpl_topdownloads:    Edit Â»Top DownloadsÂ«
 page_link_tpl_topdownloads:     Top Downloads
-page_title_tpl_styleselect:     Edit „Style Selection“
+page_title_tpl_styleselect:     Edit Â»Style SelectionÂ«
 page_link_tpl_styleselect:      Style Selection
 
 # Applets

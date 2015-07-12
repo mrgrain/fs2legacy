@@ -25,12 +25,12 @@ search_fulltext: Full text
 search_id: IDs
 search_url: URLs
 
-# Auswahlliste
+# Selection lists
 select_news:                Select news
 comments:                   Comments
 links:                      Links
 selection_comments:         Edit comments
 
-#Löschen
+#Delete
 news_deleted:               News has been deleted
 news_not_deleted:           News has not been deleted

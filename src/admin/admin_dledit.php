@@ -277,7 +277,7 @@ if (isset($_POST['dlid']) || isset($_POST['dlid']) && isset($_POST['files_add'])
                                     <input class="text" size="30" value="' . $_POST['fcount'][$j] . '" name="fcount[' . $j . ']" maxlength="100"> Downloads<br />
                                     Ja, Mirror: <input type="checkbox" name="fmirror[' . $j . ']" ' . $f_checked . '><br />
                                     L&ouml;schen: <input name="delf[' . $j . ']" id="delf[' . $j . ']" value="' . $_POST['fid'][$j] . '" type="checkbox"
-                                    onClick=\'delalert ("delf[' . $j . ']", "Soll das File (Nr. ' . $i . ') wirklich gel�scht werden?")\'>
+                                    onClick=\'delalert ("delf[' . $j . ']", "Soll das File (Nr. ' . $i . ') wirklich gelöscht werden?")\'>
                                     <input type="hidden" name="fid[' . $j . ']" value="' . $_POST['fid'][$j] . '">
                                     <input type="hidden" name="fnew[' . $j . ']" value="' . $_POST['fnew'][$j] . '">
                                 </td>
@@ -336,7 +336,7 @@ if (isset($_POST['dlid']) || isset($_POST['dlid']) && isset($_POST['files_add'])
                                     Download l&ouml;schen:
                                 </td>
                                 <td class="config">
-                                    <input onClick=\'delalert ("deldl", "Soll der Download wirklich gel�scht werden?")\' type="checkbox" name="deldl" id="deldl" value="1">
+                                    <input onClick=\'delalert ("deldl", "Soll der Download wirklich gelöscht werden?")\' type="checkbox" name="deldl" id="deldl" value="1">
                                 </td>
                             </tr>
                             <tr>

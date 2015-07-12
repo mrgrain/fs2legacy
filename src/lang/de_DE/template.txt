@@ -2,7 +2,7 @@
 page_nav_help:                         Bindet die Seitennavigation ein
 
 nav_files_title:                       Navigations-Dateien
-nav_files_desc:                        Inhalte von Navigations-Templates, siehe auch <a class="small" href="http://wiki.frogsystem.de/nav-templates" target="_blank">» Frogsystem 2-Wiki</a>
+nav_files_desc:                        Inhalte von Navigations-Templates, siehe auch <a class="small" href="http://wiki.frogsystem.de/nav-templates" target="_blank">Â» Frogsystem 2-Wiki</a>
 
 style_css_title:                       CSS
 style_css_description:                 Beinhaltet die CSS-Definitionen des Designs. Bitte beachten Sie die <a class="small" href="http://wiki.frogsystem.de/special-css-filenames" target="_blank">&raquo;speziellen CSS-Dateinamen</a>.
@@ -14,7 +14,7 @@ main_matrix_title:                      HTML-Matrix
 main_matrix_desc:                       Die HTML-Matrix der Seite
 matrix_help_doctype:                    Bindet den HTML-Doctype ein
 matrix_help_language:                   ISO Sprachcode der Seite
-matrix_help_base_tag:                   Bindet evtl. Base-Tag ein (wichtig für Vorschau)
+matrix_help_base_tag:                   Bindet evtl. Base-Tag ein (wichtig fÃ¼r Vorschau)
 matrix_help_title:                      Der Titel der Seite
 matrix_help_title_tag:                  Der Titel der Seite als &lt;title&gt;-Tag
 matrix_help_meta_tags:                  Bindet die generierten Meta-Tags ein
@@ -49,13 +49,13 @@ general_popupviewer_caption:           Beschriftung des Bildes
 general_popupviewer_prev_url:          URL der vorherigen Seite
 general_popupviewer_prev_link:         Text-Link zur vorherigen Seite
 general_popupviewer_prev_image_link:   Grafischer Link zur vorherigen Seite
-general_popupviewer_next_url:          URL der nächsten Seite
-general_popupviewer_next_link:         Text-Link zur nächsten Seite
-general_popupviewer_next_image_link:   Grafischer Link zur nächsten Seite
+general_popupviewer_next_url:          URL der nÃ¤chsten Seite
+general_popupviewer_next_link:         Text-Link zur nÃ¤chsten Seite
+general_popupviewer_next_image_link:   Grafischer Link zur nÃ¤chsten Seite
 
-general_announcement_title:            Ankündigung
-general_announcement_description:      Ankündigung auf der Seite.
-general_announcement_help_1:           Bindet die verfasste Ankündigung ein.
+general_announcement_title:            AnkÃ¼ndigung
+general_announcement_description:      AnkÃ¼ndigung auf der Seite.
+general_announcement_help_1:           Bindet die verfasste AnkÃ¼ndigung ein.
 
 general_statistics_title:              Statistik
 general_statistics_desc:               Besucher- und Seitenstatistik
@@ -65,26 +65,26 @@ general_statistics_hits:               Anzahl aller Seitenaufrufe
 general_statistics_hits_today:         Anzahl der Seitenaufrufe am aktuellen Tag
 general_statistics_visitors_online:    Anzahl der Besucher, die sich zurzeit auf der Seite befinden
 general_statistics_registered_online:  Anzahl der registrierten Benutzer, die sich zurzeit auf der Seite befinden
-general_statistics_guests_online:      Anzahl der Gäste, die sich zurzeit auf der Seite befinden
+general_statistics_guests_online:      Anzahl der GÃ¤ste, die sich zurzeit auf der Seite befinden
 general_statistics_num_users:          Anzahl der registierten Benutzer
 general_statistics_num_news:           Anzahl der geschriebenen News
 general_statistics_num_comments:       Anzahl der abgegebenen Kommentare
 general_statistics_num_articles:       Anzahl der geschriebenen Artikel
 
-user_applet_login_title:               Benutzermenü - Login
+user_applet_login_title:               BenutzermenÃ¼ - Login
 user_applet_login_desc:                Kleine Version der Loginseite
-user_applet_menu_title:                Benutzermenü
-user_applet_menu_desc:                 Kleines Benutzermenü mit wichtigen Links
+user_applet_menu_title:                BenutzermenÃ¼
+user_applet_menu_desc:                 Kleines BenutzermenÃ¼ mit wichtigen Links
 user_applet_menu_admincp_line:         Admin CP-Zeile, nur Mitarbeiter
-user_applet_menu_user_edit_url:        URL der „Benutzerprofil bearbeiten“-Seite
+user_applet_menu_user_edit_url:        URL der â€žBenutzerprofil bearbeitenâ€œ-Seite
 user_applet_menu_logout_url:           URL der Logoutseite
-user_applet_adminline_title:           Benutzermenü - Admin CP-Zeile
-user_applet_adminline_desc:            Zeile mit Link zum Admin CP, die nur für Mitarbeiter sichtbar ist
+user_applet_adminline_title:           BenutzermenÃ¼ - Admin CP-Zeile
+user_applet_adminline_desc:            Zeile mit Link zum Admin CP, die nur fÃ¼r Mitarbeiter sichtbar ist
 user_applet_adminline_admincp_link:    Text-Link zum Admin CP
 user_applet_adminline_admincp_url:     URL des Admin CP
 
 user_login_title:                      Loginseite
-user_login_desc:                       Seite zum Login für registierte Benutzer
+user_login_desc:                       Seite zum Login fÃ¼r registierte Benutzer
 
 user_register_title:                   Registrierung
 user_register_desc:                    Seite zur Registrierung auf der Homepage
@@ -94,7 +94,7 @@ user_register_captcha_text:            Bindet den Captcha-Hinweis ein
 user_register_captcha_url:             URL des Captcha-Bildes
 
 user_captcha_line_title:               Captcha
-user_captcha_line_desc:                Captcha-Template und zugehöriges Eingabefeld
+user_captcha_line_desc:                Captcha-Template und zugehÃ¶riges Eingabefeld
 user_captcha_text_title:               Captcha-Hinweis
 user_captcha_text_desc:                Kurzer Hinweistext zu Zweck und Bedienung des Captchas
 
@@ -131,46 +131,46 @@ user_rank_group_title:                 Titel der Benutzergruppe (mit Hervorhebun
 user_rank_title_text_only:             Titel der Benutzergruppe (ohne Hervorhebung)
 
 user_profile_edit_title:               Benutzerprofil bearbeiten
-user_profile_edit_desc:                Seite auf der Passwort, E-Mail und andere Daten bearbeitet werden können
+user_profile_edit_desc:                Seite auf der Passwort, E-Mail und andere Daten bearbeitet werden kÃ¶nnen
 user_profile_edit_image_max_width:     Max. Breite des Benutzerbildes
-user_profile_edit_image_max_height:    Max. Höhe des Benutzerbildes
-user_profile_edit_image_max_size:      Max. Dateigröße des Benutzerbildes
-user_profile_edit_image_limits_text:   Beschränkungen des Benutzerbildes als Text
-user_profile_edit_show_mail_checked:   Setzt die „E-Mail anzeigen?“-Einstellung in der HTML-Checkbox
+user_profile_edit_image_max_height:    Max. HÃ¶he des Benutzerbildes
+user_profile_edit_image_max_size:      Max. DateigrÃ¶ÃŸe des Benutzerbildes
+user_profile_edit_image_limits_text:   BeschrÃ¤nkungen des Benutzerbildes als Text
+user_profile_edit_show_mail_checked:   Setzt die â€žE-Mail anzeigen?â€œ-Einstellung in der HTML-Checkbox
 
 user_list_title:                       Benutzerliste
 user_list_desc:                        Seite auf der alle registierten Benutzer angezeigt werden
 user_list_lines:                       Bindet die Benutzer-Zeilen ein
-user_list_order_id:                    URL für Sortierung nach ID
-user_list_order_name:                  URL für Sortierung nach Name
-user_list_order_mail:                  URL für Sortierung nach E-Mail
-user_list_order_date:                  URL für Sortierung nach Datum
-user_list_order_news:                  URL für Sortierung nach News
-user_list_order_comments:              URL für Sortierung nach Kommentaren
-user_list_order_articles:              URL für Sortierung nach Artikel
-user_list_order_downloads:             URL für Sortierung nach Downloads
-user_list_arrow_id:                    Pfeil für Sortierung nach ID
-user_list_arrow_name:                  Pfeil für Sortierung nach Name
-user_list_arrow_mail:                  Pfeil für Sortierung nach E-Mail
-user_list_arrow_date:                  Pfeil für Sortierung nach Datum
-user_list_arrow_news:                  Pfeil für Sortierung nach News
-user_list_arrow_comments:              Pfeil für Sortierung nach Kommentaren
-user_list_arrow_articles:              Pfeil für Sortierung nach Artikel
-user_list_arrow_downloads:             Pfeil für Sortierung nach Downloads
+user_list_order_id:                    URL fÃ¼r Sortierung nach ID
+user_list_order_name:                  URL fÃ¼r Sortierung nach Name
+user_list_order_mail:                  URL fÃ¼r Sortierung nach E-Mail
+user_list_order_date:                  URL fÃ¼r Sortierung nach Datum
+user_list_order_news:                  URL fÃ¼r Sortierung nach News
+user_list_order_comments:              URL fÃ¼r Sortierung nach Kommentaren
+user_list_order_articles:              URL fÃ¼r Sortierung nach Artikel
+user_list_order_downloads:             URL fÃ¼r Sortierung nach Downloads
+user_list_arrow_id:                    Pfeil fÃ¼r Sortierung nach ID
+user_list_arrow_name:                  Pfeil fÃ¼r Sortierung nach Name
+user_list_arrow_mail:                  Pfeil fÃ¼r Sortierung nach E-Mail
+user_list_arrow_date:                  Pfeil fÃ¼r Sortierung nach Datum
+user_list_arrow_news:                  Pfeil fÃ¼r Sortierung nach News
+user_list_arrow_comments:              Pfeil fÃ¼r Sortierung nach Kommentaren
+user_list_arrow_articles:              Pfeil fÃ¼r Sortierung nach Artikel
+user_list_arrow_downloads:             Pfeil fÃ¼r Sortierung nach Downloads
 user_list_userline_title:              Benutzer-Zeile
-user_list_userline_desc:               Darstellung der Zeile für normale Benutzer
+user_list_userline_desc:               Darstellung der Zeile fÃ¼r normale Benutzer
 user_list_line_user_url:               URL der Benutzerseite
 user_list_staffline_title:             Mitarbeiter-Zeile
-user_list_staffline_desc:              Darstellung der Zeile für Mitarbeiter
+user_list_staffline_desc:              Darstellung der Zeile fÃ¼r Mitarbeiter
 user_list_adminline_title:             Administrator-Zeile
-user_list_adminline_desc:              Darstellung der Zeile für Administratoren
+user_list_adminline_desc:              Darstellung der Zeile fÃ¼r Administratoren
 new_password_title:                    Zugangsdaten anfordern-Seite
 new_password_desc:                     Seite um neue Zugangsdaten anzufordern.
 
 articles_author_title:                 Autor-Template
-articles_author_desc:                  Template für den Autor eines Artikels
+articles_author_desc:                  Template fÃ¼r den Autor eines Artikels
 articles_date_title:                   Datum-Template
-articles_date_desc:                    Template für das Datum an dem ein Artikel verfasst wurde
+articles_date_desc:                    Template fÃ¼r das Datum an dem ein Artikel verfasst wurde
 articles_body_title:                   Artikel
 articles_body_desc:                    Darstellung eines Artikels
 articles_body_article_title:           Titel des Artikels
@@ -195,7 +195,7 @@ news_applet_body_download_lines:       Bindet die Downloadzeilen ein
 
 news_link_title:                       Related Link Zeile
 news_link_description:                 Eine Zeile der Related Links.
-news_link_help_1:                      Der Titel den der Link trägt.
+news_link_help_1:                      Der Titel den der Link trÃ¤gt.
 news_link_help_2:                      Das Ziel-Fenster des Links.
 news_link_help_3:                      Die URL auf die verlinkt wird.
 
@@ -205,9 +205,9 @@ news_related_links_help_1:             Bindet nacheinander die angegebenen Links
 
 news_body_title:                       News
 news_body_description:                 Das Erscheinungsbild einer News.
-news_body_help_1:                      ID der News, für die eindeutige Ansteuerung auf der Startseite.
+news_body_help_1:                      ID der News, fÃ¼r die eindeutige Ansteuerung auf der Startseite.
 news_body_help_2:                      Der Titel der News.
-news_body_help_3:                      Das Datum an dem die News veröffentlicht wurde.
+news_body_help_3:                      Das Datum an dem die News verÃ¶ffentlicht wurde.
 news_body_help_4:                      Der Text der News.
 news_body_help_5:                      Der Name des News-Schreibers.
 news_body_help_6:                      URL zum Profil des Autors.
@@ -242,15 +242,15 @@ news_comment_form_spam_description:    Captcha zum Schutz gegen Spam-Bots.
 news_comment_form_spam_help_1:         URL zum Anti Spam Captcha Bild.
 
 news_comment_form_spamtext_title:      Anti Spam Text
-news_comment_form_spamtext_desc:       Erklärungstext, warum Anti Spam verwendet wird.
+news_comment_form_spamtext_desc:       ErklÃ¤rungstext, warum Anti Spam verwendet wird.
 
 news_comment_form_name_title:          Eingabefeld Name
 news_comment_form_name_description:    Wird angezeigt, wenn der User nicht registriert ist.
 
 news_comment_form_title:               Kommentar Forumlar
 news_comment_form_desc:                Forumlar zum Abgeben eines Kommentars
-news_comment_form_news_id:             Datenbank-ID der zugehörigen News
-news_comment_form_name_input:          Eingabefeld für Namen oder Name des angemeldeten Benutzers
+news_comment_form_news_id:             Datenbank-ID der zugehÃ¼rigen News
+news_comment_form_name_input:          Eingabefeld fÃ¼r Namen oder Name des angemeldeten Benutzers
 news_comment_form_textarea:            Text-Editor zur Eingabe des Kommentars
 news_comment_form_html:                HTML ist... (an/aus)
 news_comment_form_fs_code:             FSCode ist... (an/aus)
@@ -265,22 +265,22 @@ news_comment_container_help_3:         Bindet das Formular zum Schreiben von Kom
 
 news_search_title:                     News-Suche
 news_search_desc:                      Seite auf der nach News gesucht werden kann
-news_search_years:                     Bindet alle verfügbaren Jahre als HTML-Option ein
-news_search_keyword:                   Schlüsselwort nach dem gesucht wurde
+news_search_years:                     Bindet alle verfÃ¼gbaren Jahre als HTML-Option ein
+news_search_keyword:                   SchlÃ¼sselwort nach dem gesucht wurde
 
 search_applet_title:                   Mini-Suche
-search_applet_desc:                    Kleines Suchfeld das überall verwendet werden kann
-search_applet_keyword:                 Das Schlüsselwort, nach dem gesucht wurde.
+search_applet_desc:                    Kleines Suchfeld das Ã¼berall verwendet werden kann
+search_applet_keyword:                 Das SchlÃ¼sselwort, nach dem gesucht wurde.
 search_search_title:                   Suchfeld
 search_search_desc:                    Suchfeld auf der Hauptsuchseite
-search_search_keyword:                 Das Schlüsselwort, nach dem gesucht wurde.
-search_operators:                      Die verfügbaren Suchoperatoren als CSV.
-search_search_in_news:                 Setzt die „In News suchen“-Einstellung der HTML-Checkbox
-search_search_in_articles:             Setzt die „In Artikeln suchen“-Einstellung der HTML-Checkbox
-search_search_in_downloads:            Setzt die „In Downloads suchen“-Einstellung der HTML-Checkbox
-search_phonetic_search:                Setzt die „Phonetische Suche“-Einstellung der HTML-Checkbox.
+search_search_keyword:                 Das SchlÃ¼sselwort, nach dem gesucht wurde.
+search_operators:                      Die verfÃ¼gbaren Suchoperatoren als CSV.
+search_search_in_news:                 Setzt die â€žIn News suchenâ€œ-Einstellung der HTML-Checkbox
+search_search_in_articles:             Setzt die â€žIn Artikeln suchenâ€œ-Einstellung der HTML-Checkbox
+search_search_in_downloads:            Setzt die â€žIn Downloads suchenâ€œ-Einstellung der HTML-Checkbox
+search_phonetic_search:                Setzt die â€žPhonetische Sucheâ€œ-Einstellung der HTML-Checkbox.
 search_result_date_template_title:     Datum-Template
-search_result_date_template_desc:      Template für das Datum eines Suchergebnisses
+search_result_date_template_desc:      Template fÃ¼r das Datum eines Suchergebnisses
 search_result_line_title:              Suchergebnis-Zeile
 search_result_line_desc:               Darstellung einer Zeile eines gefundenen Inhalts
 search_result_line_id:                 Datenbank-ID des gefundenen Inhalts.
@@ -289,18 +289,18 @@ search_result_line_url:                Die URL des gefundenen Inhalts.
 search_result_line_date:               Das Datum des gefundenen Inhalts
 search_result_line_date_template:      Datum-Template, wenn Datum vorhanden.
 search_result_line_num_matches:        Anzahl der Fundstellen im Inhalt.
-search_result_line_rank:               Wert der Qualität des Suchergebnisses.
+search_result_line_rank:               Wert der QualitÃ¤t des Suchergebnisses.
 search_no_results_title:               Keine Ergebnisse-Zeile
 search_no_results_desc:                Darstellung der Hinweis-Zeile, wenn keine Ergebnisse gefunden wurden
 search_more_results_title:             Mehr Ergebnisse-Link
-search_more_results_desc:              Link der auf die speziellen Suchseite ohne Ergebnis-Anzahl Beschränkung verweist
+search_more_results_desc:              Link der auf die speziellen Suchseite ohne Ergebnis-Anzahl BeschrÃ¤nkung verweist
 search_more_results_main_search_url:   URL zur speziellen Suchseite der Art des Inhalts.
 search_results_body_title:             Suchergebnis-Block
 search_results_body_desc:              Block der Suchergebnisse einer Art des Inhalts
 search_results_body_type_title:        Titel der Art des Inhalts.
 search_results_body_results:           Bindet die Ergebnis-Zeilen ein.
 search_results_body_num_results:       Anzahl der gefundenen Inhalte einer Art.
-search_results_body_more_results:      Bindet „Mehr Ergebnisse“-Link ein, wenn nötig.
+search_results_body_more_results:      Bindet â€žMehr Ergebnisseâ€œ-Link ein, wenn nÃ¶tig.
 search_body_title:                     Suchseite
 search_body_desc:                      Darstellung der gesamten Suchseite
 search_body_search:                    Bindet das Suchfeld ein.
@@ -311,7 +311,7 @@ search_body_downloads:                 Bindet die Downloads-Suchergebnisse ein.
 search_info_title:                     Informations-Block
 search_info_desc:                      Beinhaltet Informationen zur gestellten Suchanfrage.
 search_info_query:                     Die bereinigte Suchanfrage.
-search_info_num_results:               Anzahl insgesamt gefundener Datensätze.
+search_info_num_results:               Anzahl insgesamt gefundener DatensÃ¤tze.
 
 previewimg_body_title:                 Vorschaubild
 previewimg_body_desc:                  Darstellung des Vorschaubild-Applets
@@ -340,14 +340,14 @@ dl_search_field_help_3:                URL zur Anzeige aller Downloads.
 dl_navigation_line_title:              Navigation-Zeile
 dl_navigation_line_desc:               Eine Zeile der Download-Navigation
 dl_navigation_line_icon_url:           URL des Ordner-Icons (geschlossen/offen)
-dl_navigation_line_cat_url:            URL um die Kategorie zu öffnen
+dl_navigation_line_cat_url:            URL um die Kategorie zu Ã¶ffnen
 dl_navigation_line_cat_name:           Name der Kategorie
 dl_navigation_body_title:              Navigation
 dl_navigation_body_desc:               Navigation durch die Download-Kategorien
 dl_navigation_body_lines:              Bindet hintereinander die einzelnen Zeilen ein
 
 dl_preview_line_title:                 Vorschauzeile
-dl_preview_line_desc:                  Darstellung einer Vorschauzeile in der Kategorie-Übersicht
+dl_preview_line_desc:                  Darstellung einer Vorschauzeile in der Kategorie-Ãœbersicht
 dl_preview_line_entry_title:           Titel des Downloads
 dl_preview_line_url:                   URL der Downloadseite
 dl_preview_line_cat_name:              Kategorie-Name des Downloads
@@ -358,34 +358,34 @@ dl_no_preview_line_title:              Keine Downloads-Zeile
 dl_no_preview_line_desc:               Vorschauzeile, wenn keine Downloads gefunden wurden
 
 dl_preview_list_title:                 Vorschauliste
-dl_preview_list_desc:                  Übersicht aller gefundenen Downloads in der Kategorie-Übersicht
+dl_preview_list_desc:                  Ãœbersicht aller gefundenen Downloads in der Kategorie-Ãœbersicht
 dl_preview_list_entries:               Bindet die Vorschauzeilen ein
 
-dl_page_title:                         Seitentitel (Kategorie-Name/„Suchergebnisse“)
+dl_page_title:                         Seitentitel (Kategorie-Name/â€žSuchergebnisseâ€œ)
 
 dl_body_title:                         Download-Auswahl
-dl_body_desc:                          Seite von der aus Downloads über Kategorien und Suche ausgewählt werden können
+dl_body_desc:                          Seite von der aus Downloads Ã¼ber Kategorien und Suche ausgewÃ¤hlt werden kÃ¶nnen
 dl_body_navigation:                    Bindet die Navigation ein
 dl_body_search:                        Bindet die Suche ein
 dl_body_entries:                       Bindet die Vorschauliste ein
 
 dl_file_title:                         Datei
-dl_file_description:                   Zeile für eine Datei.
+dl_file_description:                   Zeile fÃ¼r eine Datei.
 dl_file_help_1:                        Titel der Datei.
 dl_file_help_2:                        Link zum Download der Datei.
-dl_file_help_3:                        Größe der Datei.
-dl_file_help_4:                        Von der Datei verursachter Traffic (Größe*Downloads).
+dl_file_help_3:                        GrÃ¶ÃŸe der Datei.
+dl_file_help_4:                        Von der Datei verursachter Traffic (GrÃ¶ÃŸe*Downloads).
 dl_file_help_5:                        Anzahl der Downloads.
 dl_file_help_6:                        Hinweis darauf, dass der Link zur Datei auf einen Mirror weiterleitet.
-dl_file_help_7:                        Colspan (über 2 Zellen) der evtl. nötig ist, damit der Mirror-Hinweis korrekt angezeigt wird.
+dl_file_help_7:                        Colspan (Ã¼ber 2 Zellen) der evtl. nÃ¶tig ist, damit der Mirror-Hinweis korrekt angezeigt wird.
 
 dl_file_is_mirror_title:               Mirror
 dl_file_is_mirror_description:         Anzeige, falls die Datei ein Mirror ist.
 
 dl_stats_title:                        Statistik
-dl_stats_description:                  Zeile für die Statistik unter den Files.
+dl_stats_description:                  Zeile fÃ¼r die Statistik unter den Files.
 dl_stats_help_1:                       Gesamtzahl aller Files.
-dl_stats_help_2:                       Größe aller Files zusammen.
+dl_stats_help_2:                       GrÃ¶ÃŸe aller Files zusammen.
 dl_stats_help_3:                       Insgesamt verursachter Traffic.
 dl_stats_help_4:                       Gesamtzahl der Downloads aller Files.
 
@@ -412,7 +412,7 @@ dl_entry_body_messages:                Bindet diverse Systemmeldungen ein
 shop_applet_item_title:                Shop-Applet Produkt
 shop_applet_item_desc:                 Ein einzelnes Produkt im Shop-Applet
 shop_applet_body_title:                Shop-Applet
-shop_applet_body_desc:                 Kleiner Shop mit ausgewählten Produkten
+shop_applet_body_desc:                 Kleiner Shop mit ausgewÃ¤hlten Produkten
 shop_applet_body_items:                Bindet die Produkte ein
 shop_main_item_title:                  Produkt
 shop_main_item_desc:                   Ein einzelnes Produkt auf der Shop-Seite
@@ -422,7 +422,7 @@ shop_item_url:                         Zum Produkt gespeicherte Einkauf-URL
 shop_item_price:                       Preis des Produkts
 shop_item_image:                       HTML-Einbindung des Produktbildes
 shop_item_image_url:                   URL des Produktbildes
-shop_item_image_viewer_url:            URL um das Bild im Bildbetrachter zu öffnen.
+shop_item_image_viewer_url:            URL um das Bild im Bildbetrachter zu Ã¶ffnen.
 shop_item_small_image:                 HTML-Einbindung des kleinen Vorschaubildes
 shop_item_small_image_url:             URL des kleinen Vorschaubildes
 shop_main_body_title:                  Shop
@@ -445,8 +445,8 @@ editor_button_title:                   Button Darstellung
 editor_button_description:             Anordnung des IWAC-Editors auf der Seite.
 editor_button_help_1:                  URL zum Button Bild.
 editor_button_help_2:                  Alternativer Anzeige Text.
-editor_button_help_3:                  Beschreibungstext beim Überfahren mit der Maus
-editor_button_help_4:                  Fügt den JavaScript-Code ein, der das Einfügen ins Textfeld steuert
+editor_button_help_3:                  Beschreibungstext beim Ãœberfahren mit der Maus
+editor_button_help_4:                  FÃ¼gt den JavaScript-Code ein, der das EinfÃ¼gen ins Textfeld steuert
 editor_separator_title:                Teiler Darstellung
 editor_separator_description:          Darstellung des Teilers zwischen Button-Gruppen.
 editor_smilies_title:                  Smilies
@@ -470,20 +470,20 @@ wallpaper_pic_title:                   Wallpaper
 wallpaper_pic_description:             Aussehen eines einzelnen Wallpapers.
 wallpaper_pic_help_1:                  URL zum Thumbnail des Wallpapers.
 wallpaper_pic_help_2:                  Beschreibungstext des Wallpapers.
-wallpaper_pic_help_3:                  Listet die verfügbaren Wallpaper-Größen auf.
-wallpaper_sizes_title:                 Wallpaper Größen
-wallpaper_sizes_description:           Aussehen der Wallpaper Größen.
-wallpaper_sizes_help_1:                URL zum Wallpaper in dieser Größe.
-wallpaper_sizes_help_2:                Die Größe des Wallpapers als Text.
+wallpaper_pic_help_3:                  Listet die verfÃ¼gbaren Wallpaper-GrÃ¶ÃŸen auf.
+wallpaper_sizes_title:                 Wallpaper GrÃ¶ÃŸen
+wallpaper_sizes_description:           Aussehen der Wallpaper GrÃ¶ÃŸen.
+wallpaper_sizes_help_1:                URL zum Wallpaper in dieser GrÃ¶ÃŸe.
+wallpaper_sizes_help_2:                Die GrÃ¶ÃŸe des Wallpapers als Text.
 
 screenshot_cat_title:                  Kategorie
-screenshot_cat_description:            Zeile einer Kategorie in der Kategorie-Übersicht
+screenshot_cat_description:            Zeile einer Kategorie in der Kategorie-Ãœbersicht
 screenshot_cat_help_1:                 URL zur Kategorie-Ansicht.
 screenshot_cat_help_2:                 Name der Kategorie.
 screenshot_cat_help_3:                 Datum an dem die Kategorie erstellt wurde.
 screenshot_cat_help_4:                 Anzahl der Bilder in der Kategorie.
-screenshot_body_title:                 Kategorie-Übersicht Body
-screenshot_body_description:           Aussehen der Kategorie-Übersicht.
+screenshot_body_title:                 Kategorie-Ãœbersicht Body
+screenshot_body_description:           Aussehen der Kategorie-Ãœbersicht.
 screenshot_body_help_1:                Ausgabe der einzelnen Kategorien.
 screenshot_pic_title:                  Screenshot
 screenshot_pic_description:            Aussehen eines einzelnen Screenshots.
@@ -499,7 +499,7 @@ screenshot_cat_body_help_3:            Ausgabe der Seiten-Navigation.
 
 press_navi_line_title:                 Navigation Zeile
 press_navi_line_description:           Eine Zeile der Navigation.
-press_navi_line_help_1:                URL zum Öffnen/Anzeigen des Navigationsordners.
+press_navi_line_help_1:                URL zum Ã–ffnen/Anzeigen des Navigationsordners.
 press_navi_line_help_2:                Der Titel des Navigationsordners.
 press_navi_line_help_3:                URL zum Bild des Navigationsordners.
 press_navi_line_help_4:                URL zu einem entsprechenden Standard-Ordnersymbol.
@@ -516,12 +516,12 @@ press_body_title:                      Pressebericht
 press_body_description:                Das Erscheinungsbild eines Presseberichtes.
 press_body_help_1:                     Der Titel des Presseberichtes.
 press_body_help_2:                     URL zum Pressebericht.
-press_body_help_3:                     Datum an dem der Pressebericht veröffentlicht wurde.
+press_body_help_3:                     Datum an dem der Pressebericht verÃ¶ffentlicht wurde.
 press_body_help_4:                     Die (formatierte) Einleitung des Presseberichtes.
 press_body_help_5:                     Der kurze Vorschautext des Presseberichtes.
 press_body_help_6:                     Die (formatierten) Anmerkungen zum Presseberichtes.
-press_body_help_7:                     Titel des Spiels, zu dem der Pressebericht veröffentlicht wurde.
-press_body_help_8:                     URL zum Bild des Spiels, zu dem der Pressebericht veröffentlicht wurde.
+press_body_help_7:                     Titel des Spiels, zu dem der Pressebericht verÃ¶ffentlicht wurde.
+press_body_help_8:                     URL zum Bild des Spiels, zu dem der Pressebericht verÃ¶ffentlicht wurde.
 press_body_help_9:                     Titel der Kategorie, zu der der Pressebericht zugeordnet wurde.
 press_body_help_10:                    URL zum Bild der Kategorie, zu der der Pressebericht zugeordnet wurde.
 press_body_help_11:                    Sprache, in der der Pressebericht verfasst wurde.
@@ -529,20 +529,20 @@ press_body_help_12:                    URL zum Bild der Sprache, in der der Pres
 press_container_title:                 Presseberichte Container
 press_container_description:           Container um die angezeigten Presseberichte.
 press_container_help_1:                Bindet nacheinander alle passenden Presseberichte ein.
-press_main_body_title:                 Übersicht
+press_main_body_title:                 Ãœbersicht
 press_main_body_description:           Das Erscheinungsbild der ganzen Seite.
 press_main_body_help_1:                Bindet die Navigation ein.
 press_main_body_help_2:                Bindet den Pressebericht Container mit allen passenden Presseberichte ein.
 
 
 poll_line_title:                       Antwort Zeile
-poll_line_description:                 Antwortmöglichkeit der Umfrage.
+poll_line_description:                 AntwortmÃ¶glichkeit der Umfrage.
 poll_line_help_1:                      Der Antworttext.
-poll_line_help_2:                      Die ID der Antwort, damit das Script auch weiß, für was abgestimmt wurde.
-poll_line_help_3:                      Der Umfragentyp. Notwendig, da die beiden Typen verschiedene Auswahlmöglichkeiten erfordern.
-poll_line_help_4:                      Erweiterung für Multiple-Choice Umfragen.
+poll_line_help_2:                      Die ID der Antwort, damit das Script auch weiÃŸ, fÃ¼r was abgestimmt wurde.
+poll_line_help_3:                      Der Umfragentyp. Notwendig, da die beiden Typen verschiedene AuswahlmÃ¶glichkeiten erfordern.
+poll_line_help_4:                      Erweiterung fÃ¼r Multiple-Choice Umfragen.
 poll_body_title:                       Umfrage Body
-poll_body_description:                 Aussehen der Umfrage im Menü.
+poll_body_description:                 Aussehen der Umfrage im MenÃ¼.
 poll_body_help_1:                      Die Frage, nach der in der Umfrage gefragt wird.
 poll_body_help_2:                      Bindet hintereinander alle Antworten ein.
 poll_body_help_3:                      ID zur eindeutigen Identifizierung der Umfrage.
@@ -556,14 +556,14 @@ poll_result_line_help_2:               Die Anzahl der Stimmen die eine Antwort e
 poll_result_line_help_3:               Der Stimmenanteil einer Antwort in Prozent. (Mit Prozentzeichen!)
 poll_result_line_help_4:               Die Breite des Balkens bei grafischer Stimmendarstellung.
 poll_result_title:                     Ergebnis Body
-poll_result_description:               Aussehen des Umfrage-Ergebnis im Menü.
+poll_result_description:               Aussehen des Umfrage-Ergebnis im MenÃ¼.
 poll_result_help_1:                    Die Frage, nach der in der Umfrage gefragt wird.
 poll_result_help_2:                    Bindet hintereinander alle Antworten mit dem jeweiligen Ergebnis ein.
 poll_result_help_3:                    Die Anzahl aller abgegebenen Stimmen.
 poll_result_help_4:                    Die Anzahl aller Umfrageteilnehmer.
 poll_result_help_5:                    Der Typ der Umfrage. (Einzel- od. Mehrfachauswahl)
-poll_list_line_title:                  Umfrage Übersicht Zeile
-poll_list_line_description:            Zeile in der Übersichtsseite des Umfragenarchivs.
+poll_list_line_title:                  Umfrage Ãœbersicht Zeile
+poll_list_line_description:            Zeile in der Ãœbersichtsseite des Umfragenarchivs.
 poll_list_line_help_1:                 Die Frage, nach der in der Umfrage gefragt wird.
 poll_list_line_help_2:                 URL zur Detailansicht der archivierten Umfrage.
 poll_list_line_help_3:                 Die Anzahl aller abgegebenen Stimmen.
@@ -571,20 +571,20 @@ poll_list_line_help_4:                 Die Anzahl aller Umfrageteilnehmer.
 poll_list_line_help_5:                 Der Typ der Umfrage. (Einzel- od. Mehrfachauswahl)
 poll_list_line_help_6:                 Datum an dem die Umfrage startet.
 poll_list_line_help_7:                 Datum an dem die Umfrage endet.
-poll_list_title:                       Umfragen Übersicht Body
-poll_list_description:                 Übersichtsseite des Umfragenarchivs.
+poll_list_title:                       Umfragen Ãœbersicht Body
+poll_list_description:                 Ãœbersichtsseite des Umfragenarchivs.
 poll_list_help_1:                      Bindet hintereinander alle Umfragen ein.
-poll_list_help_2:                      Sortierparameter für alphabetische Sortierung nach der Frage.
+poll_list_help_2:                      Sortierparameter fÃ¼r alphabetische Sortierung nach der Frage.
 poll_list_help_3:                      Bindet den der Sortierung entsprechenden Pfeil ein.
-poll_list_help_4:                      Sortierparameter für die Anzahl aller abgegebenen Stimmen.
+poll_list_help_4:                      Sortierparameter fÃ¼r die Anzahl aller abgegebenen Stimmen.
 poll_list_help_5:                      Bindet den der Sortierung entsprechenden Pfeil ein.
-poll_list_help_6:                      Sortierparameter für die Anzahl aller Teilnehmer.
+poll_list_help_6:                      Sortierparameter fÃ¼r die Anzahl aller Teilnehmer.
 poll_list_help_7:                      Bindet den der Sortierung entsprechenden Pfeil ein.
-poll_list_help_8:                      Sortierparameter für den Umfragentyp.
+poll_list_help_8:                      Sortierparameter fÃ¼r den Umfragentyp.
 poll_list_help_9:                      Bindet den der Sortierung entsprechenden Pfeil ein.
-poll_list_help_10:                     Sortierparameter für das Startdatum der Umfrage.
+poll_list_help_10:                     Sortierparameter fÃ¼r das Startdatum der Umfrage.
 poll_list_help_11:                     Bindet den der Sortierung entsprechenden Pfeil ein.
-poll_list_help_12:                     Sortierparameter für das Enddatum der Umfrage.
+poll_list_help_12:                     Sortierparameter fÃ¼r das Enddatum der Umfrage.
 poll_list_help_13:                     Bindet den der Sortierung entsprechenden Pfeil ein.
 poll_main_line_title:                  Archiv Antwort Zeile
 poll_main_line_description:            Antwort Zeile einer archivierten Umfrage.
@@ -603,27 +603,27 @@ poll_main_body_help_6:                 Datum an dem die Umfrage startet.
 poll_main_body_help_7:                 Datum an dem die Umfrage endet.
 
 
-partner_eintrag_title:                 Übersicht Eintrag
-partner_eintrag_description:           Aussehen eines Eintrags in der Gesamtübersicht.
+partner_eintrag_title:                 Ãœbersicht Eintrag
+partner_eintrag_description:           Aussehen eines Eintrags in der GesamtÃ¼bersicht.
 partner_eintrag_help_1:                URL zur Partnerseite.
-partner_eintrag_help_2:                URL zum großen Banner der Partnerseite.
+partner_eintrag_help_2:                URL zum groÃŸen Banner der Partnerseite.
 partner_eintrag_help_3:                URL zum kleinen Button der Partnerseite
 partner_eintrag_help_4:                Name der Partnerseite.
 partner_eintrag_help_5:                Beschreibungstext der Partnerseite.
-partner_main_body_title:               Partner Übersicht Body
+partner_main_body_title:               Partner Ãœbersicht Body
 partner_main_body_description:         Aussehen der Liste aller eingetragenen Partner.
 partner_main_body_help_1:              Einzelne Ausgabe aller Partner.
 partner_main_body_help_2:              Einzelne Ausgabe der Partner, die permanent angezeigt werden sollen.
 partner_main_body_help_3:              Einzelne Ausgabe der Partner, die nicht permanent angezeigt werden sollen.
-partner_navi_eintrag_title:            Menü Eintrag
-partner_navi_eintrag_description:      Aussehen eines Eintrags im Menü.
+partner_navi_eintrag_title:            MenÃ¼ Eintrag
+partner_navi_eintrag_description:      Aussehen eines Eintrags im MenÃ¼.
 partner_navi_eintrag_help_1:           URL zur Partnerseite.
-partner_navi_eintrag_help_2:           URL zum großen Banner der Partnerseite.
+partner_navi_eintrag_help_2:           URL zum groÃŸen Banner der Partnerseite.
 partner_navi_eintrag_help_3:           URL zum kleinen Button der Partnerseite
 partner_navi_eintrag_help_4:           Name der Partnerseite.
 partner_navi_eintrag_help_5:           Beschreibungstext der Partnerseite.
-partner_navi_body_title:               Menü Body
-partner_navi_body_description:         Aussehen der Partnerliste im Menü.
+partner_navi_body_title:               MenÃ¼ Body
+partner_navi_body_description:         Aussehen der Partnerliste im MenÃ¼.
 partner_navi_body_help_1:              Einzelne Ausgabe aller Partner.
 partner_navi_body_help_2:              Einzelne Ausgabe der Partner, die permanent angezeigt werden sollen.
 partner_navi_body_help_3:              Einzelne Ausgabe der Partner, die nicht permanent angezeigt werden sollen.

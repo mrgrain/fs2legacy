@@ -197,30 +197,30 @@ else {
                                     <table cellpadding="0" cellspacing="0">
                                       <tr>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=bold.gif" alt="" title="' . $FD->text('fscode', 'b') . '">
+      <img src="assets/editor/bold.gif" alt="" title="' . $FD->text('fscode', 'b') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=italic.gif" alt="" title="' . $FD->text('fscode', 'i') . '">
+      <img src="assets/editor/italic.gif" alt="" title="' . $FD->text('fscode', 'i') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=underline.gif" alt="" title="' . $FD->text('fscode', 'u') . '">
+      <img src="assets/editor/underline.gif" alt="" title="' . $FD->text('fscode', 'u') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=strike.gif" alt="" title="' . $FD->text('fscode', 's') . '">
-    </div></td>
-    <td class="editor_td_seperator"></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=center.gif" alt="" title="' . $FD->text('fscode', 'center') . '">
+      <img src="assets/editor/strike.gif" alt="" title="' . $FD->text('fscode', 's') . '">
     </div></td>
     <td class="editor_td_seperator"></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=font.gif" alt="" title="' . $FD->text('fscode', 'font') . '">
+      <img src="assets/editor/center.gif" alt="" title="' . $FD->text('fscode', 'center') . '">
+    </div></td>
+    <td class="editor_td_seperator"></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/font.gif" alt="" title="' . $FD->text('fscode', 'font') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=color.gif" alt="" title="' . $FD->text('fscode', 'color') . '">
+      <img src="assets/editor/color.gif" alt="" title="' . $FD->text('fscode', 'color') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=size.gif" alt="" title="' . $FD->text('fscode', 'size') . '">
+      <img src="assets/editor/size.gif" alt="" title="' . $FD->text('fscode', 'size') . '">
     </div></td>
                                       </tr>
                                       <tr>
@@ -268,34 +268,34 @@ else {
                                     <table cellpadding="0" cellspacing="0" style="padding-top:5px;">
                                       <tr>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=img.gif" alt="" title="' . $FD->text('fscode', 'img') . '">
+      <img src="assets/editor/img.gif" alt="" title="' . $FD->text('fscode', 'img') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=cimg.gif" alt="" title="' . $FD->text('fscode', 'cimg') . '">
-    </div></td>
-    <td class="editor_td_seperator"></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=url.gif" alt="" title="' . $FD->text('fscode', 'url') . '">
-    </div></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=home.gif" alt="" title="' . $FD->text('fscode', 'home') . '">
-    </div></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=email.gif" alt="" title="' . $FD->text('fscode', 'email') . '">
+      <img src="assets/editor/cimg.gif" alt="" title="' . $FD->text('fscode', 'cimg') . '">
     </div></td>
     <td class="editor_td_seperator"></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=code.gif" alt="" title="' . $FD->text('fscode', 'code') . '">
+      <img src="assets/editor/url.gif" alt="" title="' . $FD->text('fscode', 'url') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=quote.gif" alt="" title="' . $FD->text('fscode', 'quote') . '">
+      <img src="assets/editor/home.gif" alt="" title="' . $FD->text('fscode', 'home') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=nofscode.gif" alt="" title="' . $FD->text('fscode', 'nofscode') . '">
+      <img src="assets/editor/email.gif" alt="" title="' . $FD->text('fscode', 'email') . '">
     </div></td>
     <td class="editor_td_seperator"></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=smilie.gif" alt="" title="' . $FD->text('fscode', 'smilies') . '">
+      <img src="assets/editor/code.gif" alt="" title="' . $FD->text('fscode', 'code') . '">
+    </div></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/quote.gif" alt="" title="' . $FD->text('fscode', 'quote') . '">
+    </div></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/nofscode.gif" alt="" title="' . $FD->text('fscode', 'nofscode') . '">
+    </div></td>
+    <td class="editor_td_seperator"></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/smilie.gif" alt="" title="' . $FD->text('fscode', 'smilies') . '">
     </div></td>
                                       </tr>
                                       <tr>
@@ -363,37 +363,37 @@ else {
                                     <table cellpadding="0" cellspacing="0">
                                       <tr>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=bold.gif" alt="" title="' . $FD->text('fscode', 'example_b') . '">
+      <img src="assets/editor/bold.gif" alt="" title="' . $FD->text('fscode', 'example_b') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=italic.gif" alt="" title="' . $FD->text('fscode', 'example_i') . '">
+      <img src="assets/editor/italic.gif" alt="" title="' . $FD->text('fscode', 'example_i') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=underline.gif" alt="" title="' . $FD->text('fscode', 'example_u') . '">
+      <img src="assets/editor/underline.gif" alt="" title="' . $FD->text('fscode', 'example_u') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=strike.gif" alt="" title="' . $FD->text('fscode', 'example_s') . '">
-    </div></td>
-    <td class="editor_td_seperator"></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=center.gif" alt="" title="' . $FD->text('fscode', 'example_center') . '">
+      <img src="assets/editor/strike.gif" alt="" title="' . $FD->text('fscode', 'example_s') . '">
     </div></td>
     <td class="editor_td_seperator"></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=font.gif" alt="" title="' . $FD->text('fscode', 'example_font') . '">
-    </div></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=color.gif" alt="" title="' . $FD->text('fscode', 'example_color') . '">
-    </div></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=size.gif" alt="" title="' . $FD->text('fscode', 'example_size') . '">
+      <img src="assets/editor/center.gif" alt="" title="' . $FD->text('fscode', 'example_center') . '">
     </div></td>
     <td class="editor_td_seperator"></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=list.gif" alt="" title="' . $FD->text('fscode', 'example_list') . '">
+      <img src="assets/editor/font.gif" alt="" title="' . $FD->text('fscode', 'example_font') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=numlist.gif" alt="" title="' . $FD->text('fscode', 'example_numlist') . '">
+      <img src="assets/editor/color.gif" alt="" title="' . $FD->text('fscode', 'example_color') . '">
+    </div></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/size.gif" alt="" title="' . $FD->text('fscode', 'example_size') . '">
+    </div></td>
+    <td class="editor_td_seperator"></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/list.gif" alt="" title="' . $FD->text('fscode', 'example_list') . '">
+    </div></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/numlist.gif" alt="" title="' . $FD->text('fscode', 'example_numlist') . '">
     </div></td>
                                       </tr>
                                       <tr>
@@ -453,34 +453,34 @@ else {
                                     <table cellpadding="0" cellspacing="0" style="padding-top:5px;">
                                       <tr>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=img.gif" alt="" title="' . $FD->text('fscode', 'example_img') . '">
+      <img src="assets/editor/img.gif" alt="" title="' . $FD->text('fscode', 'example_img') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=cimg.gif" alt="" title="' . $FD->text('fscode', 'example_cimg') . '">
-    </div></td>
-    <td class="editor_td_seperator"></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=url.gif" alt="" title="' . $FD->text('fscode', 'example_url') . '">
-    </div></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=home.gif" alt="" title="' . $FD->text('fscode', 'example_home') . '">
-    </div></td>
-    <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=email.gif" alt="" title="' . $FD->text('fscode', 'example_email') . '">
+      <img src="assets/editor/cimg.gif" alt="" title="' . $FD->text('fscode', 'example_cimg') . '">
     </div></td>
     <td class="editor_td_seperator"></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=code.gif" alt="" title="' . $FD->text('fscode', 'example_code') . '">
+      <img src="assets/editor/url.gif" alt="" title="' . $FD->text('fscode', 'example_url') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=quote.gif" alt="" title="' . $FD->text('fscode', 'example_quote') . '">
+      <img src="assets/editor/home.gif" alt="" title="' . $FD->text('fscode', 'example_home') . '">
     </div></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=nofscode.gif" alt="" title="' . $FD->text('fscode', 'example_nofscode') . '">
+      <img src="assets/editor/email.gif" alt="" title="' . $FD->text('fscode', 'example_email') . '">
     </div></td>
     <td class="editor_td_seperator"></td>
     <td class="editor_td"><div class="editor_button" style="cursor:default;">
-      <img src="?editor=smilie.gif" alt="" title="' . $FD->text('fscode', 'example_smilies') . '">
+      <img src="assets/editor/code.gif" alt="" title="' . $FD->text('fscode', 'example_code') . '">
+    </div></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/quote.gif" alt="" title="' . $FD->text('fscode', 'example_quote') . '">
+    </div></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/nofscode.gif" alt="" title="' . $FD->text('fscode', 'example_nofscode') . '">
+    </div></td>
+    <td class="editor_td_seperator"></td>
+    <td class="editor_td"><div class="editor_button" style="cursor:default;">
+      <img src="assets/editor/smilie.gif" alt="" title="' . $FD->text('fscode', 'example_smilies') . '">
     </div></td>
                                       </tr>
                                       <tr>

@@ -225,17 +225,17 @@ function get_search_word_id($WORD)
 
 function compress_search_data($TEXT)
 {
-    $locSearch[] = "=�=i";
-    $locSearch[] = "=�|�=i";
-    $locSearch[] = "=�|�=i";
-    $locSearch[] = "=�|�=i";
-    $locSearch[] = "=�|�|�|�|�|�=i";
-    $locSearch[] = "=�|�|�|�|�|�=i";
-    $locSearch[] = "=�|�|�|�|�|�=i";
-    $locSearch[] = "=�|�|�|�|�|�|�=i";
-    $locSearch[] = "=�|�|�|�|�|�|�=i";
-    $locSearch[] = "=�=i";
-    $locSearch[] = "=�=i";
+    $locSearch[] = "=ß=i";
+    $locSearch[] = "=ä|Ä=i";
+    $locSearch[] = "=ö|Ö=i";
+    $locSearch[] = "=ü|Ü=i";
+    $locSearch[] = "=á|à|â|Â|Á|À=i";
+    $locSearch[] = "=ó|ò|ô|Ô|Ó|Ò=i";
+    $locSearch[] = "=ú|ù|û|Û|Ú|Ù=i";
+    $locSearch[] = "=é|è|ê|Ê|É|È|ë=i";
+    $locSearch[] = "=í|ì|î|Î|Í|Ì|ï=i";
+    $locSearch[] = "=ñ=i";
+    $locSearch[] = "=ç=i";
     $locSearch[] = "=([0-9/.,+-]*\s)=";
     $locSearch[] = "=([^A-Za-z])=";
     $locSearch[] = "=\s+=";

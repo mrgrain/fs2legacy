@@ -1,5 +1,5 @@
 # old Language-Definition for frontend
-no_connection:                                     Beim Verbindungsaufbau zum Server ist ein Fehler aufgetreten. Bitte versuchen Sie es später nocheinmal.
+no_connection:                                     Beim Verbindungsaufbau zum Server ist ein Fehler aufgetreten. Bitte versuchen Sie es spÃ¤ter nocheinmal.
 no_con_title:                                      Keine Verbindung!
 sysmessage:                                        Systemmeldung
 access_denied:                                     Zugriff verweigert
@@ -8,10 +8,10 @@ time_at:                                           um
 pass_change:                                       Passwort&auml;nderung auf
 registration:                                      Registrierung auf
 news_not_exist:                                    News nicht vorhanden
-no_result_time:                                    Keine Einträge in diesem Zeitraum gefunden
-no_result_word:                                    Keine Einträge mit diesem Stichwort gefunden
-add_comment:                                       Kommentar hinzufügen
-comment_not_added:                                 Kommentar konnte nicht hinzugefügt werden.
+no_result_time:                                    Keine EintrÃ¤ge in diesem Zeitraum gefunden
+no_result_word:                                    Keine EintrÃ¤ge mit diesem Stichwort gefunden
+add_comment:                                       Kommentar hinzufÃ¼gen
+comment_not_added:                                 Kommentar konnte nicht hinzugefÃ¼gt werden.
 comment_empty:                                     <br>Es m&uuml;ssen alle Felder ausgef&uuml;llt sein.
 comment_spam:                                      <br>Die Rechenaufgabe muss richtig gel&ouml;st werden.
 no_comments:                                       Es wurden keine Kommentare gefunden
@@ -24,26 +24,26 @@ dl_not_save_as:                                    <font color="red"><b>Hinweis:
 dl_not_exist:                                      Download nicht vorhanden
 avatar_loaded:                                     Avatar wurde hochgeladen
 avatar_no_jpggif:                                  Avatar konnte nicht hochgeladen werden. Es muss ein JPG oder GIF sein
-avatar_to_big:                                     Avatar konnte nicht hochgeladen werden. Die Datei ist zu groß
+avatar_to_big:                                     Avatar konnte nicht hochgeladen werden. Die Datei ist zu groÃŸ
 profile_update:                                    Profil wurde aktualisiert.
-pass_update:                                       Passwort wurde geändert.
-pass_failed:                                       Passwort ändern fehlgeschlagen
-pass_newwrong:                                     Das gewünschte Passwort wurde nicht zweimal gleich eingegeben
+pass_update:                                       Passwort wurde geÃ¤ndert.
+pass_failed:                                       Passwort Ã¤ndern fehlgeschlagen
+pass_newwrong:                                     Das gewÃ¼nschte Passwort wurde nicht zweimal gleich eingegeben
 pass_oldwrong:                                     Das bisherige Passwort wurde nicht korrekt eingegeben
-no_avatar:                                         Kein Bild gewählt
+no_avatar:                                         Kein Bild gewÃ¤hlt
 user_not_exist:                                    Dieser User existiert nicht
 user_exists:                                       Username existiert bereits
 registered:                                        Du bist nun registriert und kannst dich auf der Seite einloggen
-user_antispam:                                     Die Rechenaufgabe muss richtig gelöst werden.
+user_antispam:                                     Die Rechenaufgabe muss richtig gelÃ¶st werden.
 not_twice:                                         Du hast dich bereits auf der Seite registriert.
 logged_in:                                         Du bist eingeloggt
 logged_out:                                        Du bist nun wieder ausgeloggt
 article_not_found:                                 Artikel nicht vorhanden
-user_mail_exists:                                  Diese E-Mail-Adresse wurde schon registriert.  Bitte wähle eine andere aus.
+user_mail_exists:                                  Diese E-Mail-Adresse wurde schon registriert.  Bitte wÃ¤hle eine andere aus.
 
 
 # new Language-Definition for frontend
-no_connection_to_the_server:     Es konnte keine Verbindung zum Server hergestellt werden. Bitte versuchen Sie es später wieder.
+no_connection_to_the_server:     Es konnte keine Verbindung zum Server hergestellt werden. Bitte versuchen Sie es spÃ¤ter wieder.
 no_connection:                   Verbindung fehlgeschlagen
 systemmessage:                   Systemmeldung
 access_denied:                   Zugriff verweigert
@@ -51,12 +51,12 @@ file_not_found:                  Die Datei wurde nicht gefunden
 time_at:                         um
 yes:                             Ja
 no:                              Nein
-month_names_array:               Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember
+month_names_array:               Januar,Februar,MÃ¤rz,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember
 week_days_array:                 Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag,Sonntag
 news_feed:                       News-Feed
-mail_password_changed_on:        Passwortänderung auf
-mail_new_password_sended:        Eine Nachricht mit den geänderten Zugangsdaten wurde erfolgreich an die angegebene E-Mail-Adresse gesendet.
-mail_new_password_not_sended:    E-Mail konnte nicht gesendet werden.<br>Beim Senden einer E-Mail mit den geänderten Zugangsdaten trat ein Fehler auf.
+mail_password_changed_on:        PasswortÃ¤nderung auf
+mail_new_password_sended:        Eine Nachricht mit den geÃ¤nderten Zugangsdaten wurde erfolgreich an die angegebene E-Mail-Adresse gesendet.
+mail_new_password_not_sended:    E-Mail konnte nicht gesendet werden.<br>Beim Senden einer E-Mail mit den geÃ¤nderten Zugangsdaten trat ein Fehler auf.
 mail_registerd_on:               Registrierung auf
 mail_registerd_sended:           Eine Nachricht mit den Zugangsdaten wurde erfolgreich an die angegebene E-Mail-Adresse gesendet.
 mail_registerd_not_sended:       E-Mail konnte nicht gesendet werden.<br>Beim Senden einer E-Mail mit den Zugangsdaten trat ein Fehler auf.
@@ -65,29 +65,29 @@ user_profile:                    Benutzerprofil
 user_image_of:                   Benutzerbild von
 user_admincp_title:              Admin CP
 user_profile_updated:            Profil wurde aktualisiert
-user_password_changed:           Passwort wurde geändert
-user_password_change_failed:     Passwortänderung fehlgeschlagen
-user_password_change_error_new:  Das neue Passwort stimmt nicht mit der Wiederholung überein
+user_password_changed:           Passwort wurde geÃ¤ndert
+user_password_change_failed:     PasswortÃ¤nderung fehlgeschlagen
+user_password_change_error_new:  Das neue Passwort stimmt nicht mit der Wiederholung Ã¼berein
 user_password_change_error_old:  Das aktuelle Passwort wurde nicht richtig eingegeben
 user_image_not_found:            Kein Benutzerbild gefunden
 user_not_found:                  Benutzer wurde nicht gefunden
-user_name_exists:                Der gewünschte Benutzername ist bereits vergeben
-user_registered:                 Die Registrierung war erfolgreich<br>Anmelden auf der Seite ist nun möglich
-user_antispam:                   Die Rechenaufgabe wurde nicht richtig gelöst
-user_register_password_error:    Das Passwort stimmt nicht mit der Wiederholung überein
-user_register_not_twice:         Benutzer können sich nicht mehrfach registieren
-user_register_fulfill_form:      Es wurden nicht alle Pflichtfelder ausgefüllt
+user_name_exists:                Der gewÃ¼nschte Benutzername ist bereits vergeben
+user_registered:                 Die Registrierung war erfolgreich<br>Anmelden auf der Seite ist nun mÃ¶glich
+user_antispam:                   Die Rechenaufgabe wurde nicht richtig gelÃ¶st
+user_register_password_error:    Das Passwort stimmt nicht mit der Wiederholung Ã¼berein
+user_register_not_twice:         Benutzer kÃ¶nnen sich nicht mehrfach registieren
+user_register_fulfill_form:      Es wurden nicht alle Pflichtfelder ausgefÃ¼llt
 user_login:                      Anmelden
 user_logout:                     Abmelden
 user_login_ok:                   Anmeldung war erfolgreich
 user_login_error_title:          Anmeldung fehlgeschlagen
-user_login_error:                Benutzername oder Passwort ist falsch<br>Bitte die Daten überprüfen und erneut versuchen
+user_login_error:                Benutzername oder Passwort ist falsch<br>Bitte die Daten Ã¼berprÃ¼fen und erneut versuchen
 user_logout_ok:                  Abmeldevorgang war erfolgreich
 article_not_found:               Artikel nicht vorhanden
 news_title:                      News
-comment_added:                   Kommentar wurde hinzugefügt
-comment_not_added:               Kommentar wurde nicht hinzugefügt
-comment_duplicate:               Dieser Kommentar ist das Duplikat eines Kommentars der gerade erst hinzugefügt wurde
+comment_added:                   Kommentar wurde hinzugefÃ¼gt
+comment_not_added:               Kommentar wurde nicht hinzugefÃ¼gt
+comment_duplicate:               Dieser Kommentar ist das Duplikat eines Kommentars der gerade erst hinzugefÃ¼gt wurde
 popupviewer_next_text:           N&auml;chstes Bild
 popupviewer_prev_text:           Vorheriges Bild
 download_file:                   Datei
@@ -122,7 +122,7 @@ hash_not_found:                        Der angegebene Hash wurde nicht gefunden.
 # Search
 sq_error_not_and:               Prohibited use of NOT in your Searchquery. Don't use NOT on both sides of AND.
 sq_error_not_or_xor:            Prohibited use of NOT in your Searchquery. Neither use NOT with OR nor XOR.
-sq_invalid_searchstring:        Ungültige Suchanfrage. Bitte beachten Sie die Suchregeln.
+sq_invalid_searchstring:        UngÃ¼ltige Suchanfrage. Bitte beachten Sie die Suchregeln.
 
 # Common Phrases
 image:                          Bild

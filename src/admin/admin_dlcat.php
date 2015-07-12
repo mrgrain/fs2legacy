@@ -84,7 +84,7 @@ if (isset($_POST['editcatid'])) {
                                     Kategorie l&ouml;schen:
                                 </td>
                                 <td class="config">
-                                    <input onClick=\'delalert ("delcat", "Soll die Downloadkategorie wirklich gel�scht werden?")\' type="checkbox" name="delcat" id="delcat" value="1">
+                                    <input onClick=\'delalert ("delcat", "Soll die Downloadkategorie wirklich gelöscht werden?")\' type="checkbox" name="delcat" id="delcat" value="1">
                                 </td>
                             </tr>
                             <tr>

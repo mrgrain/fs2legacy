@@ -170,7 +170,7 @@ icon_small_help:                         <img src="assets/icons/help.gif" alt="H
 icon_info:                               <img src="assets/icons/info.jpg" alt="Information" align="absmiddle">
 icon_error:                              <img src="assets/icons/error.jpg" alt="Error" align="absmiddle">
 icon_save_ok:                            <img src="assets/icons/save_ok.jpg" alt="OK" align="absmiddle">
-icon_save_add:                           <img src="assets/icons/save_add.jpg" alt="Hinzuf�gen erfolgreich" align="absmiddle">
+icon_save_add:                           <img src="assets/icons/save_add.jpg" alt="Saving successful" align="absmiddle">
 icon_save_error:                         <img src="assets/icons/save_error.jpg" alt="Error while saving" align="absmiddle">
 icon_trash_ok:                           <img src="assets/icons/trash_ok.jpg" alt="Deletion successful" align="absmiddle">
 icon_trash_error:                        <img src="assets/icons/trash_error.jpg" alt="Error while deleting" align="absmiddle">

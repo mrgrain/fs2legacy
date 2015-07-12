@@ -136,7 +136,7 @@ if (isset($_POST['artikelid'])) {
                                     Artikel l&ouml;schen:
                                 </td>
                                 <td class="config">
-                                    <input onClick=\'delalert ("delartikel", "Soll der Shop-Artikel wirklich gel�scht werden?")\' type="checkbox" name="delartikel" id="delartikel" value="1">
+                                    <input onClick=\'delalert ("delartikel", "Soll der Shop-Artikel wirklich gelöscht werden?")\' type="checkbox" name="delartikel" id="delartikel" value="1">
                                 </td>
                             </tr>
                             <tr>

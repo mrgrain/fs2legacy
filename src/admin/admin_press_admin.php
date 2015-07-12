@@ -210,7 +210,7 @@ elseif (isset($_POST['entry_action'])
                                     <font class="small">
                                         Nur ausw&auml;hlen, wenn das bisherige Bild &uuml;berschrieben werden soll!
                                     </font><br /><br />
-                                    <input style="cursor:pointer; vertical-align:middle;" type="checkbox" name="entry_pic_delete" id="epd" value="1" onClick=\'delalert ("epd", "Soll das Bild wirklich gel�scht werden?")\' />
+                                    <input style="cursor:pointer; vertical-align:middle;" type="checkbox" name="entry_pic_delete" id="epd" value="1" onClick=\'delalert ("epd", "Soll das Bild wirklich gelöscht werden?")\' />
                                     <font class="small"><b>Bild l&ouml;schen?</b></font><br /><br />
         ';
     }

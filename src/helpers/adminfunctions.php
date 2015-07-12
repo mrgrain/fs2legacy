@@ -560,27 +560,27 @@ function create_editor($name, $text = '', $width = '', $height = '', $class = ''
     }
 
     $buttons = '';
-    $buttons .= create_editor_button_new('?editor=b.jpg', 'B', 'fett', "insert('$name', '[b]', '[/b]')");
-    $buttons .= create_editor_button_new('?editor=i.jpg', 'I', 'kursiv', "insert('$name', '[i]', '[/i]')");
-    $buttons .= create_editor_button_new('?editor=u.jpg', 'U', 'unterstrichen', "insert('$name','[u]','[/u]')");
-    $buttons .= create_editor_button_new('?editor=s.jpg', 'S', 'durgestrichen', "insert('$name', '[s]', '[/s]')");
+    $buttons .= create_editor_button_new('assets/editor/b.jpg', 'B', 'fett', "insert('$name', '[b]', '[/b]')");
+    $buttons .= create_editor_button_new('assets/editor/i.jpg', 'I', 'kursiv', "insert('$name', '[i]', '[/i]')");
+    $buttons .= create_editor_button_new('assets/editor/u.jpg', 'U', 'unterstrichen', "insert('$name','[u]','[/u]')");
+    $buttons .= create_editor_button_new('assets/editor/s.jpg', 'S', 'durgestrichen', "insert('$name', '[s]', '[/s]')");
     $buttons .= create_editor_seperator();
-    $buttons .= create_editor_button_new('?editor=center.jpg', 'CENTER', 'zentriert', "insert('$name', '[center]', '[/center]')");
+    $buttons .= create_editor_button_new('assets/editor/center.jpg', 'CENTER', 'zentriert', "insert('$name', '[center]', '[/center]')");
     $buttons .= create_editor_seperator();
-    $buttons .= create_editor_button_new('?editor=font.jpg', 'FONT', 'Schriftart', "insert_com('$name', 'font', 'Bitte gib die gew�nschte Schriftart ein:', '')");
-    $buttons .= create_editor_button_new('?editor=color.jpg', 'COLOR', 'Schriftfarbe', "insert_com('$name', 'color', 'Bitte gib die gew�nschte Schriftfarbe (englisches Wort) ein:', '')");
-    $buttons .= create_editor_button_new('?editor=size.jpg', 'SIZE', 'Schriftgr��e', "insert_com('$name', 'size', 'Bitte gib die gew�nschte Schriftgr��e (Zahl von 0-7) ein:', '')");
+    $buttons .= create_editor_button_new('assets/editor/font.jpg', 'FONT', 'Schriftart', "insert_com('$name', 'font', 'Bitte gib die gewünschte Schriftart ein:', '')");
+    $buttons .= create_editor_button_new('assets/editor/color.jpg', 'COLOR', 'Schriftfarbe', "insert_com('$name', 'color', 'Bitte gib die gewünschte Schriftfarbe (englisches Wort) ein:', '')");
+    $buttons .= create_editor_button_new('assets/editor/size.jpg', 'SIZE', 'Schriftgröße', "insert_com('$name', 'size', 'Bitte gib die gewünschte Schriftgröße (Zahl von 0-7) ein:', '')");
     $buttons .= create_editor_seperator();
-    $buttons .= create_editor_button_new('?editor=img.jpg', 'IMG', 'Bild einf�gen', "insert_mcom('$name', '[img]', '[/img]', 'Bitte gib die URL zu der Grafik ein:', 'http://')");
-    $buttons .= create_editor_button_new('?editor=cimg.jpg', 'CIMG', 'Content-Image einf�gen', "insert_mcom('$name', '[cimg]', '[/cimg]', 'Bitte gib den Namen des Content-Images (mit Endung) ein:', '')");
+    $buttons .= create_editor_button_new('assets/editor/img.jpg', 'IMG', 'Bild einfügen', "insert_mcom('$name', '[img]', '[/img]', 'Bitte gib die URL zu der Grafik ein:', 'http://')");
+    $buttons .= create_editor_button_new('assets/editor/cimg.jpg', 'CIMG', 'Content-Image einfügen', "insert_mcom('$name', '[cimg]', '[/cimg]', 'Bitte gib den Namen des Content-Images (mit Endung) ein:', '')");
     $buttons .= create_editor_seperator();
-    $buttons .= create_editor_button_new('?editor=url.jpg', 'URL', 'Link einf�gen', "insert_com('$name', 'url', 'Bitte gib die URL ein:', 'http://')");
-    $buttons .= create_editor_button_new('?editor=home.jpg', 'HOME', 'Projektinternen Link einf�gen', "insert_com('$name', 'home', 'Bitte gib den projektinternen Verweisnamen ein:', '')");
-    $buttons .= create_editor_button_new('?editor=email.jpg', '@', 'Email-Link einf�gen', "insert_com('$name', 'email', 'Bitte gib die Email-Adresse ein:', '')");
+    $buttons .= create_editor_button_new('assets/editor/url.jpg', 'URL', 'Link einfügen', "insert_com('$name', 'url', 'Bitte gib die URL ein:', 'http://')");
+    $buttons .= create_editor_button_new('assets/editor/home.jpg', 'HOME', 'Projektinternen Link einfügen', "insert_com('$name', 'home', 'Bitte gib den projektinternen Verweisnamen ein:', '')");
+    $buttons .= create_editor_button_new('assets/editor/email.jpg', '@', 'Email-Link einfügen', "insert_com('$name', 'email', 'Bitte gib die Email-Adresse ein:', '')");
     $buttons .= create_editor_seperator();
-    $buttons .= create_editor_button_new('?editor=code.jpg', 'C', 'Code-Bereich einf�gen', "insert('$name', '[code]', '[/code]')");
-    $buttons .= create_editor_button_new('?editor=quote.jpg', 'Q', 'Zitat einf�gen', "insert('$name', '[quote]', '[/quote]')");
-    $buttons .= create_editor_button_new('?editor=nofscode.jpg', 'N', 'Nicht umzuwandelnden Bereich einf�gen', "insert('$name', '[nofscode]', '[/nofscode]')");
+    $buttons .= create_editor_button_new('assets/editor/code.jpg', 'C', 'Code-Bereich einfügen', "insert('$name', '[code]', '[/code]')");
+    $buttons .= create_editor_button_new('assets/editor/quote.jpg', 'Q', 'Zitat einfügen', "insert('$name', '[quote]', '[/quote]')");
+    $buttons .= create_editor_button_new('assets/editor/nofscode.jpg', 'N', 'Nicht umzuwandelnden Bereich einfügen', "insert('$name', '[nofscode]', '[/nofscode]')");
 
 
     $textarea = '<table cellpadding="0" cellspacing="0" border="0" style="padding-bottom:4px">

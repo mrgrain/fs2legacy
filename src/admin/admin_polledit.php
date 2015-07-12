@@ -291,7 +291,7 @@ if (isset($_POST['pollid'])) {
                                     <input class="text" size="48" name="ant[' . $i . ']" value="' . killhtml($_POST['ant'][$i]) . '" maxlength="100">
                                     <input class="text" size="5" name="count[' . $i . ']" value="' . $_POST['count'][$i] . '" maxlength="5">
                                     <input name="dela[' . $i . ']" id="' . $i . '" value="' . $_POST['id'][$i] . '" type="checkbox"
-                                    onClick=\'delalert ("' . $i . '", "Soll die Antwortm�glichkeit ' . $j . ' wirklich gel�scht werden?")\'>
+                                    onClick=\'delalert ("' . $i . '", "Soll die Antwortmöglichkeit ' . $j . ' wirklich gelöscht werden?")\'>
                                     <input type="hidden" name="id[' . $i . ']" value="' . $_POST['id'][$i] . '">
                                 </td>
                             </tr>
@@ -345,7 +345,7 @@ if (isset($_POST['pollid'])) {
                                     Umfrage l&ouml;schen:
                                 </td>
                                 <td class="config">
-                                    <input onClick=\'delalert ("delpoll", "Soll die Umfrage wirklich gel�scht werden?")\' type="checkbox" name="delpoll" id="delpoll" value="1">
+                                    <input onClick=\'delalert ("delpoll", "Soll die Umfrage wirklich gelöscht werden?")\' type="checkbox" name="delpoll" id="delpoll" value="1">
                                 </td>
                             </tr>
                             <tr>

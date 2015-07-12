@@ -116,9 +116,9 @@ FS2_STRING;
                                     $('input[name="height"]').get(0).value = Math.round(width / ratio);
                                 } else {
                                     if(height == Math.round(width / ratio)){
-                                        alert("Das Seitenverh�ltnis passt");
+                                        alert("Das Seitenverhältnis passt");
                                     } else {
-                                        alert("Das Seitenverh�ltnis passt nicht");
+                                        alert("Das Seitenverhältnis passt nicht");
                                     }
                                 }
                                 return false;
