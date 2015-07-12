@@ -15,7 +15,7 @@
       "src/frogsystem/fs2legacy/autoload/helpers.php"
     ],
     "psr-4": {
-      "Frogsystem\\Legacy\\": "src/frogsystem/fs2legacy"
+      "Frogsystem\\Legacy\\": "src"
     }
   },
   "require": {

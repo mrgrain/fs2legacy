@@ -4,6 +4,7 @@ namespace Frogsystem\Legacy;
 use Aura\Router\Map;
 use Frogsystem\Legacy\Services\Config;
 use Frogsystem\Metamorphosis\Providers\RoutesProvider;
+use Frogsystem\Metamorphosis\Response\View;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -24,9 +25,11 @@ class Routes extends RoutesProvider
         $this->map->attach('legacy.', '/', function (Map $map) {
 
             // Admin
-            $map->get('admin.index', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST']);
+            //$map->get('admin.index', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST']);
             $map->get('admin.assets', 'admin/assets/{asset}', $this->controller('AdminController', 'assets'))
                 ->tokens(['asset' => '.+']);
+            $map->get('admin.page', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST'])
+                ->wildcard('page');
 
             // Index
             $map->get('index', '', $this->controller('PageController', 'index'))->allows(['POST']);
@@ -66,7 +69,7 @@ class Routes extends RoutesProvider
     public function page($name)
     {
         // Return closure
-        return function (ResponseInterface $response, Config $config) use ($name) {
+        return function (View $response, Config $config) use ($name) {
             // set old config
             $config->setConfig('goto', $name);
             $config->setConfig('env', 'goto', $name);
