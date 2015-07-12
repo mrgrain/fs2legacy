@@ -11,8 +11,8 @@
   "prefer-stable": true,
   "autoload": {
     "files": [
-      "src/frogsystem/fs2legacy/autoload/classloader.php",
-      "src/frogsystem/fs2legacy/autoload/helpers.php"
+      "src/autoload/classloader.php",
+      "src/autoload/helpers.php"
     ],
     "psr-4": {
       "Frogsystem\\Legacy\\": "src"

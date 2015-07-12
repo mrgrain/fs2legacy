@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "64f6202529c981fcb065856f0d0c927a",
+    "hash": "eb8fe4fc8fc0283577bdefa5b207807f",
     "packages": [
         {
             "name": "aura/router",
-            "version": "3.0.0-alpha2",
+            "version": "3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Router.git",
-                "reference": "2794b4b7499b30ad52331755b135e56d37b17ab5"
+                "reference": "bcf366a03a0231b73786f2d9329465ead04e4384"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/2794b4b7499b30ad52331755b135e56d37b17ab5",
-                "reference": "2794b4b7499b30ad52331755b135e56d37b17ab5",
+                "url": "https://api.github.com/repos/auraphp/Aura.Router/zipball/bcf366a03a0231b73786f2d9329465ead04e4384",
+                "reference": "bcf366a03a0231b73786f2d9329465ead04e4384",
                 "shasum": ""
             },
             "require": {
@@ -34,7 +34,7 @@
                     "Aura\\Router\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -52,7 +52,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2015-05-24 14:51:50"
+            "time": "2015-06-15 15:55:58"
         },
         {
             "name": "container-interop/container-interop",
@@ -87,12 +87,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/frogsystem/metamorphosis.git",
-                "reference": "e28f8e82a2a5e4aa45afdf0d53993e3f44316a20"
+                "reference": "588b7c9759dc3eff1fc615fc800a458e8af01fa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/frogsystem/metamorphosis/zipball/e28f8e82a2a5e4aa45afdf0d53993e3f44316a20",
-                "reference": "e28f8e82a2a5e4aa45afdf0d53993e3f44316a20",
+                "url": "https://api.github.com/repos/frogsystem/metamorphosis/zipball/588b7c9759dc3eff1fc615fc800a458e8af01fa6",
+                "reference": "588b7c9759dc3eff1fc615fc800a458e8af01fa6",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                     "Frogsystem\\Metamorphosis\\": "src/frogsystem/metamorphosis/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -130,7 +130,7 @@
             ],
             "description": "Simple web application framework, build around PSR-7 and container-interop standards.",
             "homepage": "https://github.com/frogsystem/metamorphosis",
-            "time": "2015-06-14 10:01:00"
+            "time": "2015-06-14 11:07:29"
         },
         {
             "name": "frogsystem/spawn",
@@ -190,31 +190,27 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.4",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "56862959b45131ad33e5a7727a25db19f2cf090b"
+                "reference": "b58431785768abbb4f00c10e66a065095a0693ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/56862959b45131ad33e5a7727a25db19f2cf090b",
-                "reference": "56862959b45131ad33e5a7727a25db19f2cf090b",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b58431785768abbb4f00c10e66a065095a0693ef",
+                "reference": "b58431785768abbb4f00c10e66a065095a0693ef",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
                 "php": ">=5.4.0"
             },
             "require-dev": {
                 "ext-fileinfo": "*",
-                "league/phpunit-coverage-listener": "~1.1",
                 "mockery/mockery": "~0.9",
-                "phpspec/phpspec": "~2.0",
+                "phpspec/phpspec": "^2.2",
                 "phpspec/prophecy-phpunit": "~1.0",
-                "phpunit/phpunit": "~4.1",
-                "predis/predis": "~1.0",
-                "tedivm/stash": "~0.12.0"
+                "phpunit/phpunit": "~4.1"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -228,8 +224,7 @@
                 "league/flysystem-rackspace": "Allows you to use Rackspace Cloud Files",
                 "league/flysystem-sftp": "Allows you to use SFTP server storage via phpseclib",
                 "league/flysystem-webdav": "Allows you to use WebDAV storage",
-                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter",
-                "predis/predis": "Allows you to use Predis for caching"
+                "league/flysystem-ziparchive": "Allows you to use ZipArchive adapter"
             },
             "type": "library",
             "extra": {
@@ -242,7 +237,7 @@
                     "League\\Flysystem\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -252,10 +247,11 @@
                     "email": "info@frenky.net"
                 }
             ],
-            "description": "Many filesystems, one API.",
+            "description": "Filesystem abstraction: Many filesystems, one API.",
             "keywords": [
                 "Cloud Files",
                 "WebDAV",
+                "abstraction",
                 "aws",
                 "cloud",
                 "copy.com",
@@ -263,6 +259,7 @@
                 "file systems",
                 "files",
                 "filesystem",
+                "filesystems",
                 "ftp",
                 "rackspace",
                 "remote",
@@ -270,7 +267,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-06-07 21:27:37"
+            "time": "2015-07-11 14:58:06"
         },
         {
             "name": "psr/http-message",
@@ -361,16 +358,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.0.3",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "1dce37e6df582f65d7db29cabb3310ddc50b4a50"
+                "reference": "eeedadd333b80bb5d93559e2285047463fe4fe33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/1dce37e6df582f65d7db29cabb3310ddc50b4a50",
-                "reference": "1dce37e6df582f65d7db29cabb3310ddc50b4a50",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/eeedadd333b80bb5d93559e2285047463fe4fe33",
+                "reference": "eeedadd333b80bb5d93559e2285047463fe4fe33",
                 "shasum": ""
             },
             "require": {
@@ -396,7 +393,7 @@
                     "Zend\\Diactoros\\": "src/"
                 }
             },
-            "notification-url": "http://packagist.org/downloads/",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-2-Clause"
             ],
@@ -407,7 +404,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2015-06-04 19:49:11"
+            "time": "2015-06-25 18:07:28"
         }
     ],
     "packages-dev": [],
