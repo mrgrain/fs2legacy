@@ -1,7 +1,7 @@
 # pressadmin phrases
 
-delpage:                                           Eintrag löschen
-delpage_question:                                  Soll der Eintrag wirklich gelöscht werden?
-delconfirm:                                        Eintrag löschen
-delnotconfirm:                                     Eintrag nicht löschen
+delpage:                                           Eintrag lÃ¶schen
+delpage_question:                                  Soll der Eintrag wirklich gelÃ¶scht werden?
+delconfirm:                                        Eintrag lÃ¶schen
+delnotconfirm:                                     Eintrag nicht lÃ¶schen
 note_noreleases:                                   Es wurden keine Presseberichte gefunden!

@@ -3,10 +3,10 @@
 start_time:                                        Startzeit
 end_time:                                          Endzeit
 title:                                             Titel
-delpic:                                            Zeitgesteuertes Zufallsbild löschen
-delpic_question:                                   Soll das zeitgesteuertes Zufallsbild wirklich gelöscht werden?
-delconfirm:                                        Zufallsbild löschen
-delnotconfirm:                                     Zufallsbild nicht löschen
-delnote:                                           <b>Hinweis:</b> Es wird lediglich der Eintrag als zeitgesteuertes Zufallsbild gelöscht. Das Bild als solches bleibt erhalten.
-note_deleted:                                      Das zeitgesteuerte Zufallsbild wurde erfolgreich gelöscht!
-note_notdeleted:                                   Das zeitgesteuerte Zufallsbild wurde nicht gelöscht!
+delpic:                                            Zeitgesteuertes Zufallsbild lÃ¶schen
+delpic_question:                                   Soll das zeitgesteuertes Zufallsbild wirklich gelÃ¶scht werden?
+delconfirm:                                        Zufallsbild lÃ¶schen
+delnotconfirm:                                     Zufallsbild nicht lÃ¶schen
+delnote:                                           <b>Hinweis:</b> Es wird lediglich der Eintrag als zeitgesteuertes Zufallsbild gelÃ¶scht. Das Bild als solches bleibt erhalten.
+note_deleted:                                      Das zeitgesteuerte Zufallsbild wurde erfolgreich gelÃ¶scht!
+note_notdeleted:                                   Das zeitgesteuerte Zufallsbild wurde nicht gelÃ¶scht!

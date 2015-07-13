@@ -1,1 +1,1 @@
-select_applet: Applet ausw‰hlen
+select_applet: Applet ausw√§hlen

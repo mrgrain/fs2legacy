@@ -2,6 +2,6 @@
 first:          Erste Seite
 last:           Letzte Seite
 next:           weiter
-prev:           zurück
+prev:           zurÃ¼ck
 page:           Seite %2$d von %1$d
-entries:        Einträge %2$d bis %3$d von %1$d
+entries:        EintrÃ¤ge %2$d bis %3$d von %1$d

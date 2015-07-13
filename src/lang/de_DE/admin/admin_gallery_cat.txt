@@ -7,23 +7,23 @@ subcat_separator:           ----------------------------------------
 type_img:                   Bilder
 type_wp:                    Wallpaper
 
-visibility_full:            vollständig
+visibility_full:            vollstÃ¤ndig
 visibility_notinlist:       nicht in Auswahl
 visibility_none:            keine
 
-visibility_full_long:       vollständig sichtbar
-visibility_notinlist_long:  nicht in Auswahl verfügbar
+visibility_full_long:       vollstÃ¤ndig sichtbar
+visibility_notinlist_long:  nicht in Auswahl verfÃ¼gbar
 visibility_none_long:       keine Sichtbarkeit
 
 id:                         ID
 
 
 
-add_title:                  Kategorie hinzufügen
+add_title:                  Kategorie hinzufÃ¼gen
 
 
 main_settings:              Haupteinstellungen
-additional_infos:           Zusätzliche Informationen
+additional_infos:           ZusÃ¤tzliche Informationen
 sort_options:               Darstellungs- und Sortierungsoptionen
 
 
@@ -40,12 +40,12 @@ date_desc:                  Legt fest an welchem Datum die Kategorie erstellt wu
 user:                       Benutzer
 user_desc:                  Legt fest von wem die Kategorie erstellt wurde.
 cat_img:                    Bild
-cat_img_desc:               Ein Bild, das als Symbol für die Kategorie steht.
+cat_img_desc:               Ein Bild, das als Symbol fÃ¼r die Kategorie steht.
 text:                       Beschreibung
 text_desc:                  Eine Beschreibung der Inhalte der Kategorie.
 
 
 
-delete_title:               Kategorien löschen
-delete_question:            Sollen die folgenden Kategorien wirklich gelöscht werden?
-delete_info:                Die den Kategorien zugeordneten Bilder und Wallpaper finden Sie nach dem Löschen unter dem Eintrag "unsortiert".
+delete_title:               Kategorien lÃ¶schen
+delete_question:            Sollen die folgenden Kategorien wirklich gelÃ¶scht werden?
+delete_info:                Die den Kategorien zugeordneten Bilder und Wallpaper finden Sie nach dem lÃ¶schen unter dem Eintrag "unsortiert".

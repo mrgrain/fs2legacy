@@ -8,5 +8,5 @@ edit_filter_sort: sortieren nach
 edit_filter_date: Datum
 edit_filter_arttitle: Titel
 edit_filter_url: URL
-edit_select_article: Artikel ausw‰hlen
-edit_entries_found: Datens‰tze gefunden
+edit_select_article: Artikel ausw√§hlen
+edit_entries_found: Datens√§tze gefunden

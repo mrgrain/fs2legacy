@@ -17,19 +17,19 @@ dyn_title_page_title_ext:   Seitenspezifische Titel-Erweiterung
 virtualhost:                URL & Protokoll
 virtualhost_desc:           URL und Standard-Protokoll der Seite.
 other_protocol:             Beide Protokolle erlauben
-other_protocol_desc:        Erlaubt den Aufruf der Seite über beide Protokolle.
+other_protocol_desc:        Erlaubt den Aufruf der Seite Ã¼ber beide Protokolle.
 
 admin_mail:                 E-Mail-Adresse
-admin_mail_desc:            Absender-Adresse für vom System versendete E-Mails.
+admin_mail_desc:            Absender-Adresse fÃ¼r vom System versendete E-Mails.
 
 description:                Beschreibung
-description_desc:           Ein kurzer Text über die Seite.
+description_desc:           Ein kurzer Text Ã¼ber die Seite.
 
 author:                     Autor
 author_desc:                Der oder die Webmaster der Seite.
 
 keywords:                   Keywords
-keywords_desc:              Stichwörter zur Seite, bitte mit Kommas trennen.<br>Wichtig für Suchmaschinen!
+keywords_desc:              StichwÃ¶rter zur Seite, bitte mit Kommas trennen.<br>Wichtig fÃ¼r Suchmaschinen!
 
 config_publisher_title:     Herausgeber
 config_publisher_desc:      Herausgeber (Webmaster) der Seite.
@@ -47,7 +47,7 @@ show_favicon:               Favicon verwenden
 show_favicon_desc:          Bindet das Favicon ein.<br>($VAR(style_icons)favicon.ico)
 
 home_page:                  Startseite
-home_page_desc:             Legt die Seite fest, die standardmäßig angezeigt wird.
+home_page_desc:             Legt die Seite fest, die standardmÃ¤ÃŸig angezeigt wird.
 home_page_default:          Standard (?go=news)
 
 language:                   Sprache
@@ -69,11 +69,11 @@ url_style_seo:              Suchmaschinen optimiert (seite--p1-v1.html)
 date:                       Datum
 date_desc:                  Datumsformat, das auf der Seite verwendet werden soll.
 time:                       Zeit
-time_desc:                  Format, das für Zeitangaben auf der Seite verwendet wird.
+time_desc:                  Format, das fÃ¼r Zeitangaben auf der Seite verwendet wird.
 date_time:                  Datum &amp; Zeit
-date_time_desc:             Format, das für Datums- und Zeitangaben auf der Seite verwendet wird.
+date_time_desc:             Format, das fÃ¼r Datums- und Zeitangaben auf der Seite verwendet wird.
 timezone:                   Zeitzone
-timezone_desc:              Zeitzone in der die Webseite ausgeführt wird.
+timezone_desc:              Zeitzone in der die Webseite ausgefÃ¼hrt wird.
 server_default:             Server-Standard
 
 auto_forward:               Automatische Weiterleitung
@@ -86,13 +86,13 @@ referer_inactive:           deaktiviert
 
 page:                       Seitenanzeige
 page_desc:                  Design der Seitenanzeige bei mehrseitigen Anzeigen.
-page_prev:                  Seite zurück
-page_prev_desc:             Design der "Seite zurück" Schaltfläche.
+page_prev:                  Seite zurÃ¼ck
+page_prev_desc:             Design der "Seite zurÃ¼ck" SchaltflÃ¤che.
 page_next:                  Seite weiter
-page_next_desc:             Design der "Seite weiter" Schaltfläche. 
+page_next_desc:             Design der "Seite weiter" SchaltflÃ¤che.
 page_text_page_num:         Nummer der aktuelle Seite    
 page_text_total_pages:      Gesamtzahl der Seiten
-page_text_next:             "Seite zurück" Schaltfläche
-page_text_prev:             "Seite weiter" Schaltfläche
+page_text_next:             "Seite zurÃ¼ck" SchaltflÃ¤che
+page_text_prev:             "Seite weiter" SchaltflÃ¤che
 page_prev_url:              URL zur vorherigen Seite
-page_next_url:              URL zur nächsten Seite
+page_next_url:              URL zur nÃ¤chsten Seite

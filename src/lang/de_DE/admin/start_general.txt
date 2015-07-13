@@ -2,7 +2,7 @@ title:              Seitentitel
 url:                URL
 online_since:       Online seit
 online_visitors:    Besucher online
-online_guests:      davon Gäste
+online_guests:      davon GÃ¤ste
 online_registered: 	davon registrierte User
 visits_total:       Besucher gesamt
 visits_today: 	    Besucher heute

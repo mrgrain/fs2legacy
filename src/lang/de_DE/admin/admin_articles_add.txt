@@ -1,8 +1,8 @@
 articles_info_title: Informationen
 articles_url: URL
-articles_url_desc: Teil der URL, der an ?go= angehängt wird.
+articles_url_desc: Teil der URL, der an ?go= angehÃ¤ngt wird.
 articles_cat: Kategorie
-articles_cat_desc: Die Kategorie, der der Artikel angehört.
+articles_cat_desc: Die Kategorie, der der Artikel angehÃ¶rt.
 articles_date: Erstellungsdatum
 articles_date_desc: Erstellungsdatum des Artikels.
 articles_poster: Autor
@@ -13,5 +13,5 @@ articles_text: Text
 articles_use_html: HTML verwenden
 articles_use_fscode: FSCode verwenden
 articles_use_para: Absatzbehandlung verwenden
-articles_add_button: Artikel hinzufügen
-articles_added: Artikel wurde hinzugefügt
+articles_add_button: Artikel hinzufÃ¼gen
+articles_added: Artikel wurde hinzugefÃ¼gt

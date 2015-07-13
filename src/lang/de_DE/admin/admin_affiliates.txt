@@ -1,7 +1,7 @@
 small_pic:                                         Partnerbild klein
-small_pic_desc:                                    Kleines Partnerbild für die Navigation.
-big_pic:                                           Partnerbild groß
-big_pic_desc:                                      Großes Partnerbild für die Übersichtsseite.
+small_pic_desc:                                    Kleines Partnerbild fÃ¼r die Navigation.
+big_pic:                                           Partnerbild groÃŸ
+big_pic_desc:                                      GroÃŸes Partnerbild fÃ¼r die Ãœbersichtsseite.
 name:                                              Partnername
 name_desc:                                         Name der Partnerseite.
 link:                                              Link
@@ -11,21 +11,21 @@ desc_desc:                                         Kurze Beschreibung der Partne
 perm:                                              Permanent angezeigen
 perm_desc:                                         Kleines Partnerbild wird in der Navigation permanent angezeigt.
 partnerpage:                                       Partnerseite
-delpage:                                           Partnerseite löschen
-delpage_question:                                  Soll die Partnerseite wirklich gelöscht werden?
-delconfirm:                                        Partnerseite löschen
-delnotconfirm:                                     Partnerseite nicht löschen
-add:                                               Partnerseite hinzufügen
-save:                                              Änderungen speichern
+delpage:                                           Partnerseite lÃ¶schen
+delpage_question:                                  Soll die Partnerseite wirklich gelÃ¶scht werden?
+delconfirm:                                        Partnerseite lÃ¶schen
+delnotconfirm:                                     Partnerseite nicht lÃ¶schen
+add:                                               Partnerseite hinzufÃ¼gen
+save:                                              Ã„nderungen speichern
 exact:                                             exakt
 max:                                               max.
 px:                                                Pixel
 kb:                                                KB
-note_notadded:                                     Partnerseite konnte nicht hinzugefügt werden!
-note_addmore:                                      Weitere Partnerseite hinzufügen:
+note_notadded:                                     Partnerseite konnte nicht hinzugefÃ¼gt werden!
+note_addmore:                                      Weitere Partnerseite hinzufÃ¼gen:
 note_uploaded:                                     Bilder wurden hochgeladen!
-note_added:                                        Partnerseite wurde hinzugefügt!
-note_edited:                                       Änderungen wurden erfolgreich gespeichert!
-note_deleted:                                      Die Partnerseite wurde erfolgreich gelöscht!
-note_notdeleted:                                   Die Partnerseite wurde nicht gelöscht!
+note_added:                                        Partnerseite wurde hinzugefÃ¼gt!
+note_edited:                                       Ã„nderungen wurden erfolgreich gespeichert!
+note_deleted:                                      Die Partnerseite wurde erfolgreich gelÃ¶scht!
+note_notdeleted:                                   Die Partnerseite wurde nicht gelÃ¶scht!
 note_nopages:                                      Es wurden keine Partnerseiten gefunden!

@@ -8,7 +8,7 @@ overview_table_edited_by:     von
 overview_table_edited_never:  Nie
 overview_table_action:        Aktion
 overview_table_action_edit:   bearbeiten
-overview_table_action_remove: löschen
+overview_table_action_remove: lÃ¶schen
 
 detail_head:          FS-Code bearbeiten
 detail_name:          Name des Codes

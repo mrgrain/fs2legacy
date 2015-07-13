@@ -1,19 +1,19 @@
-headline_lenght:                           Headlines kürzen auf
+headline_lenght:                           Headlines kÃ¼rzen auf
 headline_lenght_desc:                      Max. Zeichenzahl einer Headline.
-headline_lenght_info:                      -1 um Headlines nicht zu kürzen
+headline_lenght_info:                      -1 um Headlines nicht zu kÃ¼rzen
 headline_extension:                        Headline-Erweiterung
-headline_extension_desc:                   Wird an eine gekürzte Headline angehängt.
+headline_extension_desc:                   Wird an eine gekÃ¼rzte Headline angehÃ¤ngt.
 
 admincp_settings_title:                     Admin-CP Einstellungen
 entry_view:                                 Eintrag Ansicht
 entry_view_desc:                            Darstellungsart eines Eintrags in der Newsliste.
 entry_view_simple:                          einfache Ansicht
 entry_view_extended:                        erweiterte Ansicht
-entry_view_full:                            vollständige Ansicht
-entries_per_page:                           Einträge pro Seite
-entries_per_page_desc:                      Einträge, die pro Seite der Newsliste angezeigt werden.
+entry_view_full:                            vollstÃ¤ndige Ansicht
+entries_per_page:                           EintrÃ¤ge pro Seite
+entries_per_page_desc:                      EintrÃ¤ge, die pro Seite der Newsliste angezeigt werden.
 force_cat_selection:                        Kategorieauswahl erzwingen
-force_cat_selection_desc:                   Erzwingt das Auswählen einer Kategorie beim News schreiben
+force_cat_selection_desc:                   Erzwingt das AuswÃ¤hlen einer Kategorie beim News schreiben
 
 
 
@@ -22,7 +22,7 @@ news_per_page:                                     News pro Seite
 news_per_page_desc:                                Anzahl der News, die pro Seite angezeigt werden.
 num_headlines:                                     Headlines
 num_headlines_desc:                                Anzahl der Headlines, die angezeigt werden.
-post_settings_title:                               Beiträge
+post_settings_title:                               BeitrÃ¤ge
 allow_html:                                        HTML-Code
 allow_html_desc:                                   Erlaubt HTML-Code in ...
 allow_fs:                                          FSCode
@@ -36,13 +36,13 @@ allow_code_both:                                   News & Kommentaren
 cat_settings_title:                                Kategorien
 cat_img_max_width:                                 Kategorie Bild - max. Breite
 cat_img_max_width_desc:                            Max. Breite eines Kategorie Bildes in Pixeln.
-cat_img_max_height:                                Kategorie Bild - max. Höhe
-cat_img_max_height_desc:                           Max. Höhe eines Kategorie Bildes in Pixeln.
-cat_img_max_size:                                  Kategorie Bild - max. Dateigröße
-cat_img_max_size_desc:                             Max. Dateigröße eines Kategorie Bildes in KiB.
+cat_img_max_height:                                Kategorie Bild - max. HÃ¶he
+cat_img_max_height_desc:                           Max. HÃ¶he eines Kategorie Bildes in Pixeln.
+cat_img_max_size:                                  Kategorie Bild - max. DateigrÃ¶ÃŸe
+cat_img_max_size_desc:                             Max. DateigrÃ¶ÃŸe eines Kategorie Bildes in KiB.
 comment_settings_title:                            Kommentare
-allow_comments:                                    Kommentare erlauben für
-allow_comments_desc:                               Kommentare schreiben erlauben für ...
+allow_comments:                                    Kommentare erlauben fÃ¼r
+allow_comments_desc:                               Kommentare schreiben erlauben fÃ¼r ...
 allow_comments_all:                                alle User
 allow_comments_staff:                              Mitarbeiter
 allow_comments_reg:                                registrierte User
@@ -52,10 +52,10 @@ sort_comments:                                     Kommentare sortieren
 sort_comments_desc:                                Die Anzeige-Reihenfolge der Kommentare.
 sort_comments_old_first:                           Alte zuerst
 sort_comments_new_first:                           Neue zuerst
-anti_spam_comments:                                Anti Spam bei Kommentaren für
-anti_spam_comments_desc:                           Anti Spam Captcha bei Kommentaren aktivieren für ...
+anti_spam_comments:                                Anti Spam bei Kommentaren fÃ¼r
+anti_spam_comments_desc:                           Anti Spam Captcha bei Kommentaren aktivieren fÃ¼r ...
 anti_spam_comments_all:                            alle User
-anti_spam_comments_staff:                          alle außer Mitarbeiter
+anti_spam_comments_staff:                          alle auÃŸer Mitarbeiter
 anti_spam_comments_reg:                            nicht registrierte User
 anti_spam_comments_nobody:                         niemanden
-anti_spam_comments_admins:                         alle außer Administratoren
+anti_spam_comments_admins:                         alle auÃŸer Administratoren

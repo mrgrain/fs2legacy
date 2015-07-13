@@ -76,6 +76,7 @@ class AdminController extends Controller
 
         // Content
         $page = $this->detectPage();
+        $this->text['page'] = $page['template']->getLang();
         $content = $this->getPageContent($page['file'], $page['template']);
         $leftMenu = $this->getLeftMenu($page['menu']);
         $default_menu = $renderer->render('main.tpl/default_menu', []);
@@ -149,13 +150,6 @@ SQL
             // get the page-data
             $PAGE_DATA_ARR = createpage($title, has_perm($acp_arr['page_id']), $acp_arr['page_file'], $acp_arr['menu_id']);
 
-            // Get Special Page Lang-Text-Files
-            $page_lang = new Lang($this->config->config('language_text'), 'admin/' . substr($acp_arr['page_file'], 0, -4));
-            $common_lang = $this->text['admin'];
-
-            // initialise template system
-            $PAGE_DATA_ARR['template'] = new \adminpage($acp_arr['page_file'], $page_lang, $common_lang);
-
         } else {
             $PAGE_DATA_ARR['created'] = false;
             define('POPUP', false);
@@ -175,6 +169,13 @@ SQL
             $go = '404';
             $PAGE_DATA_ARR = createpage($this->text['menu']->get("admin_error_page_title"), true, 'admin_404.php', 'error');
         }
+
+        // Get Special Page Lang-Text-Files
+        $page_lang = new Lang($this->config->config('language_text'), 'admin/' . substr($PAGE_DATA_ARR['file'], 0, -4));
+        $common_lang = $this->text['admin'];
+
+        // initialise template system
+        $PAGE_DATA_ARR['template'] = new \adminpage($PAGE_DATA_ARR['file'], $page_lang, $common_lang);
 
 
         // Define Constant

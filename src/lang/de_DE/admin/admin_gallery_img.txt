@@ -2,17 +2,17 @@
 
 # Language-Definition for [FS2]/admin/template/admin_gallery_img.tpl
 
-add_title:                      Bilder hinzufügen
+add_title:                      Bilder hinzufÃ¼gen
 
-add_select_images:              Bilder auswählen
+add_select_images:              Bilder auswÃ¤hlen
 add_img_title:                  Titel
 
 more_uploads:                   Weitere Upload-Felder
 more_uploads_button:            +
-more_uploads_title:             Upload-Felder hinzufügen
+more_uploads_title:             Upload-Felder hinzufÃ¼gen
 
 unsorted:                       (unsortiert)
 img_folder:                     Ordner
 cat_default:                    Kategorie-Standard
 global_default:                 Galerie-Standard
-upload_images:                  Bilder hinzufügen
+upload_images:                  Bilder hinzufÃ¼gen
