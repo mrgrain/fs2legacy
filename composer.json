@@ -19,6 +19,6 @@
     }
   },
   "require": {
-    "frogsystem/metamorphosis": "dev-master"
+    "frogsystem/metamorphosis": "dev-develop"
   }
 }
