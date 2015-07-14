@@ -37,8 +37,8 @@ function get_maintemplate($BODY, $PATH_PREFIX = '', $BASE = FALSE)
     $template_feed = '<link rel="alternate" type="application/rss+xml" href="' . url('feed', array('xml' => $FD->config('feed')), true) . '" title="' . $FD->config('title') . ' ' . $FD->text('frontend', 'news_feed') . '">';
 
     // Create Script-Lines
-    $template_javascript = get_js($PATH_PREFIX) . '
-    <script type="text/javascript" src="' . $PATH_PREFIX . 'assets/main.js"></script>';
+    $template_javascript = get_js() . '
+    <script type="text/javascript" src="' . $FD->cfg('virtualhost') . 'assets/main.js"></script>';
 
     // Get HTML-Matrix
     $theTemplate->load('MATRIX');
@@ -71,7 +71,7 @@ function get_css($PATH_PREFIX)
 
     // Get List of CSS-Files
     $search_path = FS2STYLES . '/' . $FD->config('style');
-    $link_path = $PATH_PREFIX . 'styles/' . $FD->config('style');
+    $link_path = $FD->cfg('virtualhost') . 'styles/' . $FD->config('style');
     $files = scandir_ext($search_path, 'css');
 
     // Filter Go-CSS-Files
@@ -123,13 +123,13 @@ function get_css($PATH_PREFIX)
 ///////////////////////
 //// Get JS-Links ////
 ///////////////////////
-function get_js($PATH_PREFIX)
+function get_js()
 {
     global $FD;
 
     // Get List of JS-Files
     $search_path = FS2STYLES . '/' . $FD->config('style');
-    $link_path = $PATH_PREFIX . 'styles/' . $FD->config('style');
+    $link_path = $FD->cfg('virtualhost') . 'styles/' . $FD->config('style');
     $files = scandir_ext($search_path, 'js');
 
     // Get Go-JS-Files

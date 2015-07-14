@@ -28,7 +28,7 @@ class UrlMiddleware implements MiddlewareInterface
         // path
         $path = $request->getUri()->getPath();
 
-        // admin
+        // skip admin
         if (0 === strpos($path, "/admin")) {
             return $next($request);
         }
