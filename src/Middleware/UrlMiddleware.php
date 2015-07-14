@@ -34,16 +34,16 @@ class UrlMiddleware implements MiddlewareInterface
         }
 
         // check seo
-        if ($this->config->cfg('url_style') == 'seo' && 1 === preg_match('~^(.+)\.html$~', $path, $seo)) {
-            $_GET['seoq'] = $seo;
-            get_seo();
+        if ($this->config->cfg('url_style') == 'seo' && 1 === preg_match('~^/(.+)\.html$~', $path, $seo)) {
+            $_GET['seoq'] = $seo[1];
+            get_seo(true);
         }
 
         // Check $_GET['go']
         $this->config->setConfig('env', 'get_go_raw', isset($_GET['go']) ? $_GET['go'] : null);
         if (isset($_GET['go'])) {
             // current uri
-            $uri = $request->getUri()->withPath('/'.$_GET['go']);
+            $uri = $request->getUri()->withPath('/'.$_GET['go'].'/');
 
             // Articles from DB
             $stmt = $this->db->conn()->prepare(<<<SQL

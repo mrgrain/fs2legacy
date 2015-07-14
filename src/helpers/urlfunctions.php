@@ -90,7 +90,7 @@ function parse_url_query($query)
 
 
 // fs2seourl Version 1.01 (27.08.2001)
-function get_seo()
+function get_seo($calledbyrewrite = false)
 {
 
     global $FD;
@@ -103,8 +103,6 @@ function get_seo()
 
     $redirect = false;
 
-    // Wurde dieser Skript direkt aufgrufen werden oder indirekt ueber mod_rewrite?
-    $calledbyrewrite = isset($_SERVER['REDIRECT_QUERY_STRING']);
 
     // mod_rewrite schreibt in seoq den Dateinamen der fiktiven HTML-Datei (ohne die .html-Dateiendung).
     // Dieser Name muss nun zerlegt und in die Parameter uebersetzt werden, welche das FrogSystem erwaretet.
