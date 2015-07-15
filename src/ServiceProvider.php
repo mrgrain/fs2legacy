@@ -35,7 +35,7 @@ class ServiceProvider extends \Frogsystem\Metamorphosis\Providers\ServiceProvide
             );
         });
 
-        $this->app['Frogsystem\\Metamorphosis\\Contracts\\Renderer'] =
+        $this->app['Frogsystem\\Metamorphosis\\Contracts\\RendererInterface'] =
             $this->app->one('Frogsystem\\Legacy\\PageRenderer');
     }
 }

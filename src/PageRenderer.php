@@ -3,9 +3,9 @@ namespace Frogsystem\Legacy;
 
 use Frogsystem\Legacy\Services\Config;
 use Frogsystem\Legacy\Services\Database;
-use Frogsystem\Metamorphosis\Contracts\Renderer;
+use Frogsystem\Metamorphosis\Contracts\RendererInterface;
 
-class PageRenderer implements Renderer
+class PageRenderer implements RendererInterface
 {
     const APPLET_PATH = FS2APPLETS;
 
