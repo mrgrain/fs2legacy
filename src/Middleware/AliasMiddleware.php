@@ -37,7 +37,7 @@ class AliasMiddleware implements MiddlewareInterface
 
         $aliases = $this->db->conn()->prepare(<<<SQL
           SELECT `alias_go`, `alias_forward_to`
-          FROM `{$this->config->env('DB_PREFIX')}aliases`
+          FROM `{$this->db->getPrefix()}aliases`
           WHERE `alias_active` = 1 AND `alias_go` = ?
 SQL
         );

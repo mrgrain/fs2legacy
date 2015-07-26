@@ -12,7 +12,7 @@ $config_arr = $FD->configObject('screens')->getConfigArray();
 
 if (isset($_FILES['sizeimg_0']) AND isset($_POST['size']['0']) AND !emptystr($_POST['wallpaper_name']) AND isset($_POST['wpadd']) AND $_POST['wpadd'] == 1) {
 
-    $index = $FD->db()->conn()->prepare('SELECT COUNT(*) AS wp_count FROM ' . $FD->env('DB_PREFIX') . 'wallpaper WHERE wallpaper_name = ?');
+    $index = $FD->db()->conn()->prepare('SELECT COUNT(*) AS wp_count FROM ' . $FD->db()->getPrefix() . 'wallpaper WHERE wallpaper_name = ?');
     $index->execute(array($_POST['wallpaper_name']));
     $row = $index->fetch(PDO::FETCH_ASSOC);
     if ($row['wp_count'] == 0) {
@@ -25,7 +25,7 @@ if (isset($_FILES['sizeimg_0']) AND isset($_POST['size']['0']) AND !emptystr($_P
         }
 
         $_POST['catid'] = intval($_POST['catid']);
-        $stmt = $FD->db()->conn()->prepare('INSERT INTO ' . $FD->env('DB_PREFIX') . "wallpaper (wallpaper_name, wallpaper_title, cat_id)
+        $stmt = $FD->db()->conn()->prepare('INSERT INTO ' . $FD->db()->getPrefix() . "wallpaper (wallpaper_name, wallpaper_title, cat_id)
                  VALUES (?,
                          ?,
                          '" . $_POST['catid'] . "')");
@@ -43,7 +43,7 @@ if (isset($_FILES['sizeimg_0']) AND isset($_POST['size']['0']) AND !emptystr($_P
                 $message .= "WP Gr&ouml;&szlig;e $i: " . upload_img_notice($upload) . '<br>';
                 switch ($upload) {
                     case 0:
-                        $stmt = $FD->db()->conn()->prepare('INSERT INTO ' . $FD->env('DB_PREFIX') . "wallpaper_sizes (wallpaper_id, size)
+                        $stmt = $FD->db()->conn()->prepare('INSERT INTO ' . $FD->db()->getPrefix() . "wallpaper_sizes (wallpaper_id, size)
                        VALUES ('" . $wp_id . "', ?)");
                         $stmt->execute(array($_POST['size'][$j]));
                         break;
@@ -119,7 +119,7 @@ echo '
                                 <td class="config" valign="top">
                                     <select name="catid">
 ';
-$index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'screen_cat WHERE cat_type = 2');
+$index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'screen_cat WHERE cat_type = 2');
 while ($cat_arr = $index->fetch(PDO::FETCH_ASSOC)) {
     echo '
                                         <option value="' . $cat_arr['cat_id'] . '">

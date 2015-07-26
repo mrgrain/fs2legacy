@@ -15,7 +15,7 @@ if (
 
     // SQL-Queries
     $stmt = $FD->db()->conn()->prepare('
-                UPDATE `' . $FD->env('DB_PREFIX') . "snippets`
+                UPDATE `' . $FD->db()->getPrefix() . "snippets`
                 SET
                     `snippet_text` = ?,
                     `snippet_active` = '" . $_POST['snippet_active'] . "'
@@ -48,7 +48,7 @@ elseif (
         // SQL-Delete-Query
         $FD->db()->conn()->exec('
             DELETE
-            FROM `' . $FD->env('DB_PREFIX') . 'snippets`
+            FROM `' . $FD->db()->getPrefix() . 'snippets`
             WHERE `snippet_id` IN (' . implode(',', $_POST['snippet_id']) . ')');
 
         systext($FD->text("admin", "snippets_deleted"),
@@ -85,7 +85,7 @@ if (isset ($_POST['snippet_id']) && is_array($_POST['snippet_id']) && $_POST['sn
         } else {
             $index = $FD->db()->conn()->query('
                         SELECT *
-                        FROM `' . $FD->env('DB_PREFIX') . "snippets`
+                        FROM `' . $FD->db()->getPrefix() . "snippets`
                         WHERE `snippet_id` = '" . $_POST['snippet_id'] . "'
                         LIMIT 0,1");
             $data_arr = $index->fetch(PDO::FETCH_ASSOC);
@@ -182,7 +182,7 @@ if (isset ($_POST['snippet_id']) && is_array($_POST['snippet_id']) && $_POST['sn
         // get snippets from db
         $index = $FD->db()->conn()->query('
                         SELECT COUNT(*)
-                        FROM `' . $FD->env('DB_PREFIX') . 'snippets`
+                        FROM `' . $FD->db()->getPrefix() . 'snippets`
                         WHERE `snippet_id` IN (' . implode(',', $_POST['snippet_id']) . ')');
         // snippets found
         if ($index->fetchColumn() > 0) {
@@ -190,7 +190,7 @@ if (isset ($_POST['snippet_id']) && is_array($_POST['snippet_id']) && $_POST['sn
             // display snippets
             $index = $FD->db()->conn()->query('
                         SELECT *
-                        FROM `' . $FD->env('DB_PREFIX') . 'snippets`
+                        FROM `' . $FD->db()->getPrefix() . 'snippets`
                         WHERE `snippet_id` IN (' . implode(',', $_POST['snippet_id']) . ')
                         ORDER BY `snippet_tag`');
             while ($data_arr = $index->fetch(PDO::FETCH_ASSOC)) {
@@ -240,7 +240,7 @@ if (!isset ($_POST['snippet_id'])) {
     // get snippets from db
     $index = $FD->db()->conn()->query('
                 SELECT COUNT(*)
-                FROM `' . $FD->env('DB_PREFIX') . 'snippets`');
+                FROM `' . $FD->db()->getPrefix() . 'snippets`');
 
     // snippets found
     if ($index->fetchColumn() > 0) {
@@ -257,7 +257,7 @@ if (!isset ($_POST['snippet_id'])) {
         // display Snippets
         $index = $FD->db()->conn()->query('
                 SELECT *
-                FROM `' . $FD->env('DB_PREFIX') . 'snippets`
+                FROM `' . $FD->db()->getPrefix() . 'snippets`
                 ORDER BY `snippet_tag`');
         while ($data_arr = $index->fetch(PDO::FETCH_ASSOC)) {
 

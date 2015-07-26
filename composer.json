@@ -19,6 +19,7 @@
     }
   },
   "require": {
-    "frogsystem/metamorphosis": "dev-develop"
+    "frogsystem/metamorphosis": "dev-develop",
+    "illuminate/database": "^5.1"
   }
 }

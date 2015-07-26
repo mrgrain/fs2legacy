@@ -7,7 +7,7 @@ $FD->setConfig('info', 'canonical', array('catid', 'page'));
 /////////////////////////////
 if (isset($_GET['catid'])) {
     settype($_GET['catid'], 'integer');
-    $index = $FD->db()->conn()->query('SELECT cat_name, cat_visibility FROM ' . $FD->env('DB_PREFIX') . "screen_cat WHERE cat_id = $_GET[catid]");
+    $index = $FD->db()->conn()->query('SELECT cat_name, cat_visibility FROM ' . $FD->db()->getPrefix() . "screen_cat WHERE cat_id = $_GET[catid]");
     $row = $index->fetch(PDO::FETCH_ASSOC);
     if ($row === false) {
         unset($_GET['catid']);
@@ -28,16 +28,16 @@ if (isset($_GET['catid'])) {
     $config_arr = $FD->configObject('screens')->getConfigArray();
 
     //cat_arr
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "screen_cat WHERE cat_id = $_GET[catid]");
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "screen_cat WHERE cat_id = $_GET[catid]");
     $cat_arr = $index->fetch(PDO::FETCH_ASSOC);
 
     //WP/Screen unterscheidene Abfragen
     if ($cat_arr['cat_type'] == 2) {
-        $index = $FD->db()->conn()->query('SELECT COUNT(wallpaper_id) AS number FROM ' . $FD->env('DB_PREFIX') . "wallpaper WHERE cat_id = $_GET[catid]");
+        $index = $FD->db()->conn()->query('SELECT COUNT(wallpaper_id) AS number FROM ' . $FD->db()->getPrefix() . "wallpaper WHERE cat_id = $_GET[catid]");
         $config_arr['rows'] = $config_arr['wp_rows'];
         $config_arr['cols'] = $config_arr['wp_cols'];
     } else {
-        $index = $FD->db()->conn()->query('SELECT COUNT(screen_id) AS number FROM ' . $FD->env('DB_PREFIX') . "screen WHERE cat_id = $_GET[catid]");
+        $index = $FD->db()->conn()->query('SELECT COUNT(screen_id) AS number FROM ' . $FD->db()->getPrefix() . "screen WHERE cat_id = $_GET[catid]");
         $config_arr['rows'] = $config_arr['screen_rows'];
         $config_arr['cols'] = $config_arr['screen_cols'];
     }
@@ -69,11 +69,11 @@ if (isset($_GET['catid'])) {
         //Wallpaper Kategorie
         if ($cat_arr['cat_type'] == 2) {
             $zaehler = 0;
-            $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "wallpaper WHERE cat_id = $cat_arr[cat_id] ORDER BY wallpaper_id $config_arr[wp_sort] LIMIT $config_arr[page_start],$config_arr[pics_per_page]");
+            $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "wallpaper WHERE cat_id = $cat_arr[cat_id] ORDER BY wallpaper_id $config_arr[wp_sort] LIMIT $config_arr[page_start],$config_arr[pics_per_page]");
             while ($wp_arr = $index->fetch(PDO::FETCH_ASSOC)) {
                 $wp_arr['thumb_url'] = image_url('/wallpaper', $wp_arr['wallpaper_name'] . '_s');
 
-                $index2 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "wallpaper_sizes WHERE wallpaper_id = $wp_arr[wallpaper_id] ORDER BY size_id ASC");
+                $index2 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "wallpaper_sizes WHERE wallpaper_id = $wp_arr[wallpaper_id] ORDER BY size_id ASC");
                 $sizes = '';
                 while ($sizes_arr = $index2->fetch(PDO::FETCH_ASSOC)) {
                     $sizes_arr['url'] = image_url('/wallpaper', $wp_arr['wallpaper_name'] . '_' . $sizes_arr['size']);
@@ -126,7 +126,7 @@ if (isset($_GET['catid'])) {
         } //Screenshot Kategorie
         else {
             $zaehler = 0;
-            $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "screen WHERE cat_id = $cat_arr[cat_id] ORDER by screen_id $config_arr[screen_sort] LIMIT $config_arr[page_start],$config_arr[pics_per_page]");
+            $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "screen WHERE cat_id = $cat_arr[cat_id] ORDER by screen_id $config_arr[screen_sort] LIMIT $config_arr[page_start],$config_arr[pics_per_page]");
 
             $pics = '';
             while ($screen_arr = $index->fetch(PDO::FETCH_ASSOC)) {
@@ -204,13 +204,13 @@ if (isset($_GET['catid'])) {
 ////////////////////////////
 
 else {
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'screen_cat WHERE cat_visibility = 1 ORDER BY cat_date DESC');
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'screen_cat WHERE cat_visibility = 1 ORDER BY cat_date DESC');
     $cats = '';
     while ($cat_arr = $index->fetch(PDO::FETCH_ASSOC)) {
         if ($cat_arr['cat_type'] == 2) {
-            $index2 = $FD->db()->conn()->query('SELECT COUNT(wallpaper_id) AS number FROM ' . $FD->env('DB_PREFIX') . "wallpaper WHERE cat_id = $cat_arr[cat_id]");
+            $index2 = $FD->db()->conn()->query('SELECT COUNT(wallpaper_id) AS number FROM ' . $FD->db()->getPrefix() . "wallpaper WHERE cat_id = $cat_arr[cat_id]");
         } else {
-            $index2 = $FD->db()->conn()->query('SELECT COUNT(screen_id) AS number FROM ' . $FD->env('DB_PREFIX') . "screen WHERE cat_id = $cat_arr[cat_id]");
+            $index2 = $FD->db()->conn()->query('SELECT COUNT(screen_id) AS number FROM ' . $FD->db()->getPrefix() . "screen WHERE cat_id = $cat_arr[cat_id]");
         }
         $cat_arr['cat_menge'] = $index2->fetchColumn();
         $cat_arr['cat_date'] = date_loc($FD->config('date'), $cat_arr['cat_date']);

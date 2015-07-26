@@ -95,7 +95,7 @@ $dateien = $template->display();
 if ($show == TRUE) {
     $index = $FD->db()->conn()->query(
         'SELECT COUNT(*) AS anzahl
-                   FROM ' . $FD->env('DB_PREFIX') . "dl
+                   FROM ' . $FD->db()->getPrefix() . "dl
                    $query dl_open = 1");
     $num_rows = $index->fetchColumn();
     $index = $FD->db()->conn()->query('SELECT dl_name,
@@ -103,7 +103,7 @@ if ($show == TRUE) {
                                  dl_text,
                                  dl_date,
                                  cat_id
-                          FROM ' . $FD->env('DB_PREFIX') . "dl
+                          FROM ' . $FD->db()->getPrefix() . "dl
                           $query dl_open = 1
                           ORDER BY dl_name");
 
@@ -115,7 +115,7 @@ if ($show == TRUE) {
         $dl_arr['dl_text'] = killfs($dl_arr['dl_text']);
         $dl_arr['dl_text'] = truncate_string($dl_arr['dl_text'], 250, '...');
         $dl_arr['dl_date'] = date_loc($FD->config('date'), $dl_arr['dl_date']);
-        $index3 = $FD->db()->conn()->query('SELECT cat_name FROM ' . $FD->env('DB_PREFIX') . "dl_cat WHERE cat_id = '$dl_arr[cat_id]'");
+        $index3 = $FD->db()->conn()->query('SELECT cat_name FROM ' . $FD->db()->getPrefix() . "dl_cat WHERE cat_id = '$dl_arr[cat_id]'");
         $dl_arr['cat_name'] = $index3->fetchColumn(); //cat_name
 
         // Get Template

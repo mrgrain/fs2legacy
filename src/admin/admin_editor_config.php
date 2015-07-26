@@ -50,7 +50,7 @@ if (isset($_POST['smilies_rows']) && $_POST['smilies_rows'] > 0 && isset($_POST[
     $_POST['do_noparse'] = @intval($_POST['do_noparse']);
     $_POST['do_smilies'] = @intval($_POST['do_smilies']);
 
-    $update = 'UPDATE ' . $FD->env('DB_PREFIX') . "editor_config
+    $update = 'UPDATE ' . $FD->db()->getPrefix() . "editor_config
                SET smilies_rows = '$_POST[smilies_rows]',
                    smilies_cols = '$_POST[smilies_cols]',
                    textarea_width = '$_POST[textarea_width]',
@@ -104,7 +104,7 @@ if (isset($_POST['smilies_rows']) && $_POST['smilies_rows'] > 0 && isset($_POST[
 /////////////////////////////////
 
 else {
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'editor_config');
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'editor_config');
     $config_arr = $index->fetch(PDO::FETCH_ASSOC);
 
     if (isset($_POST['sended'])) {

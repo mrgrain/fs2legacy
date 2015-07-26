@@ -13,14 +13,14 @@ if (isset($_POST['title']) AND $_POST['do'] == 'edit') {
     settype($_POST['editscreenid'], 'integer');
     if ($_POST['delscreen'])   // Delete Screenshot
     {
-        $FD->db()->conn()->exec('DELETE FROM ' . $FD->env('DB_PREFIX') . "screen WHERE screen_id = $_POST[editscreenid]");
+        $FD->db()->conn()->exec('DELETE FROM ' . $FD->db()->getPrefix() . "screen WHERE screen_id = $_POST[editscreenid]");
         image_delete('/gallery', $_POST['editscreenid']);
         image_delete('/gallery', "$_POST[editscreenid]_s");
         systext('Screenshot wurde gel&ouml;scht');
     } else   // Edit Screenshot
     {
         $stmt = $FD->db()->conn()->prepare(
-            'UPDATE ' . $FD->env('DB_PREFIX') . "screen
+            'UPDATE ' . $FD->db()->getPrefix() . "screen
                    SET cat_id = $_POST[catid],
                    screen_name = ?
                    WHERE screen_id = $_POST[editscreenid]");
@@ -51,7 +51,7 @@ elseif (isset($_POST['screenid'])) {
         systext(create_thumb_notice($newthumb));
     }
 
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "screen WHERE screen_id = $_POST[screenid]");
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "screen WHERE screen_id = $_POST[screenid]");
     $screen_arr = $index->fetch(PDO::FETCH_ASSOC);
 
     echo '
@@ -101,7 +101,7 @@ elseif (isset($_POST['screenid'])) {
                                 <td class="config" valign="top">
                                     <select name="catid">
     ';
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'screen_cat WHERE cat_type = 1');
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'screen_cat WHERE cat_type = 1');
     while ($cat_arr = $index->fetch(PDO::FETCH_ASSOC)) {
         $sele = ($screen_arr['cat_id'] == $cat_arr['cat_id']) ? 'selected' : '';
         echo '
@@ -154,7 +154,7 @@ else {
                                     Dateien der Kategorie
                                     <select name="screencatid">
     ';
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'screen_cat WHERE cat_type = 1');
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'screen_cat WHERE cat_type = 1');
     while ($cat_arr = $index->fetch(PDO::FETCH_ASSOC)) {
         $sele = ($_POST['screencatid'] == $cat_arr['cat_id']) ? 'selected' : '';
         echo '
@@ -197,9 +197,9 @@ else {
                                 </td>
                             </tr>
         ';
-        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "screen $wherecat ORDER BY screen_id DESC");
+        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "screen $wherecat ORDER BY screen_id DESC");
         while ($screen_arr = $index->fetch(PDO::FETCH_ASSOC)) {
-            $index2 = $FD->db()->conn()->query('SELECT cat_name FROM ' . $FD->env('DB_PREFIX') . "screen_cat WHERE cat_id = $screen_arr[cat_id]");
+            $index2 = $FD->db()->conn()->query('SELECT cat_name FROM ' . $FD->db()->getPrefix() . "screen_cat WHERE cat_id = $screen_arr[cat_id]");
             $db_cat_name = $index2->fetchColumn();
 
             echo '

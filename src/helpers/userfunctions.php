@@ -21,7 +21,7 @@ function user_login($username, $password, $iscookie)
 {
     global $FD;
 
-    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->env('DB_PREFIX') . "USER WHERE user_name = ?");
+    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->db()->getPrefix() . "USER WHERE user_name = ?");
     $index->execute(array($username));
     $row = $index->fetch(PDO::FETCH_ASSOC);
     if ($row === false) {
@@ -63,7 +63,7 @@ function set_cookie($username, $password)
 {
     global $FD;
 
-    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'USER WHERE user_name = ?');
+    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_name = ?');
     $index->execute(array($username));
     $row = $index->fetch(PDO::FETCH_ASSOC);
     if ($row === false) {
@@ -139,7 +139,7 @@ function get_user_rank($GROUP_ID, $IS_ADMIN = 0)
     } else {
         $index = $FD->db()->conn()->query('
             SELECT *
-            FROM `' . $FD->env('DB_PREFIX') . "user_groups`
+            FROM `' . $FD->db()->getPrefix() . "user_groups`
             WHERE `user_group_id` = '" . $GROUP_ID . "'");
         $group_arr = $index->fetch(PDO::FETCH_ASSOC);
 
@@ -197,7 +197,7 @@ function is_in_staff($USER_ID)
     if ($USER_ID) {
         $index = $FD->db()->conn()->query('
                                 SELECT user_id, user_is_staff, user_is_admin
-                                FROM ' . $FD->env('DB_PREFIX') . "USER
+                                FROM ' . $FD->db()->getPrefix() . "USER
                                 WHERE user_id = '" . $USER_ID . "'
                                 LIMIT 0,1");
         if ($row = $index->fetch(PDO::FETCH_ASSOC)) {
@@ -222,7 +222,7 @@ function is_admin($USER_ID)
     if ($USER_ID) {
         $index = $FD->db()->conn()->query('
                                 SELECT user_id, user_is_admin
-                                FROM ' . $FD->env('DB_PREFIX') . "USER
+                                FROM ' . $FD->db()->getPrefix() . "USER
                                 WHERE user_id = '" . $USER_ID . "'
                                 LIMIT 0,1");
         if ($row = $index->fetch(PDO::FETCH_ASSOC)) {

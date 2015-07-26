@@ -48,7 +48,7 @@ class UrlMiddleware implements MiddlewareInterface
             // Articles from DB
             $stmt = $this->db->conn()->prepare(<<<SQL
                 SELECT COUNT(`article_id`) FROM
-                `{$this->config->env('DB_PREFIX')}articles`
+                `{$this->db->getPrefix()}articles`
                 WHERE `article_url` = ? LIMIT 0,1
 SQL
             );

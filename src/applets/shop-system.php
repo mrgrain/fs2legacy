@@ -2,7 +2,7 @@
 // Get Data from DB
 $index = $FD->db()->conn()->query('
             SELECT `artikel_id`, `artikel_name`, `artikel_url`, `artikel_preis`
-            FROM `' . $FD->env('DB_PREFIX') . 'shop`
+            FROM `' . $FD->db()->getPrefix() . 'shop`
             WHERE `artikel_hot` = 1');
 
 // Security Functions

@@ -10,7 +10,7 @@ if (isset($_POST['title']) && isset($_POST['url']) && isset($_POST['preis']) && 
 ) {
     settype($_POST['artikelid'], 'integer');
     if (isset($_POST['delartikel'])) {
-        $FD->db()->conn()->exec('DELETE FROM ' . $FD->env('DB_PREFIX') . "shop WHERE artikel_id = $_POST[artikelid]");
+        $FD->db()->conn()->exec('DELETE FROM ' . $FD->db()->getPrefix() . "shop WHERE artikel_id = $_POST[artikelid]");
         image_delete('/shop', $_POST['artikelid']);
         image_delete('/shop', $_POST['artikelid']);
         systext('Artikel wurde gel&ouml;scht');
@@ -26,7 +26,7 @@ if (isset($_POST['title']) && isset($_POST['url']) && isset($_POST['preis']) && 
             $messages[] = create_thumb_notice($thumb);
         }
         $stmt = $FD->db()->conn()->prepare(
-            'UPDATE ' . $FD->env('DB_PREFIX') . "shop
+            'UPDATE ' . $FD->db()->getPrefix() . "shop
                    SET artikel_name  = ?,
                        artikel_url   = ?,
                        artikel_text  = ?,
@@ -56,7 +56,7 @@ if (isset($_POST['artikelid'])) {
     }
 
     settype($_POST['artikelid'], 'integer');
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "shop WHERE artikel_id = $_POST[artikelid]");
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "shop WHERE artikel_id = $_POST[artikelid]");
     $artikel_arr = $index->fetch(PDO::FETCH_ASSOC);
     $dbartikelhot = ($artikel_arr['artikel_hot'] == 1) ? 'checked' : '';
 
@@ -175,7 +175,7 @@ else {
                             </tr>
     ';
     $index = $FD->db()->conn()->query('SELECT artikel_id, artikel_name, artikel_preis
-                          FROM ' . $FD->env('DB_PREFIX') . 'shop
+                          FROM ' . $FD->db()->getPrefix() . 'shop
                           ORDER BY artikel_name DESC');
     while ($artikel_arr = $index->fetch(PDO::FETCH_ASSOC)) {
         echo '

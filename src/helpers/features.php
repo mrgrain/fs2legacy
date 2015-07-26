@@ -86,7 +86,7 @@ function get_dl_categories (&$IDs, $CAT_ID, $SHOW_SUB = 1, $ID = 0, $LEVEL = -1 
     global $FD;
 
     $index = $FD->db()->conn()->query ( '
-                            SELECT * FROM `'.$FD->env('DB_PREFIX')."dl_cat`
+                            SELECT * FROM `'.$FD->db()->getPrefix()."dl_cat`
                             WHERE `subcat_id` = '".$ID."'
                             ORDER BY `cat_name`" );
 
@@ -109,7 +109,7 @@ function get_sub_cats ( $CAT_ID, $REC_SUB_CAT_ARRAY )
 
     $subcat_index = $FD->db()->conn()->query ( '
         SELECT `cat_id`
-        FROM `'.$FD->env('DB_PREFIX')."dl_cat`
+        FROM `'.$FD->db()->getPrefix()."dl_cat`
         WHERE `subcat_id` = '".$CAT_ID."'" );
 
     while ( $subcats = $subcat_index->fetch(PDO::FETCH_ASSOC) ) {
@@ -138,8 +138,8 @@ function checkVotedPoll($pollid) {
         }
     }
     $one_day_ago = time()-60*60*24;
-    $FD->db()->conn()->exec('DELETE FROM '.$FD->env('DB_PREFIX')."poll_voters WHERE time <= '".$one_day_ago."'"); //Delete old IPs
-    $query_id = $FD->db()->conn()->prepare('SELECT COUNT(voter_id) FROM '.$FD->env('DB_PREFIX')."poll_voters WHERE poll_id = $pollid AND ip_address = ? AND time > '".$one_day_ago."' LIMIT 1"); //Save IP for 1 Day
+    $FD->db()->conn()->exec('DELETE FROM '.$FD->db()->getPrefix()."poll_voters WHERE time <= '".$one_day_ago."'"); //Delete old IPs
+    $query_id = $FD->db()->conn()->prepare('SELECT COUNT(voter_id) FROM '.$FD->db()->getPrefix()."poll_voters WHERE poll_id = $pollid AND ip_address = ? AND time > '".$one_day_ago."' LIMIT 1"); //Save IP for 1 Day
     $query_id->execute(array($_SERVER['REMOTE_ADDR']));
     return ( $query_id->fetchColumn() > 0 );
 }
@@ -153,7 +153,7 @@ function registerVoter($pollid, $voter_ip) {
 
     settype($pollid, 'integer');
 
-    $FD->db()->conn()->exec('INSERT INTO '.$FD->env('DB_PREFIX')."poll_voters VALUES ('', '$pollid', '$voter_ip', '".time()."')");
+    $FD->db()->conn()->exec('INSERT INTO '.$FD->db()->getPrefix()."poll_voters VALUES ('', '$pollid', '$voter_ip', '".time()."')");
     if (!isset($_COOKIE['polls_voted'])) {
         setcookie('polls_voted', $pollid, time()+60*60*24*60); //2 months
     } else {
@@ -177,7 +177,7 @@ function get_timed_pic ()
     $time = time();
     $index = $FD->db()->conn()->query ( "
                     SELECT COUNT(R.`screen_id`) AS 'images'
-                    FROM `".$FD->env('DB_PREFIX').'screen_random` R
+                    FROM `".$FD->db()->getPrefix().'screen_random` R
                     WHERE R.`start` <= '.$time.' AND R.`end` >= '.$time.' ' );
     $row = $index->fetch(PDO::FETCH_ASSOC);
     $num_images = $row['images'];
@@ -186,7 +186,7 @@ function get_timed_pic ()
         $rand = rand ( 0, $num_images - 1 );
         $index =  $FD->db()->conn()->query ( '
                         SELECT S.`screen_id`, S.`screen_name`, C.`cat_id`, C.`cat_name`
-                        FROM `'.$FD->env('DB_PREFIX').'screen_random` R, `'.$FD->env('DB_PREFIX').'screen` S, `'.$FD->env('DB_PREFIX').'screen_cat` C
+                        FROM `'.$FD->db()->getPrefix().'screen_random` R, `'.$FD->db()->getPrefix().'screen` S, `'.$FD->db()->getPrefix().'screen_cat` C
                         WHERE R.`start` <= '.$time.' AND R.`end` >= '.$time.'
                         AND R.`screen_id` = S.`screen_id`
                         LIMIT '.$rand.',1' );
@@ -215,7 +215,7 @@ function get_random_pic ()
     // Get number of possible Screens
     $index = $FD->db()->conn()->query ( "
                     SELECT COUNT(S.`screen_id`) AS 'images'
-                    FROM `".$FD->env('DB_PREFIX').'screen` S, `'.$FD->env('DB_PREFIX').'screen_cat` C
+                    FROM `".$FD->db()->getPrefix().'screen` S, `'.$FD->db()->getPrefix().'screen_cat` C
                     WHERE C.`randompic` = 1
                     AND C.`cat_id` = S.`cat_id`' );
     $row = $index->fetch(PDO::FETCH_ASSOC);
@@ -225,7 +225,7 @@ function get_random_pic ()
         $rand = rand ( 0, $num_images - 1 );
         $index = $FD->db()->conn()->query ( '
                         SELECT S.`screen_id`, S.`screen_name`, C.`cat_id`, C.`cat_name`
-                        FROM `'.$FD->env('DB_PREFIX').'screen` S, `'.$FD->env('DB_PREFIX').'screen_cat` C
+                        FROM `'.$FD->db()->getPrefix().'screen` S, `'.$FD->db()->getPrefix().'screen_cat` C
                         WHERE C.`randompic` = 1
                         AND C.`cat_id` = S.`cat_id`
                         LIMIT '.$rand.',1' );
@@ -254,7 +254,7 @@ function clean_timed_preview_images () {
     // do we want to remove old entries?
     if ($FD->config('preview_images', 'timed_deltime') != -1) {
         // remove old entries
-        $FD->db()->conn()->query('DELETE FROM '.$FD->env('DB_PREFIX')."screen_random WHERE `end` < '".($FD->env('time')-$FD->config('preview_images', 'timed_deltime'))."'");
+        $FD->db()->conn()->query('DELETE FROM '.$FD->db()->getPrefix()."screen_random WHERE `end` < '".($FD->env('time')-$FD->config('preview_images', 'timed_deltime'))."'");
     }
 }
 
@@ -272,7 +272,7 @@ function display_news ($news_arr, $html_code, $fs_code, $para_handling)
     $news_arr['comment_url'] = url('comments', array('id' => $news_arr['news_id']));
 
     // Kategorie lesen
-    $index2 = $FD->db()->conn()->query('SELECT cat_name FROM '.$FD->env('DB_PREFIX')."news_cat WHERE cat_id = '".$news_arr['cat_id']."'");
+    $index2 = $FD->db()->conn()->query('SELECT cat_name FROM '.$FD->db()->getPrefix()."news_cat WHERE cat_id = '".$news_arr['cat_id']."'");
     $row = $index2->fetch(PDO::FETCH_ASSOC);
     $news_arr['cat_name'] = $row['cat_name'];
     $news_arr['cat_pic'] = image_url('/cat', 'news_'.$news_arr['cat_id']);
@@ -328,19 +328,19 @@ function display_news ($news_arr, $html_code, $fs_code, $para_handling)
     $news_arr['news_title'] = killhtml ( $news_arr['news_title'] );
 
     // User auslesen
-    $index2 = $FD->db()->conn()->query('SELECT user_name FROM '.$FD->env('DB_PREFIX').'user WHERE user_id = '.$news_arr['user_id'].'' );
+    $index2 = $FD->db()->conn()->query('SELECT user_name FROM '.$FD->db()->getPrefix().'user WHERE user_id = '.$news_arr['user_id'].'' );
     $row = $index2->fetch(PDO::FETCH_ASSOC);
     $news_arr['user_name'] = kill_replacements ( $row['user_name'], TRUE );
     $news_arr['user_url'] = url('user', array('id' => $news_arr['user_id']));
 
     // Kommentare lesen
-    $index2 = $FD->db()->conn()->query('SELECT comment_id FROM '.$FD->env('DB_PREFIX').'comments WHERE content_id = '.$news_arr['news_id'].' AND content_type=\'news\'' );
+    $index2 = $FD->db()->conn()->query('SELECT comment_id FROM '.$FD->db()->getPrefix().'comments WHERE content_id = '.$news_arr['news_id'].' AND content_type=\'news\'' );
     $all_comment_ids = $index2->fetchAll(PDO::FETCH_ASSOC);
     $news_arr['kommentare'] = count($all_comment_ids);
 
     // Get Related Links
     $link_tpl = '';
-    $index2 = $FD->db()->conn()->query('SELECT * FROM '.$FD->env('DB_PREFIX').'news_links WHERE news_id = '.$news_arr['news_id'].' ORDER BY link_id');
+    $index2 = $FD->db()->conn()->query('SELECT * FROM '.$FD->db()->getPrefix().'news_links WHERE news_id = '.$news_arr['news_id'].' ORDER BY link_id');
     while ($link_arr = $index2->fetch(PDO::FETCH_ASSOC))
     {
         $link_arr['link_name'] = killhtml ( $link_arr['link_name'] );

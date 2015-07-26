@@ -6,7 +6,7 @@ $stats_day = date('d');
 
 
 // Overall Data
-$index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'counter');
+$index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'counter');
 $counter_arr = $index->fetch(PDO::FETCH_ASSOC);
 
 
@@ -15,7 +15,7 @@ $index = $FD->db()->conn()->query('
                         SELECT
                             `s_hits`, `s_visits`
                         FROM
-                            `' . $FD->env('DB_PREFIX') . "counter_stat`
+                            `' . $FD->db()->getPrefix() . "counter_stat`
                         WHERE
                             `s_year` = '" . $stats_year . "'
                         AND

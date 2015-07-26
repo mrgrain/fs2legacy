@@ -8,6 +8,9 @@
  */
 namespace Frogsystem\Legacy\Services;
 
+use Illuminate\Database\Connection;
+use Illuminate\Database\ConnectionResolverInterface;
+
 class Database
 {
 
@@ -25,16 +28,14 @@ class Database
 
     // Constructor
     // connects the database, saves SQL-Connection, database-name and prefix
-    public function __construct($host, $data, $user, $pass, $pref)
+    public function __construct(ConnectionResolverInterface $db)
     {
         try {
-            $this->sql = new \PDO("mysql:host=$host;dbname=$data", $user, $pass);
-            /* TODO: change error mode back to ERRMODE_SILENT
-                     The exception error mode is just used for easier debugging
-                     while migrating to PDO. */
-            $this->sql->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            $this->db = $data;
-            $this->pref = $pref;
+            /** @var Connection $connection */
+            $connection =  $db->connection();
+            $this->sql = $connection->getPdo();
+            $this->db = $connection->getConfig('database');
+            $this->pref = $connection->getConfig('prefix');
         } catch (\Exception $e) {
             $this->sql = false;
             $this->error = $e->getMessage();

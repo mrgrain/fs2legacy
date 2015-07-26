@@ -10,10 +10,10 @@ class ConfigMain extends ConfigData
         global $FD;
 
         // TODO: remove backwards compatibility, (soll in Zukunft nur in env)
-        $this->setConfig('pref', $FD->env('DB_PREFIX'));
-        $this->setConfig('spam', $FD->env('SPAM_KEY'));
-        $this->setConfig('data', $FD->env('DB_NAME'));
-        $this->setConfig('path', $FD->env('path'));
+        //$this->setConfig('pref', $FD->db()->getPrefix());
+        //$this->setConfig('spam', $FD->env('SPAM_KEY'));
+        //$this->setConfig('data', $FD->env('DB_NAME'));
+        //$this->setConfig('path', $FD->env('path'));
 
         // rewrite to other protocol if allowd
         if ($this->get('other_protocol')) {

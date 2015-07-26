@@ -21,7 +21,7 @@ $config_arr = $FD->configObject('users')->getConfigArray();
 //////////////////////
 $index = $FD->db()->conn()->query('
     SELECT *
-    FROM `' . $FD->env('DB_PREFIX') . "user`
+    FROM `' . $FD->db()->getPrefix() . "user`
     WHERE `user_id` = '" . $_GET['id'] . "'");
 $user_arr = $index->fetch(PDO::FETCH_ASSOC);
 
@@ -57,28 +57,28 @@ if ($user_arr !== false) {
 
     $index = $FD->db()->conn()->query('
         SELECT COUNT(`news_id`) AS `number`
-        FROM `' . $FD->env('DB_PREFIX') . "news`
+        FROM `' . $FD->db()->getPrefix() . "news`
         WHERE `user_id` = '" . $user_arr['user_id'] . "'");
     $row = $index->fetch(PDO::FETCH_ASSOC);
     $user_arr['user_num_news'] = $row['number'];
 
     $index = $FD->db()->conn()->query('
         SELECT COUNT(`comment_id`) AS `number`
-        FROM `' . $FD->env('DB_PREFIX') . "comments`
+        FROM `' . $FD->db()->getPrefix() . "comments`
         WHERE `comment_poster_id` = '" . $user_arr['user_id'] . "'");
     $row = $index->fetch(PDO::FETCH_ASSOC);
     $user_arr['user_num_comments'] = $row['number'];
 
     $index = $FD->db()->conn()->query('
         SELECT COUNT(`article_id`) AS `number`
-        FROM `' . $FD->env('DB_PREFIX') . "articles`
+        FROM `' . $FD->db()->getPrefix() . "articles`
         WHERE `article_user` = '" . $user_arr['user_id'] . "'");
     $row = $index->fetch(PDO::FETCH_ASSOC);
     $user_arr['user_num_articles'] = $row['number'];
 
     $index = $FD->db()->conn()->query('
         SELECT COUNT(`dl_id`) AS `number`
-        FROM `' . $FD->env('DB_PREFIX') . "dl`
+        FROM `' . $FD->db()->getPrefix() . "dl`
         WHERE `user_id` = '" . $user_arr['user_id'] . "'");
     $row = $index->fetch(PDO::FETCH_ASSOC);
     $user_arr['user_num_downloads'] = $row['number'];

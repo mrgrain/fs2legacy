@@ -25,23 +25,23 @@ if (!($config_arr['game_navi'] == 0 && $config_arr['cat_navi'] == 0 && $config_a
     unset($last_arr);
 
     if ($config_arr['game_navi'] != 0) { //Spiele anzeigen
-        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'press_admin WHERE type = 1 ORDER BY title ASC');
+        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'press_admin WHERE type = 1 ORDER BY title ASC');
         while ($game_arr = $index->fetch(PDO::FETCH_ASSOC)) {
-            $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->env('DB_PREFIX') . 'press WHERE press_game = ' . intval($game_arr['id']));
+            $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->db()->getPrefix() . 'press WHERE press_game = ' . intval($game_arr['id']));
             if ($select->fetchColumn() > 0) { //Es existieren Presseberichte
                 $navi_arr[] = $game_arr['id'];
 
                 if ($config_arr['cat_navi'] != 0) { //Kategorien & Spiele anzeigen
-                    $index2 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'press_admin WHERE type = 2 ORDER BY title ASC');
+                    $index2 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'press_admin WHERE type = 2 ORDER BY title ASC');
                     while ($cat_arr = $index2->fetch(PDO::FETCH_ASSOC)) {
-                        $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->env('DB_PREFIX') . "press WHERE press_game = $game_arr[id] AND press_cat = $cat_arr[id]");
+                        $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->db()->getPrefix() . "press WHERE press_game = $game_arr[id] AND press_cat = $cat_arr[id]");
                         if ($select->fetchColumn() > 0) { //Es existieren Presseberichte
                             $navi_arr[][] = $cat_arr['id'];
 
                             if ($config_arr['lang_navi'] != 0) { //Sprachen & Kategorien & Spiele anzeigen
-                                $index3 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'press_admin WHERE type = 3 ORDER BY title ASC');
+                                $index3 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'press_admin WHERE type = 3 ORDER BY title ASC');
                                 while ($lang_arr = $index3->fetch(PDO::FETCH_ASSOC)) {
-                                    $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->env('DB_PREFIX') . "press WHERE press_game = $game_arr[id] AND press_cat = $cat_arr[id] AND press_lang = $lang_arr[id]");
+                                    $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->db()->getPrefix() . "press WHERE press_game = $game_arr[id] AND press_cat = $cat_arr[id] AND press_lang = $lang_arr[id]");
                                     if ($select->fetchColumn() > 0) { //Es existieren Presseberichte
                                         $navi_arr[][][] = $lang_arr['id'];
                                         $last_arr[] = $lang_arr['id'];
@@ -54,9 +54,9 @@ if (!($config_arr['game_navi'] == 0 && $config_arr['cat_navi'] == 0 && $config_a
                     }
 
                 } elseif ($config_arr['lang_navi'] != 0) { //Sprachen & Spiele anzeigen
-                    $index1 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'press_admin WHERE type = 3 ORDER BY title ASC');
+                    $index1 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'press_admin WHERE type = 3 ORDER BY title ASC');
                     while ($lang_arr = $index1->fetch(PDO::FETCH_ASSOC)) {
-                        $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->env('DB_PREFIX') . "press WHERE press_game = $game_arr[id] AND press_lang = $lang_arr[id]");
+                        $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->db()->getPrefix() . "press WHERE press_game = $game_arr[id] AND press_lang = $lang_arr[id]");
                         if ($select->fetchColumn() > 0) {
                             $navi_arr[][] = $lang_arr['id'];
                             $last_arr[] = $lang_arr['id'];
@@ -69,16 +69,16 @@ if (!($config_arr['game_navi'] == 0 && $config_arr['cat_navi'] == 0 && $config_a
             }
         }
     } elseif ($config_arr['cat_navi'] != 0) { //Kategorien anzeigen
-        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'press_admin WHERE type = 2 ORDER BY title ASC');
+        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'press_admin WHERE type = 2 ORDER BY title ASC');
         while ($cat_arr = $index->fetch(PDO::FETCH_ASSOC)) {
-            $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->env('DB_PREFIX') . "press WHERE press_cat = $cat_arr[id]");
+            $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->db()->getPrefix() . "press WHERE press_cat = $cat_arr[id]");
             if ($select->fetchColumn() > 0) { //Es existieren Presseberichte
                 $navi_arr[] = $cat_arr['id'];
 
                 if ($config_arr['lang_navi'] != 0) { //Sprachen & Kategorien anzeigen
-                    $index2 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'press_admin WHERE type = 3 ORDER BY title ASC');
+                    $index2 = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'press_admin WHERE type = 3 ORDER BY title ASC');
                     while ($lang_arr = $index2->fetch(PDO::FETCH_ASSOC)) {
-                        $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->env('DB_PREFIX') . "press WHERE press_cat = $cat_arr[id] AND press_lang = $lang_arr[id]");
+                        $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->db()->getPrefix() . "press WHERE press_cat = $cat_arr[id] AND press_lang = $lang_arr[id]");
                         if ($select->fetchColumn() > 0) { //Es existieren Presseberichte
                             $navi_arr[][] = $lang_arr['id'];
                             $last_arr[] = $lang_arr['id'];
@@ -90,9 +90,9 @@ if (!($config_arr['game_navi'] == 0 && $config_arr['cat_navi'] == 0 && $config_a
             }
         }
     } elseif ($config_arr['lang_navi'] != 0) { //Sprachen anzeigen
-        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'press_admin WHERE type = 3 ORDER BY title ASC');
+        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'press_admin WHERE type = 3 ORDER BY title ASC');
         while ($lang_arr = $index->fetch(PDO::FETCH_ASSOC)) {
-            $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->env('DB_PREFIX') . "press WHERE press_lang = $lang_arr[id]");
+            $select = $FD->db()->conn()->query('SELECT COUNT(press_id) AS number FROM ' . $FD->db()->getPrefix() . "press WHERE press_lang = $lang_arr[id]");
             if ($select->fetchColumn() > 0) { //Es existieren Presseberichte
                 $navi_arr[] = $lang_arr['id'];
                 $last_arr[] = $lang_arr['id'];
@@ -110,7 +110,7 @@ if (!($config_arr['game_navi'] == 0 && $config_arr['cat_navi'] == 0 && $config_a
                 foreach ($value as $value2) {
                     if (is_array($value2) AND $open2 == true) {
                         foreach ($value2 as $value3) {
-                            $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "press_admin WHERE id = $value3");
+                            $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "press_admin WHERE id = $value3");
                             $entry_arr = $index->fetch(PDO::FETCH_ASSOC);
 
                             //Navi URL erstellen
@@ -149,7 +149,7 @@ if (!($config_arr['game_navi'] == 0 && $config_arr['cat_navi'] == 0 && $config_a
                             $lines .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . $template;
                         }
                     } elseif (!is_array($value2)) {
-                        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "press_admin WHERE id = $value2");
+                        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "press_admin WHERE id = $value2");
                         $entry_arr = $index->fetch(PDO::FETCH_ASSOC);
 
                         //Navi URL erstellen
@@ -194,7 +194,7 @@ if (!($config_arr['game_navi'] == 0 && $config_arr['cat_navi'] == 0 && $config_a
                     }
                 }
             } elseif (!is_array($value)) {
-                $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "press_admin WHERE id = $value");
+                $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "press_admin WHERE id = $value");
                 $entry_arr = $index->fetch(PDO::FETCH_ASSOC);
 
                 //Navi URL erstellen
@@ -327,7 +327,7 @@ if ($config_arr['show_press'] == 1) {
 $press_releases = '';
 
 if ($config_arr['show_press_sql'] == true) {
-    $sql_query = 'SELECT * FROM ' . $FD->env('DB_PREFIX') . "press $where_clause ORDER BY $config_arr[order_by] $config_arr[order_type]";
+    $sql_query = 'SELECT * FROM ' . $FD->db()->getPrefix() . "press $where_clause ORDER BY $config_arr[order_by] $config_arr[order_type]";
     $index = $FD->db()->conn()->query($sql_query);
 
     while ($press_arr = $index->fetch(PDO::FETCH_ASSOC)) {
@@ -345,11 +345,11 @@ if ($config_arr['show_press_sql'] == true) {
         $template->tag('note_text', fscode($press_arr['press_note']));
         $press_arr['press_note_formated'] = $template->display();
 
-        $index2 = $FD->db()->conn()->query('SELECT title FROM ' . $FD->env('DB_PREFIX') . "press_admin WHERE id = '$press_arr[press_game]'");
+        $index2 = $FD->db()->conn()->query('SELECT title FROM ' . $FD->db()->getPrefix() . "press_admin WHERE id = '$press_arr[press_game]'");
         $press_arr['press_game_title'] = $index2->fetchColumn();
-        $index2 = $FD->db()->conn()->query('SELECT title FROM ' . $FD->env('DB_PREFIX') . "press_admin WHERE id = '$press_arr[press_cat]'");
+        $index2 = $FD->db()->conn()->query('SELECT title FROM ' . $FD->db()->getPrefix() . "press_admin WHERE id = '$press_arr[press_cat]'");
         $press_arr['press_cat_title'] = $index2->fetchColumn();
-        $index2 = $FD->db()->conn()->query('SELECT title FROM ' . $FD->env('DB_PREFIX') . "press_admin WHERE id = '$press_arr[press_lang]'");
+        $index2 = $FD->db()->conn()->query('SELECT title FROM ' . $FD->db()->getPrefix() . "press_admin WHERE id = '$press_arr[press_lang]'");
         $press_arr['press_lang_title'] = $index2->fetchColumn();
 
         // Get Note Template

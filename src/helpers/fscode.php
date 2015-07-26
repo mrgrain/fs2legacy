@@ -546,7 +546,7 @@ function do_fscode_smilies($text)
 {
     global $FD;
 
-    $smilies = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'smilies');
+    $smilies = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'smilies');
     $smilies = $smilies->fetchAll(PDO::FETCH_ASSOC);
     foreach ($smilies as $smiley) {
         $url = image_url('/smilies', $smiley['id']);

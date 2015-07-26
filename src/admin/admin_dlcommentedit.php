@@ -41,16 +41,16 @@ if (isset($_POST['title']) && isset($_POST['text'])) {
         settype($_POST['commentposterid'], 'integer');
 
         $stmt = $FD->db()->conn()->prepare(
-            'UPDATE `' . $FD->env('DB_PREFIX') . "comments`
+            'UPDATE `' . $FD->db()->getPrefix() . "comments`
                    SET comment_title     = ?,
                        comment_text      = ?
                    WHERE comment_id = '" . $_POST['ecommentid'] . "' AND content_type='dl'");
         $stmt->execute(array($_POST['title'], $_POST['text']));
         systext('Der Kommentar wurde editiert.');
     } else {
-        $affected = $FD->db()->conn()->exec('DELETE FROM `' . $FD->env('DB_PREFIX') . 'comments` WHERE comment_id = ' . $_POST['ecommentid'] . " AND content_type='dl' LIMIT 1");
+        $affected = $FD->db()->conn()->exec('DELETE FROM `' . $FD->db()->getPrefix() . 'comments` WHERE comment_id = ' . $_POST['ecommentid'] . " AND content_type='dl' LIMIT 1");
         if ($affected > 0) {
-            $FD->db()->conn()->exec('UPDATE `' . $FD->env('DB_PREFIX') . 'counter` SET comments = comments - 1');
+            $FD->db()->conn()->exec('UPDATE `' . $FD->db()->getPrefix() . 'counter` SET comments = comments - 1');
             systext('Der Kommentar wurde gel&ouml;scht.');
         } else {
             systext('Der Kommentar wurde <i>nicht</i> gel&ouml;scht!');
@@ -64,11 +64,11 @@ if (isset($_POST['title']) && isset($_POST['text'])) {
 
 else if (isset($_POST['commentid'])) {
     settype($_POST['commentid'], 'integer');
-    $index = $FD->db()->conn()->query('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'comments` WHERE comment_id = ' . $_POST['commentid'] . " AND content_type='dl'");
+    $index = $FD->db()->conn()->query('SELECT * FROM `' . $FD->db()->getPrefix() . 'comments` WHERE comment_id = ' . $_POST['commentid'] . " AND content_type='dl'");
     $comment_arr = $index->fetch(PDO::FETCH_ASSOC);
     // If it's a registered user, get the name.
     if ($comment_arr['comment_poster_id'] != 0) {
-        $index = $FD->db()->conn()->query('SELECT user_name FROM `' . $FD->env('DB_PREFIX') . 'user` WHERE user_id = ' . $comment_arr['comment_poster_id']);
+        $index = $FD->db()->conn()->query('SELECT user_name FROM `' . $FD->db()->getPrefix() . 'user` WHERE user_id = ' . $comment_arr['comment_poster_id']);
         $comment_arr['comment_poster'] = $index->fetchColumn();
     }
 

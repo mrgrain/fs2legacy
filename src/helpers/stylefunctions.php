@@ -11,7 +11,7 @@ function get_email_template($TEMPLATE_NAME)
 
     $index = $FD->db()->conn()->query('
                     SELECT `' . $TEMPLATE_NAME . '`
-                    FROM ' . $FD->env('DB_PREFIX') . "email
+                    FROM ' . $FD->db()->getPrefix() . "email
                     WHERE `id` = '1'");
     $result = $index->fetch(PDO::FETCH_ASSOC);
     return $result[$TEMPLATE_NAME];
@@ -49,14 +49,14 @@ function create_textarea($name, $text = '', $width = '', $height = '', $class = 
         $smilies_table = '
           <table cellpadding="2" cellspacing="0" border="0">';
 
-        $index = $FD->db()->conn()->query('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'editor_config`');
+        $index = $FD->db()->conn()->query('SELECT * FROM `' . $FD->db()->getPrefix() . 'editor_config`');
         $config_arr = $index->fetch(PDO::FETCH_ASSOC);
         $config_arr['num_smilies'] = $config_arr['smilies_rows'] * $config_arr['smilies_cols'];
 
         $zaehler = 0;
         $index = $FD->db()->conn()->query('
                             SELECT *
-                            FROM `' . $FD->env('DB_PREFIX') . 'smilies`
+                            FROM `' . $FD->db()->getPrefix() . 'smilies`
                             ORDER BY `order` ASC
                             LIMIT 0, ' . $config_arr['num_smilies'] . ' ');
         while ($smilie_arr = $index->fetch(PDO::FETCH_ASSOC)) {
@@ -325,7 +325,7 @@ function set_style()
     if (isset ($_GET['style']) && $FD->cfg('allow_other_designs') == 1) {
         $index = $FD->db()->conn()->prepare('
                         SELECT `style_id`, `style_tag`
-                        FROM `' . $FD->env('DB_PREFIX') . "styles`
+                        FROM `' . $FD->db()->getPrefix() . "styles`
                         WHERE `style_tag` = ?
                         AND `style_allow_use` = 1
                         LIMIT 0,1");
@@ -340,7 +340,7 @@ function set_style()
         settype($_GET['style_id'], 'integer');
         $index = $FD->db()->conn()->query('
                         SELECT `style_id`, `style_tag`
-                        FROM `' . $FD->env('DB_PREFIX') . "styles`
+                        FROM `' . $FD->db()->getPrefix() . "styles`
                         WHERE `style_id` = '" . $_GET['style_id'] . "'
                         AND `style_allow_use` = 1
                         LIMIT 0,1");

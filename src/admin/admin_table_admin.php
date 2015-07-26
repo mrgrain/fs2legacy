@@ -15,7 +15,7 @@ if (isset($_POST['op']) && isset($_POST['selected_tables'])) {
     //get valid tables
     $allowed = array();
     $query = $FD->db()->conn()->query('SELECT TABLE_NAME FROM information_schema.tables '
-        . 'WHERE TABLE_NAME LIKE \'' . $FD->env('DB_PREFIX') . '%\' AND TABLE_SCHEMA=\'' . $FD->db()->getDatabaseName() . '\'');
+        . 'WHERE TABLE_NAME LIKE \'' . $FD->db()->getPrefix() . '%\' AND TABLE_SCHEMA=\'' . $FD->db()->getDatabaseName() . '\'');
     while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
         $allowed[] = $row['TABLE_NAME'];
     }//while
@@ -63,7 +63,7 @@ $table_list = '';
 $hasInnoDB = false;
 $total = array('tabs' => 0, 'rows' => 0, 'size' => 0, 'free' => 0);
 $query = $FD->db()->conn()->query('SELECT * FROM information_schema.tables'
-    . ' WHERE table_name LIKE \'' . $FD->env('DB_PREFIX') . '%\''
+    . ' WHERE table_name LIKE \'' . $FD->db()->getPrefix() . '%\''
     . ' AND TABLE_SCHEMA=\'' . $FD->db()->getDatabaseName() . '\' ORDER BY TABLE_NAME ASC');
 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
     $adminpage->addText('table_name', $row['TABLE_NAME']);

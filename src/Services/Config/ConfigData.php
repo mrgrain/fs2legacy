@@ -62,7 +62,9 @@ class ConfigData
         }
 
         $config = array();
-        include(FS2CONFIG . "/" . $file);
+        if (file_exists(FS2CONFIG . "/" . $file)) {
+            include(FS2CONFIG . "/" . $file);
+        }
         return $this->setConfigByArray($config);
     }
 

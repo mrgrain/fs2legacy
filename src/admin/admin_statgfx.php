@@ -43,7 +43,7 @@ imagefilledrectangle($image, 20, 45, 480, 285, $farbe_rot);
 // Hits curve
 $index = $FD->db()->conn()->query(
     'SELECT s_hits
-              FROM ' . $FD->env('DB_PREFIX') . "counter_stat
+              FROM ' . $FD->db()->getPrefix() . "counter_stat
               WHERE s_year  = $_GET[s_year] and
                     s_month = $_GET[s_month]
               ORDER BY s_hits DESC
@@ -57,7 +57,7 @@ $anz_tage = date('t', mktime(0, 0, 0, $_GET['s_month'], 1, $_GET['s_year']));
 for ($d = 1; $d < $anz_tage + 1; $d++) {
     $index = $FD->db()->conn()->query(
         'SELECT s_hits
-                  FROM ' . $FD->env('DB_PREFIX') . "counter_stat
+                  FROM ' . $FD->db()->getPrefix() . "counter_stat
                   WHERE s_year  = $_GET[s_year] and
                         s_month = $_GET[s_month] and
                         s_day   = $d");
@@ -109,7 +109,7 @@ imagefilledpolygon($image, $hitsarray, round($arraycount / 2), $farbe_hits);
 // Visits curve
 $index = $FD->db()->conn()->query(
     'SELECT s_visits
-              FROM ' . $FD->env('DB_PREFIX') . "counter_stat
+              FROM ' . $FD->db()->getPrefix() . "counter_stat
               WHERE s_year  = $_GET[s_year] and
                     s_month = $_GET[s_month]
               ORDER BY s_visits DESC
@@ -122,7 +122,7 @@ if ($dbmaxvisits > 0) {
     for ($d = 1; $d < $anz_tage + 1; $d++) {
         $index = $FD->db()->conn()->query(
             'SELECT s_visits
-                    FROM ' . $FD->env('DB_PREFIX') . "counter_stat
+                    FROM ' . $FD->db()->getPrefix() . "counter_stat
                     WHERE s_year  = $_GET[s_year] AND
                           s_month = $_GET[s_month] AND
                           s_day   = $d");

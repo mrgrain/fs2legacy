@@ -37,7 +37,7 @@ if ((isset($_POST['name']) AND $_POST['name'] != '')
     $_POST['permanent'] = isset($_POST['permanent']) ? 1 : 0;
 
     $stmt = $FD->db()->conn()->prepare(
-        'UPDATE ' . $FD->env('DB_PREFIX') . "partner
+        'UPDATE ' . $FD->db()->getPrefix() . "partner
                SET partner_name = ?,
                    partner_link = ?,
                    partner_beschreibung = ?,
@@ -78,7 +78,7 @@ elseif (isset($_POST['partner_action'])
 
     if ($_POST['delete_partner'])   // Delete affiliated site
     {
-        $FD->db()->conn()->exec('DELETE FROM ' . $FD->env('DB_PREFIX') . "partner WHERE partner_id = '$_POST[partner_id]'");
+        $FD->db()->conn()->exec('DELETE FROM ' . $FD->db()->getPrefix() . "partner WHERE partner_id = '$_POST[partner_id]'");
         image_delete('/partner', $_POST['partner_id'] . '_small');
         image_delete('/partner', $_POST['partner_id'] . '_big');
         systext($FD->text('page', 'note_deleted'));
@@ -103,7 +103,7 @@ elseif (isset($_POST['partner_action'])
     $_POST['partner_id'] = $_POST['partner_id'][0];
     settype($_POST['partner_id'], 'integer');
 
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "partner WHERE partner_id = $_POST[partner_id]");
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "partner WHERE partner_id = $_POST[partner_id]");
     $partner_arr = $index->fetch(PDO::FETCH_ASSOC);
 
     $partner_arr['partner_name'] = killhtml($partner_arr['partner_name']);
@@ -221,7 +221,7 @@ elseif (isset($_POST['partner_action'])
     $_POST['partner_id'] = $_POST['partner_id'][0];
     settype($_POST['partner_id'], 'integer');
 
-    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . "partner WHERE partner_id = $_POST[partner_id]");
+    $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . "partner WHERE partner_id = $_POST[partner_id]");
     $partner_arr = $index->fetch(PDO::FETCH_ASSOC);
 
     $partner_arr['partner_name'] = killhtml($partner_arr['partner_name']);
@@ -274,10 +274,10 @@ elseif (isset($_POST['partner_action'])
 if (!isset($_POST['partner_id'])) {
     $config_arr['small_x_width'] = $config_arr['small_x'] + 20;
 
-    $index = $FD->db()->conn()->query('SELECT COUNT(*) FROM ' . $FD->env('DB_PREFIX') . 'partner');
+    $index = $FD->db()->conn()->query('SELECT COUNT(*) FROM ' . $FD->db()->getPrefix() . 'partner');
 
     if ($index->fetchColumn() > 0) {
-        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'partner ORDER BY partner_name');
+        $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'partner ORDER BY partner_name');
         echo '
                     <form action="" method="post">
                         <input type="hidden" value="partner_edit" name="go">

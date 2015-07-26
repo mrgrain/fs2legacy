@@ -21,10 +21,10 @@ class ConfigEnv extends ConfigData
         $this->setConfig('path', FS2CONTENT . '/');
 
         // DEPRECATED
-        $this->setConfig('min', $this->get('minute'));
-        $this->setConfig('pref', $this->get('DB_PREFIX'));
-        $this->setConfig('spam', $this->get('SPAM_KEY'));
-        $this->setConfig('data', $this->get('DB_NAME'));
+        //$this->setConfig('min', $this->get('minute'));
+        //$this->setConfig('pref', 'prefix');
+        //$this->setConfig('spam', $this->get('SPAM_KEY'));
+        //$this->setConfig('data', $this->get('DB_NAME'));
     }
 
     // get config entry

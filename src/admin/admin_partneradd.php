@@ -33,7 +33,7 @@ if (isset($_FILES['bild_small']['name']) && $_FILES['bild_small']['name'] != ''
     $_POST['permanent'] = isset($_POST['permanent']) ? 1 : 0;
 
     $stmt = $FD->db()->conn()->prepare(
-        'INSERT INTO ' . $FD->env('DB_PREFIX') . "partner
+        'INSERT INTO ' . $FD->db()->getPrefix() . "partner
                         (partner_name,
                          partner_link,
                          partner_beschreibung,
@@ -68,7 +68,7 @@ if (isset($_FILES['bild_small']['name']) && $_FILES['bild_small']['name'] != ''
                 default:
                     systext($FD->text('page', 'big_pic') . ': ' . upload_img_notice($upload2));
                     systext($FD->text('page', 'note_notadded'));
-                    $FD->db()->conn()->exec('DELETE FROM ' . $FD->env('DB_PREFIX') . "partner WHERE partner_id = '$id'");
+                    $FD->db()->conn()->exec('DELETE FROM ' . $FD->db()->getPrefix() . "partner WHERE partner_id = '$id'");
                     image_delete('/partner', $id . '_small');
                     image_delete('/partner', $id . '_big');
             }

@@ -9,7 +9,7 @@ if (isset($_FILES['artikelimg']) && isset($_POST['title']) && isset($_POST['url'
 ) {
     settype($_POST['hot'], 'integer');
     $stmt = $FD->db()->conn()->prepare(
-        'INSERT INTO ' . $FD->env('DB_PREFIX') . "shop (artikel_name, artikel_url, artikel_text, artikel_preis, artikel_hot)
+        'INSERT INTO ' . $FD->db()->getPrefix() . "shop (artikel_name, artikel_url, artikel_text, artikel_preis, artikel_hot)
                  VALUES (?,
                          ?,
                          ?,

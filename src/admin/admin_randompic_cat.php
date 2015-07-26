@@ -8,7 +8,7 @@ if (isset($_POST['sended'])) {
     while (list($key, $val) = each($_POST['randompic_cat'])) {
         $key = intval($key); //better be safe than sorry
         $val = intval($val);
-        $FD->db()->conn()->exec('UPDATE ' . $FD->env('DB_PREFIX') . "screen_cat
+        $FD->db()->conn()->exec('UPDATE ' . $FD->db()->getPrefix() . "screen_cat
                      SET randompic = '$val'
                      WHERE cat_id = '$key'");
     }
@@ -42,10 +42,10 @@ echo '
                                 </td>
                             </tr>
     ';
-$index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->env('DB_PREFIX') . 'screen_cat WHERE cat_type != 2 ORDER BY cat_name ASC');
+$index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'screen_cat WHERE cat_type != 2 ORDER BY cat_name ASC');
 while ($cat_arr = $index->fetch(PDO::FETCH_ASSOC)) {
     $cat_arr['cat_date'] = date('d.m.Y', $cat_arr['cat_date']);
-    $screen_index = $FD->db()->conn()->query('SELECT COUNT(cat_id) FROM ' . $FD->env('DB_PREFIX') . "screen where cat_id = $cat_arr[cat_id]");
+    $screen_index = $FD->db()->conn()->query('SELECT COUNT(cat_id) FROM ' . $FD->db()->getPrefix() . "screen where cat_id = $cat_arr[cat_id]");
     $screen_rows = $screen_index->fetchColumn();
     echo '
                             <input type="hidden" name="randompic_cat[' . $cat_arr['cat_id'] . ']" value="0">

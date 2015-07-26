@@ -26,7 +26,7 @@ if (
 
     // SQL-Queries
     $FD->db()->conn()->exec('
-                    UPDATE `' . $FD->env('DB_PREFIX') . "applets`
+                    UPDATE `' . $FD->db()->getPrefix() . "applets`
                     SET
                         `applet_active` = '" . $_POST['applet_active'] . "',
                         `applet_include` = '" . $_POST['applet_include'] . "',
@@ -59,7 +59,7 @@ elseif (
         // SQL-Delete-Query
         $FD->db()->conn()->exec('
                         DELETE
-                        FROM ' . $FD->env('DB_PREFIX') . 'applets
+                        FROM ' . $FD->db()->getPrefix() . 'applets
                         WHERE `applet_id` IN (' . implode(',', $_POST['applet_id']) . ')');
 
         systext($FD->text('admin', 'applets_deleted'),
@@ -96,7 +96,7 @@ if (isset ($_POST['applet_id']) && is_array($_POST['applet_id']) && $_POST['appl
         } else {
             $index = $FD->db()->conn()->query('
                                     SELECT *
-                                    FROM `' . $FD->env('DB_PREFIX') . "applets`
+                                    FROM `' . $FD->db()->getPrefix() . "applets`
                                     WHERE `applet_id` = '" . $_POST['applet_id'] . "'
                                     LIMIT 0,1");
             $data_arr = $index->fetch(PDO::FETCH_ASSOC);
@@ -207,7 +207,7 @@ if (isset ($_POST['applet_id']) && is_array($_POST['applet_id']) && $_POST['appl
         // get applets from db
         $index = $FD->db()->conn()->query('
                                 SELECT *
-                                FROM ' . $FD->env('DB_PREFIX') . 'applets
+                                FROM ' . $FD->db()->getPrefix() . 'applets
                                 WHERE `applet_id` IN (' . implode(',', $_POST['applet_id']) . ')
                                 ORDER BY `applet_file`');
         // applets found?
@@ -262,7 +262,7 @@ if (!isset ($_POST['applet_id'])) {
     // get applets from db
     $index = $FD->db()->conn()->query('
                     SELECT COUNT(*)
-                    FROM ' . $FD->env('DB_PREFIX') . 'applets');
+                    FROM ' . $FD->db()->getPrefix() . 'applets');
 
     // applets found
     if ($index->fetchColumn() > 0) {
@@ -281,7 +281,7 @@ if (!isset ($_POST['applet_id'])) {
         // display applets
         $index = $FD->db()->conn()->query('
                         SELECT *
-                        FROM ' . $FD->env('DB_PREFIX') . 'applets
+                        FROM ' . $FD->db()->getPrefix() . 'applets
                         ORDER BY `applet_file`');
         while ($data_arr = $index->fetch(PDO::FETCH_ASSOC)) {
 

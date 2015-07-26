@@ -15,7 +15,7 @@ if (!$FD->cfg('allow_other_designs')) {
 
     //change selected style
 } else if (isset($_GET['new_style'])) {
-    $stmt = $FD->db()->conn()->prepare('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'styles` WHERE `style_allow_use` = 1 AND `style_tag` != \'default\' AND `style_tag` = ?');
+    $stmt = $FD->db()->conn()->prepare('SELECT * FROM `' . $FD->db()->getPrefix() . 'styles` WHERE `style_allow_use` = 1 AND `style_tag` != \'default\' AND `style_tag` = ?');
     $stmt->execute(array($_GET['new_style']));
     if (($row = $stmt->fetch(PDO::FETCH_ASSOC)) === false) {
         $template = sys_message($FD->text('frontend', 'sysmessage'), $FD->text('frontend', 'style_not_exist'));
@@ -29,7 +29,7 @@ if (!$FD->cfg('allow_other_designs')) {
     // show style selction form
 } else {
     //show list
-    $index = $FD->db()->conn()->query('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'styles` WHERE `style_allow_use` = 1 AND `style_tag` != \'default\'');
+    $index = $FD->db()->conn()->query('SELECT * FROM `' . $FD->db()->getPrefix() . 'styles` WHERE `style_allow_use` = 1 AND `style_tag` != \'default\'');
     $styles = '';
     while (($row = $index->fetch(PDO::FETCH_ASSOC)) !== false) {
         $ini = FS2STYLES . '/' . $row['style_tag'] . '/style.ini';

@@ -30,7 +30,7 @@ if (isset ($_GET['file']) && $_GET['file'] != '') {
 } else {
     // Get Image Data
     $index = $FD->db()->conn()->query('
-                                SELECT `screen_name`, `cat_id` FROM `' . $FD->env('DB_PREFIX') . 'screen`
+                                SELECT `screen_name`, `cat_id` FROM `' . $FD->db()->getPrefix() . 'screen`
                                 WHERE `screen_id` = ' . $_GET['id'] . '
                                 LIMIT 0,1');
 
@@ -60,7 +60,7 @@ if ($image_found === TRUE) {
         // exists a NEXT image?
         $index = $FD->db()->conn()->query('
                             SELECT `screen_id`
-                            FROM `' . $FD->env('DB_PREFIX') . 'screen`
+                            FROM `' . $FD->db()->getPrefix() . 'screen`
                             WHERE `cat_id` = ' . $cat_id . '
                             AND `screen_id` > ' . $_GET['id'] . '
                             ORDER BY `screen_id`
@@ -77,7 +77,7 @@ if ($image_found === TRUE) {
         // exists a PREVIOUS image?
         $index = $FD->db()->conn()->query('
                             SELECT `screen_id`
-                            FROM `' . $FD->env('DB_PREFIX') . 'screen`
+                            FROM `' . $FD->db()->getPrefix() . 'screen`
                             WHERE `cat_id` = ' . $cat_id . '
                             AND `screen_id` < ' . $_GET['id'] . '
                             ORDER BY `screen_id` DESC

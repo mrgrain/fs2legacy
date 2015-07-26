@@ -21,12 +21,12 @@ function visit_day_exists ( $YEAR, $MONTH, $DAY )
     global $FD;
 
     // check if visit-day exists
-    $daycounter = $FD->db()->conn()->query ('SELECT * FROM '.$FD->env('DB_PREFIX').'counter_stat
+    $daycounter = $FD->db()->conn()->query ('SELECT * FROM '.$FD->db()->getPrefix().'counter_stat
                                 WHERE s_year = '.$YEAR.' AND s_month = '.$MONTH.' AND s_day = '.$DAY);
 
     if ( $daycounter->fetch(PDO::FETCH_ASSOC) === false )
     {
-        $FD->db()->conn()->exec('INSERT INTO '.$FD->env('DB_PREFIX')."counter_stat (s_year, s_month, s_day, s_visits, s_hits) VALUES ('".$YEAR."', '".$MONTH."', '".$DAY."', '0', '0')" );
+        $FD->db()->conn()->exec('INSERT INTO '.$FD->db()->getPrefix()."counter_stat (s_year, s_month, s_day, s_visits, s_hits) VALUES ('".$YEAR."', '".$MONTH."', '".$DAY."', '0', '0')" );
     }
 }
 
@@ -44,8 +44,8 @@ function count_hit ( $GOTO )
 
     if ( $GOTO != '404' && $GOTO != '403' ) {
         // count page_hits
-        $FD->db()->conn()->exec ( 'UPDATE '.$FD->env('DB_PREFIX').'counter SET hits = hits + 1' );
-        $FD->db()->conn()->exec ( 'UPDATE '.$FD->env('DB_PREFIX').'counter_stat
+        $FD->db()->conn()->exec ( 'UPDATE '.$FD->db()->getPrefix().'counter SET hits = hits + 1' );
+        $FD->db()->conn()->exec ( 'UPDATE '.$FD->db()->getPrefix().'counter_stat
                                     SET s_hits = s_hits + 1
                                     WHERE s_year = '.$hit_year.' AND s_month = '.$hit_month.' AND s_day = '.$hit_day );
     }
@@ -63,8 +63,8 @@ function count_visit ()
     $visit_month = date( 'm' );
     $visit_day = date ( 'd' );
 
-    $FD->db()->conn()->exec('UPDATE '.$FD->env('DB_PREFIX').'counter SET visits = visits + 1');
-    $FD->db()->conn()->exec('UPDATE '.$FD->env('DB_PREFIX').'counter_stat
+    $FD->db()->conn()->exec('UPDATE '.$FD->db()->getPrefix().'counter SET visits = visits + 1');
+    $FD->db()->conn()->exec('UPDATE '.$FD->db()->getPrefix().'counter_stat
                               SET s_visits = s_visits + 1
                               WHERE s_year = '.$visit_year.' AND s_month = '.$visit_month.' AND s_day = '.$visit_day);
 }
@@ -88,13 +88,13 @@ function save_visitors ()
     }
 
     // Exisiting user for ip?
-    $user = $FD->db()->conn()->prepare('SELECT * FROM '.$FD->env('DB_PREFIX').'useronline WHERE `ip` = ? LIMIT 1');
+    $user = $FD->db()->conn()->prepare('SELECT * FROM '.$FD->db()->getPrefix().'useronline WHERE `ip` = ? LIMIT 1');
     $user->execute(array($_SERVER['REMOTE_ADDR']));
     $user = $user->fetch(PDO::FETCH_ASSOC);
 
     // no user => create new
     if (empty($user)) {
-        $stmt = $FD->db()->conn()->prepare('INSERT INTO '.$FD->env('DB_PREFIX').'useronline SET `ip` = ?, user_id='.$user_id.', DATE='.(int) $FD->env('time'));
+        $stmt = $FD->db()->conn()->prepare('INSERT INTO '.$FD->db()->getPrefix().'useronline SET `ip` = ?, user_id='.$user_id.', DATE='.(int) $FD->env('time'));
         $stmt->execute(array($_SERVER['REMOTE_ADDR']));
 
         // and count the visit
@@ -103,13 +103,13 @@ function save_visitors ()
 
     // new user_id (and update time)
     else if ($user['user_id'] != $user_id) {
-        $stmt = $FD->db()->conn()->prepare('UPDATE '.$FD->env('DB_PREFIX').'useronline SET user_id = '.$user_id.', date = '.(int) $FD->env('time').' WHERE ip = ? LIMIT 1');
+        $stmt = $FD->db()->conn()->prepare('UPDATE '.$FD->db()->getPrefix().'useronline SET user_id = '.$user_id.', date = '.(int) $FD->env('time').' WHERE ip = ? LIMIT 1');
         $stmt->execute(array($_SERVER['REMOTE_ADDR']));
     }
 
     // we know the user => just update time
     else {
-        $stmt = $FD->db()->conn()->prepare('UPDATE '.$FD->env('DB_PREFIX').'useronline SET date = '.(int) $FD->env('time').' WHERE ip = ? LIMIT 1');
+        $stmt = $FD->db()->conn()->prepare('UPDATE '.$FD->db()->getPrefix().'useronline SET date = '.(int) $FD->env('time').' WHERE ip = ? LIMIT 1');
         $stmt->execute(array($_SERVER['REMOTE_ADDR']));
     }
 }
@@ -128,17 +128,17 @@ function save_referer ()
 		$time = time(); // timestamp
 		// save referer
 		$referer = preg_replace ( "=(.*?)\=([0-9a-z]{32})(.*?)=i", "\\1=\\3", $_SERVER['HTTP_REFERER'] );
-		$index = $FD->db()->conn()->prepare ( 'SELECT * FROM '.$FD->env('DB_PREFIX').'counter_ref WHERE ref_url = ?' );
+		$index = $FD->db()->conn()->prepare ( 'SELECT * FROM '.$FD->db()->getPrefix().'counter_ref WHERE ref_url = ?' );
 		$index->execute(array($referer));
 
 		if ( $index->fetch(PDO::FETCH_ASSOC) === false ) {
 			if ( substr_count ( $referer, 'http://' ) >= 1 && substr_count ( $referer, $FD->config('virtualhost') ) < 1 ) {
-				$stmt = $FD->db()->conn()->prepare ( 'INSERT INTO '.$FD->env('DB_PREFIX')."counter_ref (ref_url, ref_count, ref_first, ref_last) VALUES (?, '1', '".$time."', '".$time."')" );
+				$stmt = $FD->db()->conn()->prepare ( 'INSERT INTO '.$FD->db()->getPrefix()."counter_ref (ref_url, ref_count, ref_first, ref_last) VALUES (?, '1', '".$time."', '".$time."')" );
 				$stmt->execute(array($referer));
 			}
 		} else {
 			if ( substr_count ( $referer, 'http://' ) >= 1 && substr_count ( $referer, $FD->config('virtualhost') ) < 1 ) {
-				$stmt = $FD->db()->conn()->prepare ( 'UPDATE '.$FD->env('DB_PREFIX')."counter_ref SET ref_count = ref_count + 1, ref_last = '".$time."' WHERE ref_url = ? LIMIT 1" );
+				$stmt = $FD->db()->conn()->prepare ( 'UPDATE '.$FD->db()->getPrefix()."counter_ref SET ref_count = ref_count + 1, ref_last = '".$time."' WHERE ref_url = ? LIMIT 1" );
 				$stmt->execute(array($referer));
 			}
 		}
@@ -176,7 +176,7 @@ function delete_referrers ($days, $hits, $contact, $age, $amount, $time = null) 
         default: $amount = '>'; break;
     }
 
-    return $FD->db()->conn()->exec('DELETE FROM '.$FD->env('DB_PREFIX').'counter_ref WHERE `ref_'.$contact.'` '.$age." '".$del_date."' AND `ref_count` ".$amount." '".$hits."'");
+    return $FD->db()->conn()->exec('DELETE FROM '.$FD->db()->getPrefix().'counter_ref WHERE `ref_'.$contact.'` '.$age." '".$del_date."' AND `ref_count` ".$amount." '".$hits."'");
 }
 
 //////////////////////////////////////
@@ -216,12 +216,12 @@ function get_online_ips () {
     // get values from db
     $numbers['users'] = $FD->db()->conn()->query(
                             'SELECT COUNT(user_id) AS users
-                             FROM '.$FD->env('DB_PREFIX')."useronline
+                             FROM '.$FD->db()->getPrefix()."useronline
                              WHERE `date` > '".($FD->env('time')-300)."' AND `user_id` != 0");
     $numbers['users'] = $numbers['users']->fetchColumn();
     $numbers['guests'] = $FD->db()->conn()->query(
                             'SELECT COUNT(user_id) AS guests
-                             FROM '.$FD->env('DB_PREFIX')."useronline
+                             FROM '.$FD->db()->getPrefix()."useronline
                              WHERE `date` > '".($FD->env('time')-300)."' AND `user_id` = 0");
     $numbers['guests'] = $numbers['guests']->fetchColumn();
 
@@ -239,7 +239,7 @@ function clean_iplist()
     global $FD;
 
     $time = strtotime('today');
-    $FD->db()->conn()->exec('DELETE FROM '.$FD->env('DB_PREFIX')."useronline WHERE `date` < '".$time."'");
+    $FD->db()->conn()->exec('DELETE FROM '.$FD->db()->getPrefix()."useronline WHERE `date` < '".$time."'");
 }
 
 

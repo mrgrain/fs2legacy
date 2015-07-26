@@ -25,15 +25,8 @@ class ServiceProvider extends \Frogsystem\Metamorphosis\Providers\ServiceProvide
             return $this->app->make('Frogsystem\\Legacy\\Services\\Text', $args);
         });
 
-        $this->app['Frogsystem\\Legacy\\Services\\Database'] = $this->app->once(function(Config $config) {
-            return new Database(
-                $config->env('DB_HOST'),
-                $config->env('DB_NAME'),
-                $config->env('DB_USER'),
-                $config->env('DB_PASSWORD'),
-                $config->env('DB_PREFIX')
-            );
-        });
+        $this->app['Frogsystem\\Legacy\\Services\\Database']
+            = $this->app->one('Frogsystem\Legacy\Services\Database');
 
         $this->app['Frogsystem\\Metamorphosis\\Contracts\\RendererInterface'] =
             $this->app->one('Frogsystem\\Legacy\\PageRenderer');

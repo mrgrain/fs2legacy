@@ -41,7 +41,7 @@ if (
 
     $stmt = $FD->db()->conn()->prepare(
         'INSERT INTO
-                         ' . $FD->env('DB_PREFIX') . "player
+                         ' . $FD->db()->getPrefix() . "player
                          ( video_type, video_x, video_title, video_lenght, video_desc, dl_id )
                      VALUES (
                              '" . $_POST['video_type'] . "',
@@ -212,7 +212,7 @@ if (TRUE) {
     // List DLs
     $index = $FD->db()->conn()->query('
                         SELECT D.dl_id, D.dl_name, C.cat_name
-                        FROM ' . $FD->env('DB_PREFIX') . 'dl D, ' . $FD->env('DB_PREFIX') . 'dl_cat AS C
+                        FROM ' . $FD->db()->getPrefix() . 'dl D, ' . $FD->db()->getPrefix() . 'dl_cat AS C
                         WHERE D.cat_id = C.cat_id
                         ORDER BY D.dl_name ASC');
     while ($dl_arr = $index->fetch(PDO::FETCH_ASSOC)) {

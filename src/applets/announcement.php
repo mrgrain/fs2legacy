@@ -4,7 +4,7 @@
 ///////////////////////////
 $index = $FD->db()->conn()->query('
                         SELECT *
-                        FROM `' . $FD->env('DB_PREFIX') . "announcement`
+                        FROM `' . $FD->db()->getPrefix() . "announcement`
                         WHERE `id` = '1'");
 $ann_arr = $index->fetch(PDO::FETCH_ASSOC);
 

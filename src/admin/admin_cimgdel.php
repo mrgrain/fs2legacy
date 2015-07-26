@@ -5,13 +5,13 @@ $cimg_path = $FD->config('virtualhost') . 'media/content/';
 
 if (isset($_GET['file'])) {
     $file = intval($_GET['file']);
-    $qry = $FD->db()->conn()->query('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'cimg` WHERE `id`=' . $file);
+    $qry = $FD->db()->conn()->query('SELECT * FROM `' . $FD->db()->getPrefix() . 'cimg` WHERE `id`=' . $file);
     $row = $qry->fetch(PDO::FETCH_ASSOC);
     if ($row !== false) {
         if (file_exists(CIMG_PATH . "{$row['name']}.{$row['type']}")) {
             if (!isset($_POST['edit'])) { // edit file
                 $imageinfo = getimagesize(CIMG_PATH . "{$row['name']}.{$row['type']}");
-                $qry = $FD->db()->conn()->query('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'cimg_cats`');
+                $qry = $FD->db()->conn()->query('SELECT * FROM `' . $FD->db()->getPrefix() . 'cimg_cats`');
                 $cats = array(array('id' => 0, 'name' => 'Keine Kategorie', 'description' => ''));
                 while (($cat = $qry->fetch(PDO::FETCH_ASSOC)) !== false) {
                     $cats[] = $cat;
@@ -162,7 +162,7 @@ FS2_STRING;
                 if (!isset($_POST['name']) || empty($_POST['name'])) $_POST['delete'] = 1;
                 if (isset($_POST['delete'])) {
                     unlink(CIMG_PATH . $row['name'] . '.' . $row['type']);
-                    $FD->db()->conn()->exec('DELETE FROM `' . $FD->env('DB_PREFIX') . 'cimg` WHERE `id`=' . intval($file));
+                    $FD->db()->conn()->exec('DELETE FROM `' . $FD->db()->getPrefix() . 'cimg` WHERE `id`=' . intval($file));
                     $text = 'Die Datei "' . $row['name'] . '" wurde gel&ouml;scht!';
                     if ($row['hasthumb'] == 1 && file_exists(CIMG_PATH . "{$row['name']}_s.{$row['type']}")) {
                         unlink(CIMG_PATH . $row['name'] . '_s.' . $row['type']);
@@ -179,19 +179,19 @@ FS2_STRING;
                             rename(CIMG_PATH . $row['name'] . '_s.' . $row['type'], CIMG_PATH . $_POST['name'] . '_s.' . $row['type']);
                             $text[] = 'Das Vorschaubild wurde umbenannt!';
                         }
-                        $stmt = $FD->db()->conn()->prepare('UPDATE `' . $FD->env('DB_PREFIX') . 'cimg` SET `name`= ? WHERE `id`=' . intval($file));
+                        $stmt = $FD->db()->conn()->prepare('UPDATE `' . $FD->db()->getPrefix() . 'cimg` SET `name`= ? WHERE `id`=' . intval($file));
                         $stmt->execute(array($_POST['name']));
                     }
 
                     if ($_POST['cat'] != $row['cat']) {
-                        $FD->db()->conn()->exec('UPDATE `' . $FD->env('DB_PREFIX') . "cimg` SET `cat`='" . intval($_POST['cat']) . "' WHERE `id`=" . $file);
+                        $FD->db()->conn()->exec('UPDATE `' . $FD->db()->getPrefix() . "cimg` SET `cat`='" . intval($_POST['cat']) . "' WHERE `id`=" . $file);
                         $text[] = 'Die Kategorie wurde erfolgreich ge&auml;ndert.';
                     }
 
                     if (isset($_POST['thumb']) && !empty($_POST['width']) && !empty($_POST['height'])) {
                         $thumb = create_thumb_from(image_url('/content', $row['name'], FALSE, TRUE), $_POST['width'], $_POST['height']);
                         $text[] = create_thumb_notice($thumb);
-                        $FD->db()->conn()->exec('UPDATE `' . $FD->env('DB_PREFIX') . 'cimg` SET `hasthumb`=1 WHERE `id`=' . $file);
+                        $FD->db()->conn()->exec('UPDATE `' . $FD->db()->getPrefix() . 'cimg` SET `hasthumb`=1 WHERE `id`=' . $file);
                     } elseif (isset($_POST['thumb'])) {
                         $text[] = 'Bitte Abmessung f&uuml;r das Vorschaubild angeben';
                     }
@@ -205,7 +205,7 @@ FS2_STRING;
                 unset($_GET['file']);
             }
         } else {
-            $FD->db()->conn()->exec('DELETE FROM `' . $FD->env('DB_PREFIX') . 'cimg` WHERE `id`=' . $file);
+            $FD->db()->conn()->exec('DELETE FROM `' . $FD->db()->getPrefix() . 'cimg` WHERE `id`=' . $file);
             systext('Die angegebene Datei wurde nicht im Dateisystem gefunden.<br>Der Eintrag in der Datenbank wurde gel&ouml;scht.', false, true);
             unset($_GET['file']);
         }
@@ -216,13 +216,13 @@ FS2_STRING;
 }
 
 if (!isset($_GET['file'])) { // select file
-    $num = $FD->db()->conn()->exec('UPDATE `' . $FD->env('DB_PREFIX') . 'cimg` SET `cat` = 0 WHERE `cat` != 0 AND `cat` NOT IN (SELECT DISTINCT `id` FROM `' . $FD->env('DB_PREFIX') . 'cimg_cats`)');
+    $num = $FD->db()->conn()->exec('UPDATE `' . $FD->db()->getPrefix() . 'cimg` SET `cat` = 0 WHERE `cat` != 0 AND `cat` NOT IN (SELECT DISTINCT `id` FROM `' . $FD->db()->getPrefix() . 'cimg_cats`)');
     if ($num == 1) {
         systext('Ein Datensatz wurde automatisch korrigiert.');
     } elseif ($num > 1) {
         systext($num . ' Datens&auml;tze wurden automatisch korrigiert.');
     }
-    $qry = $FD->db()->conn()->query('SELECT COUNT(*) FROM `' . $FD->env('DB_PREFIX') . 'cimg`');
+    $qry = $FD->db()->conn()->query('SELECT COUNT(*) FROM `' . $FD->db()->getPrefix() . 'cimg`');
     if ($qry->fetchColumn() > 0) {
         echo <<< FS2_STRING
             <script type="text/javascript">
@@ -244,10 +244,10 @@ FS2_STRING;
         echo '<table class="content" cellpadding="0" cellspacing="0">';
         $actcat = array('id' => 0, 'name' => 'Dateien ohne Kategorie', 'description' => '');
         $first = true;
-        $qry = $FD->db()->conn()->query('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'cimg` ORDER BY `cat`');
+        $qry = $FD->db()->conn()->query('SELECT * FROM `' . $FD->db()->getPrefix() . 'cimg` ORDER BY `cat`');
         while (($row = $qry->fetch(PDO::FETCH_ASSOC)) !== false) {
             if ($row['cat'] != $actcat['id']) {
-                $qry2 = $FD->db()->conn()->query('SELECT * FROM `' . $FD->env('DB_PREFIX') . 'cimg_cats` WHERE `id`=' . intval($row['cat']));
+                $qry2 = $FD->db()->conn()->query('SELECT * FROM `' . $FD->db()->getPrefix() . 'cimg_cats` WHERE `id`=' . intval($row['cat']));
                 $actcat = $qry2->fetch(PDO::FETCH_ASSOC);
                 $first = true;
             }

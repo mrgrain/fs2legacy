@@ -23,7 +23,7 @@ if (
 
     // SQL-Update-Query
     $stmt = $FD->db()->conn()->prepare('
-                    INSERT INTO ' . $FD->env('DB_PREFIX') . "user_groups (user_group_name, user_group_date, user_group_user)
+                    INSERT INTO ' . $FD->db()->getPrefix() . "user_groups (user_group_name, user_group_date, user_group_user)
                     VALUES (
                         ?,
                         '" . $group_date . "',
@@ -74,7 +74,7 @@ elseif (
 
     // SQL-Update-Query
     $stmt = $FD->db()->conn()->prepare('
-                UPDATE ' . $FD->env('DB_PREFIX') . "user_groups
+                UPDATE ' . $FD->db()->getPrefix() . "user_groups
                  SET
                      user_group_name = ?,
                      user_group_description = ?,
@@ -123,19 +123,19 @@ elseif (
 
         // Udpate Users
         $FD->db()->conn()->exec('
-                UPDATE ' . $FD->env('DB_PREFIX') . "user
+                UPDATE ' . $FD->db()->getPrefix() . "user
                 SET user_group = '0'
                 WHERE user_group = '" . $_POST['user_group_id'] . "'");
 
         // Delete Permissions
         $FD->db()->conn()->exec("
-                DELETE FROM " . $FD->env('DB_PREFIX') . "user_permissions
+                DELETE FROM " . $FD->db()->getPrefix() . "user_permissions
                 WHERE x_id = '" . $_POST['user_group_id'] . "'
                     AND perm_for_group = '1'");
 
         // SQL-Delete-Query
         $FD->db()->conn()->exec('
-                DELETE FROM ' . $FD->env('DB_PREFIX') . "user_groups
+                DELETE FROM ' . $FD->db()->getPrefix() . "user_groups
                 WHERE user_group_id = '" . $_POST['user_group_id'] . "'
                 AND user_group_id > 1");
         $message = 'Gruppe wurde erfolgreich gel&ouml;scht';
@@ -171,7 +171,7 @@ if (isset ($_POST['user_group_id']) && isset($_POST['group_action'])) {
         // Load Data from DB
         $index = $FD->db()->conn()->query('
                         SELECT *
-                        FROM ' . $FD->env('DB_PREFIX') . "user_groups
+                        FROM ' . $FD->db()->getPrefix() . "user_groups
                         WHERE user_group_id = '" . $_POST['user_group_id'] . "'");
         $group_arr = $index->fetch(PDO::FETCH_ASSOC);
 
@@ -194,7 +194,7 @@ if (isset ($_POST['user_group_id']) && isset($_POST['group_action'])) {
         }
 
         // Get User
-        $index = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->env('DB_PREFIX') . "USER WHERE user_id = '" . $group_arr['user_group_user'] . "'");
+        $index = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . "USER WHERE user_id = '" . $group_arr['user_group_user'] . "'");
         $group_arr['user_group_user_name'] = killhtml($index->fetchColumn());
 
         // Create Date-Arrays
@@ -346,7 +346,7 @@ if (isset ($_POST['user_group_id']) && isset($_POST['group_action'])) {
 
         $index = $FD->db()->conn()->query('
                         SELECT `user_group_id`, `user_group_name`
-                        FROM ' . $FD->env('DB_PREFIX') . "user_groups
+                        FROM ' . $FD->db()->getPrefix() . "user_groups
                         WHERE user_group_id = '" . $_POST['user_group_id'] . "'");
         $group_arr = $index->fetch(PDO::FETCH_ASSOC);
 
@@ -354,7 +354,7 @@ if (isset ($_POST['user_group_id']) && isset($_POST['group_action'])) {
 
         $index_numusers = $FD->db()->conn()->query("
                                 SELECT COUNT(`user_id`) AS 'num_users'
-                                FROM `" . $FD->env('DB_PREFIX') . "user`
+                                FROM `" . $FD->db()->getPrefix() . "user`
                                 WHERE `user_group` = '" . $group_arr['user_group_id'] . "'");
         $group_arr['user_group_num_users'] = $index_numusers->fetchColumn();
 
@@ -458,7 +458,7 @@ else {
     // Get groups from DB
     $index = $FD->db()->conn()->query('
                     SELECT COUNT(*)
-                    FROM `' . $FD->env('DB_PREFIX') . 'user_groups`
+                    FROM `' . $FD->db()->getPrefix() . 'user_groups`
                     WHERE `user_group_id` > 1');
 
     // groups found
@@ -475,19 +475,19 @@ else {
         ';
         $index = $FD->db()->conn()->query('
                         SELECT `user_group_id`, `user_group_name`, `user_group_user`, `user_group_date`
-                        FROM `' . $FD->env('DB_PREFIX') . 'user_groups`
+                        FROM `' . $FD->db()->getPrefix() . 'user_groups`
                         WHERE `user_group_id` > 1
                         ORDER BY `user_group_name`');
         while ($group_arr = $index->fetch(PDO::FETCH_ASSOC)) {
             $index_username = $FD->db()->conn()->query('
                                     SELECT `user_name`
-                                    FROM `' . $FD->env('DB_PREFIX') . "user`
+                                    FROM `' . $FD->db()->getPrefix() . "user`
                                     WHERE `user_id` = '" . $group_arr['user_group_user'] . "'");
             $group_arr['user_group_user_name'] = $index_username->fetchColumn();
 
             $index_numusers = $FD->db()->conn()->query("
                                     SELECT COUNT(`user_id`) AS 'num_users'
-                                    FROM `" . $FD->env('DB_PREFIX') . "user`
+                                    FROM `" . $FD->db()->getPrefix() . "user`
                                     WHERE `user_group` = '" . $group_arr['user_group_id'] . "'");
             $group_arr['user_group_num_users'] = $index_numusers->fetchColumn();
 
@@ -571,7 +571,7 @@ else {
     // Get admin group from DB
     $index = $FD->db()->conn()->query('
                     SELECT `user_group_id`, `user_group_name`, `user_group_user`, `user_group_date`
-                    FROM `' . $FD->env('DB_PREFIX') . 'user_groups`
+                    FROM `' . $FD->db()->getPrefix() . 'user_groups`
                     WHERE `user_group_id` = 1
                     LIMIT 0,1');
 
@@ -580,13 +580,13 @@ else {
 
     $index_username = $FD->db()->conn()->query('
                             SELECT `user_name`
-                            FROM `' . $FD->env('DB_PREFIX') . "user`
+                            FROM `' . $FD->db()->getPrefix() . "user`
                             WHERE `user_id` = '" . $group_arr['user_group_user'] . "'");
     $group_arr['user_group_user_name'] = $index_username->fetchColumn();
 
     $index_numusers = $FD->db()->conn()->query("
                             SELECT COUNT(`user_id`) AS 'num_users'
-                            FROM `" . $FD->env('DB_PREFIX') . "user`
+                            FROM `" . $FD->db()->getPrefix() . "user`
                             WHERE `user_is_admin` = '1'");
     $group_arr['user_group_num_users'] = $index_numusers->fetchColumn();
 

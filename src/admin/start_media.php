@@ -2,19 +2,19 @@
 
 $index = $FD->db()->conn()->query("
 				SELECT COUNT(`cat_id`) AS 'num_gallery'
-				FROM " . $FD->env('DB_PREFIX') . 'screen_cat
+				FROM " . $FD->db()->getPrefix() . 'screen_cat
 				LIMIT 0,1');
 $num_gallery = $index->fetchColumn();
 
 $index = $FD->db()->conn()->query("
 				SELECT COUNT(`screen_id`) AS 'num_gallery_img'
-				FROM " . $FD->env('DB_PREFIX') . 'screen
+				FROM " . $FD->db()->getPrefix() . 'screen
 				LIMIT 0,1');
 $num_gallery_img = $index->fetchColumn();
 
 $index = $FD->db()->conn()->query("
 				SELECT COUNT(`wallpaper_id`) AS 'num_gallery_wp'
-				FROM " . $FD->env('DB_PREFIX') . 'wallpaper
+				FROM " . $FD->db()->getPrefix() . 'wallpaper
 				LIMIT 0,1');
 $num_gallery_wp = $index->fetchColumn();
 
@@ -23,7 +23,7 @@ $num_gallery_entries = $num_gallery_wp + $num_gallery_img;
 if ($num_gallery_img > 0) {
     $index = $FD->db()->conn()->query("
 					SELECT COUNT(S.`screen_id`) AS 'best_gallery_num', C.`cat_name`
-					FROM " . $FD->env('DB_PREFIX') . 'screen_cat C, ' . $FD->env('DB_PREFIX') . 'screen S
+					FROM " . $FD->db()->getPrefix() . 'screen_cat C, ' . $FD->db()->getPrefix() . 'screen S
 					WHERE S.`cat_id` = C.`cat_id`
 					AND C.`cat_type` = 1
 					GROUP BY C.`cat_name`
@@ -36,7 +36,7 @@ if ($num_gallery_img > 0) {
 if ($num_gallery_wp > 0) {
     $index = $FD->db()->conn()->query("
 					SELECT COUNT(W.`wallpaper_id`) AS 'best_gallery_num', C.`cat_name`
-					FROM " . $FD->env('DB_PREFIX') . 'screen_cat C, ' . $FD->env('DB_PREFIX') . 'wallpaper W
+					FROM " . $FD->db()->getPrefix() . 'screen_cat C, ' . $FD->db()->getPrefix() . 'wallpaper W
 					WHERE W.`cat_id` = C.`cat_id`
 					AND C.`cat_type` = 2
 					GROUP BY C.`cat_name`
@@ -55,13 +55,13 @@ if ($num_gallery_wp > 0 && $best_gallery_num2 > $best_gallery_num) {
 
 $index = $FD->db()->conn()->query("
 				SELECT COUNT(`dl_id`) AS 'num_dl'
-				FROM " . $FD->env('DB_PREFIX') . 'dl
+				FROM " . $FD->db()->getPrefix() . 'dl
 				LIMIT 0,1');
 $num_dl = $index->fetchColumn();
 
 $index = $FD->db()->conn()->query("
 				SELECT COUNT(`file_id`) AS 'num_dl_file'
-				FROM " . $FD->env('DB_PREFIX') . 'dl_files
+				FROM " . $FD->db()->getPrefix() . 'dl_files
 				LIMIT 0,1');
 $num_dl_files = $index->fetchColumn();
 
@@ -69,7 +69,7 @@ $num_dl_files = $index->fetchColumn();
 if ($num_dl > 0 && $num_dl_files > 0) {
     $index = $FD->db()->conn()->query("
 					SELECT COUNT(F.`file_id`) AS 'best_dl_files_num', D.`dl_name`
-					FROM " . $FD->env('DB_PREFIX') . 'dl D, ' . $FD->env('DB_PREFIX') . 'dl_files F
+					FROM " . $FD->db()->getPrefix() . 'dl D, ' . $FD->db()->getPrefix() . 'dl_files F
 					WHERE D.`dl_id` = F.`dl_id`
 					GROUP BY D.`dl_name`
 					ORDER BY `best_dl_files_num` DESC
@@ -80,7 +80,7 @@ if ($num_dl > 0 && $num_dl_files > 0) {
 
     $index = $FD->db()->conn()->query("
 					SELECT SUM(F.`file_count`) AS 'best_dl_count_num', D.`dl_name`
-					FROM " . $FD->env('DB_PREFIX') . 'dl D, ' . $FD->env('DB_PREFIX') . 'dl_files F
+					FROM " . $FD->db()->getPrefix() . 'dl D, ' . $FD->db()->getPrefix() . 'dl_files F
 					WHERE D.`dl_id` = F.`dl_id`
 					GROUP BY D.`dl_name`
 					ORDER BY `best_dl_count_num` DESC
@@ -91,7 +91,7 @@ if ($num_dl > 0 && $num_dl_files > 0) {
 
     $index = $FD->db()->conn()->query("
 					SELECT SUM(F.`file_size`)*SUM(F.`file_count`) AS 'best_dl_traffic_num', D.`dl_name`
-					FROM " . $FD->env('DB_PREFIX') . 'dl D, ' . $FD->env('DB_PREFIX') . 'dl_files F
+					FROM " . $FD->db()->getPrefix() . 'dl D, ' . $FD->db()->getPrefix() . 'dl_files F
 					WHERE D.`dl_id` = F.`dl_id`
 					GROUP BY D.`dl_name`
 					ORDER BY `best_dl_traffic_num` DESC
@@ -102,7 +102,7 @@ if ($num_dl > 0 && $num_dl_files > 0) {
 
     $index = $FD->db()->conn()->query("
 					SELECT COUNT(D.`dl_id`) AS 'best_dl_uploader_num', U.`user_name`
-					FROM " . $FD->env('DB_PREFIX') . 'USER U, ' . $FD->env('DB_PREFIX') . 'dl D
+					FROM " . $FD->db()->getPrefix() . 'USER U, ' . $FD->db()->getPrefix() . 'dl D
 					WHERE D.`user_id` = U.`user_id`
 					GROUP BY U.`user_name`
 					ORDER BY `best_dl_uploader_num` DESC
@@ -115,13 +115,13 @@ if ($num_dl > 0 && $num_dl_files > 0) {
 
 $index = $FD->db()->conn()->query("
 				SELECT COUNT(`video_id`) AS 'num_video'
-				FROM " . $FD->env('DB_PREFIX') . 'player
+				FROM " . $FD->db()->getPrefix() . 'player
 				LIMIT 0,1');
 $num_video = $index->fetchColumn();
 
 $index = $FD->db()->conn()->query("
 				SELECT COUNT(`video_id`) AS 'num_video_int'
-				FROM " . $FD->env('DB_PREFIX') . 'player
+				FROM " . $FD->db()->getPrefix() . 'player
 				WHERE `video_type` = 1
 				LIMIT 0,1');
 $num_video_int = $index->fetchColumn();

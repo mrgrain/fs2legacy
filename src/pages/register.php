@@ -33,13 +33,13 @@ elseif (isset($_POST['user_name']) && isset($_POST['user_mail']) && isset($_POST
     // user exists or existing email negative anti spam
     $stmt = $FD->db()->conn()->prepare("
                 SELECT COUNT(`user_id`) AS 'number'
-                FROM " . $FD->env('DB_PREFIX') . 'USER
+                FROM " . $FD->db()->getPrefix() . 'USER
                 WHERE user_name = ?');
     $stmt->execute(array($_POST['user_name']));
     $existing_users = $stmt->fetchColumn();
     $stmt = $FD->db()->conn()->prepare("
                 SELECT COUNT(`user_id`) AS 'number'
-                FROM " . $FD->env('DB_PREFIX') . 'USER
+                FROM " . $FD->db()->getPrefix() . 'USER
                 WHERE user_mail = ?');
     $stmt->execute(array($_POST['user_mail']));
     $existing_mails = $stmt->fetchColumn();
@@ -80,16 +80,16 @@ elseif (isset($_POST['user_name']) && isset($_POST['user_mail']) && isset($_POST
 
         $stmt = $FD->db()->conn()->prepare('
                         INSERT INTO
-                            `' . $FD->env('DB_PREFIX') . "user`
+                            `' . $FD->db()->getPrefix() . "user`
                             (`user_name`, `user_password`, `user_salt`, `user_mail`, `user_reg_date`)
                         VALUES (
                             ?, '" . $userpass . "', '" . $user_salt . "', ?, '" . $regdate . "'
                         )");
         $stmt->execute(array($_POST['user_name'], $_POST['user_mail']));
 
-        $index = $FD->db()->conn()->query('SELECT COUNT(`user_id`) AS `user_number` FROM ' . $FD->env('DB_PREFIX') . 'USER');
+        $index = $FD->db()->conn()->query('SELECT COUNT(`user_id`) AS `user_number` FROM ' . $FD->db()->getPrefix() . 'USER');
         $new_user_num = $index->fetchColumn();
-        $FD->db()->conn()->exec('UPDATE `' . $FD->env('DB_PREFIX') . "counter` SET `user` = '" . $new_user_num . "'");
+        $FD->db()->conn()->exec('UPDATE `' . $FD->db()->getPrefix() . "counter` SET `user` = '" . $new_user_num . "'");
 
         $messages = forward_message($FD->text("frontend", "systemmessage"), $FD->text("frontend", "user_registered") . $email_message, url($FD->cfg('home_real')));
 

@@ -10,7 +10,7 @@ if (!empty($_POST['screen_id'])) {
 }
 if ($startdate < $enddate) {
     settype($_POST['screen_id'], 'integer');
-    $FD->db()->conn()->exec('INSERT INTO ' . $FD->env('DB_PREFIX') . "screen_random (screen_id, START, END)
+    $FD->db()->conn()->exec('INSERT INTO ' . $FD->db()->getPrefix() . "screen_random (screen_id, START, END)
                  VALUES ('" . $_POST['screen_id'] . "',
                          '" . $startdate . "',
                          '" . $enddate . "'
