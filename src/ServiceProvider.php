@@ -3,32 +3,33 @@ namespace Frogsystem\Legacy;
 
 use Frogsystem\Legacy\Services\Config;
 use Frogsystem\Legacy\Services\Database;
+use Frogsystem\Legacy\Services\Session;
+use Frogsystem\Legacy\Services\Text;
+use Frogsystem\Metamorphosis\Contracts\RendererInterface;
+use Frogsystem\Spawn\Container;
 
 class ServiceProvider extends \Frogsystem\Metamorphosis\Providers\ServiceProvider
 {
     /**
      * Registers entries with the container.
+     * @param Container $app
      */
-    public function plugin()
+    public function register(Container $app)
     {
-        $this->app['Frogsystem\\Legacy\\Services\\Session']
-            = $this->app->make('Frogsystem\\Legacy\\Services\\Session');
+        $app[Session::class] = $app->make(Session::class);
 
-        $this->app['Frogsystem\\Legacy\\Services\\Config']
-            = $this->app->one('Frogsystem\\Legacy\\Services\\Config');
+        $app[Config::class] = $app->one(Config::class);
 
-        $this->app['Frogsystem\\Legacy\\Services\\Text'] = $this->app->once(function(Config $config) {
+        $app[Text::class] = $app->once(function (Config $config) use ($app) {
             $args = [];
             if ($config->configExists('main', 'language_text')) {
                 $args[] = $config->config('language_text');
             }
-            return $this->app->make('Frogsystem\\Legacy\\Services\\Text', $args);
+            return $app->make(Text::class, $args);
         });
 
-        $this->app['Frogsystem\\Legacy\\Services\\Database']
-            = $this->app->one('Frogsystem\Legacy\Services\Database');
+        $app[Database::class] = $app->one(Database::class);
 
-        $this->app['Frogsystem\\Metamorphosis\\Contracts\\RendererInterface'] =
-            $this->app->one('Frogsystem\\Legacy\\PageRenderer');
+        $app[RendererInterface::class] = $app->one(PageRenderer::class);
     }
 }

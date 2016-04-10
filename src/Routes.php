@@ -5,7 +5,6 @@ use Aura\Router\Map;
 use Frogsystem\Legacy\Services\Config;
 use Frogsystem\Metamorphosis\Providers\RoutesProvider;
 use Frogsystem\Metamorphosis\Response\View;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class Routes
@@ -13,16 +12,29 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Routes extends RoutesProvider
 {
+    /**
+     * @var string
+     */
     protected $controller = 'Frogsystem\Legacy\Controllers\PageController';
+
+    /**
+     * @var string
+     */
     protected $namespace = 'Frogsystem\Legacy\Controllers';
+    
+    /**
+     * @var string
+     */
     protected $method = 'page';
 
     /**
      * Add the legacy route
+     * @param Map $map
+     * @return mixed|void
      */
-    public function plugin()
+    public function registerRoutes(Map $map)
     {
-        $this->map->attach('legacy.', '/', function (Map $map) {
+        $map->attach('legacy.', '/', function (Map $map) {
 
             // Admin
             //$map->get('admin.index', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST']);
@@ -66,6 +78,11 @@ class Routes extends RoutesProvider
         });
     }
 
+    /**
+     * Helper method for displaying old pages
+     * @param $name
+     * @return \Closure
+     */
     public function page($name)
     {
         // Return closure
