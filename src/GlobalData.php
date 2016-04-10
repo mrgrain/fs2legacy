@@ -4,7 +4,7 @@ namespace Frogsystem\Legacy;
 use Frogsystem\Spawn\Container;
 use Frogsystem\Spawn\Contracts\PluggableInterface;
 
-class GlobalData extends Container implements PluggableInterface
+class GlobalData extends Container
 {
     /**
      * Request Legacy Container
@@ -43,7 +43,7 @@ class GlobalData extends Container implements PluggableInterface
      * Executed whenever a pluggable gets unplugged.
      * @return mixed
      */
-    public function unplug()
+    public function __destruct()
     {
         // legacy destroy global
         global $FD;
