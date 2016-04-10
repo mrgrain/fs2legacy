@@ -7,7 +7,7 @@ use Frogsystem\Metamorphosis\Contracts\MiddlewareInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class UrlMiddleware implements MiddlewareInterface
+class UrlMiddleware
 {
     protected $db;
     protected $config;
@@ -20,10 +20,12 @@ class UrlMiddleware implements MiddlewareInterface
 
     /**
      * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
      * @param callable $next
      * @return ResponseInterface
+     * @throws \ErrorException
      */
-    public function handle(ServerRequestInterface $request, callable $next)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
         // path
         $path = $request->getUri()->getPath();
@@ -65,6 +67,6 @@ SQL
             $request = $request->withUri($uri);
         }
 
-        return $next($request);
+        return $next($request, $response);
     }
 }

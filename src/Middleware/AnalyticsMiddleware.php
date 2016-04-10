@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\UriInterface;
 
-class AnalyticsMiddleware implements MiddlewareInterface
+class AnalyticsMiddleware
 {
     protected $config;
 
@@ -19,13 +19,14 @@ class AnalyticsMiddleware implements MiddlewareInterface
 
     /**
      * @param ServerRequestInterface $request
+     * @param ResponseInterface $response
      * @param callable $next
      * @return ResponseInterface
      */
-    public function handle(ServerRequestInterface $request, callable $next)
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next)
     {
         // get response
-        $response =  $next($request);
+        $response =  $next($request, $response);
 
         // Save statistics after all manipulations
         //count_all($this->config->cfg('goto'));
