@@ -26,13 +26,13 @@ class StringCutter
     /**
      * Like cut() but word, html, or bbcode aware and some other options
      *
-     * @param $text Text to be truncated
-     * @param $length Max length of text
-     * @param $extension Extend given string by this if truncated
-     * @param $awareness Setting awareness: (boolean) word, html, bbcode
-     * @param $options Options: (boolean) count_html, count_bbcode, below
+     * @param string $text Text to be truncated
+     * @param int $length Max length of text
+     * @param string $extension Extend given string by this if truncated
+     * @param array $awareness Setting awareness: (boolean) word, html, bbcode
+     * @param array $options Options: (boolean) count_html, count_bbcode, below
      *
-     * @return Text truncated with awareness
+     * @return string Text truncated with awareness
      * */
     static public function truncate($text, $length, $extension, $awareness = array(), $options = array())
     {
@@ -232,11 +232,11 @@ class StringCutter
     /**
      * Cuts $text after $len chars and extends with $ext if truncated
      *
-     * @param $text Text to shorten
-     * @param $len Max length of text
-     * @param $ext Extends $text by this if truncated
-     *
-     * */
+     * @param string $text Text to shorten
+     * @param int $len Max length of text
+     * @param string $ext Extends $text by this if truncated
+     * @return string
+     */
     static public function cut($text, $len, $ext = '')
     {
         // Do we have to cut?

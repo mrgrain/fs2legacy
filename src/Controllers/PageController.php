@@ -1,19 +1,35 @@
 <?php
 namespace Frogsystem\Legacy\Controllers;
 
-use Frogsystem\Legacy\Services\Config;
+use Frogsystem\Legacy\Bridge\Services\Config;
 use Frogsystem\Metamorphosis\Response\View;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class PageController
+ * @package Frogsystem\Legacy\Controllers
+ */
 class PageController
 {
+    /**
+     * @var Config
+     */
     protected $config;
 
+    /**
+     * PageController constructor.
+     * @param Config $config
+     */
     function __construct(Config $config)
     {
         $this->config = $config;
     }
 
+    /**
+     * @param View $response
+     * @return ResponseInterface
+     * @throws \Exception
+     */
     function index(View $response)
     {
         $goto = $this->config->cfg('home_real');
@@ -22,6 +38,12 @@ class PageController
         return $this->page($response);
     }
 
+    /**
+     * @param View $response
+     * @param $name
+     * @return ResponseInterface
+     * @throws \Exception
+     */
     function articles(View $response, $name)
     {
         $this->config->setConfig('goto', $name);
@@ -40,11 +62,14 @@ class PageController
         // Display Page
         return $view->render('0_main.tpl/MAIN', [
             'content' => $this->get_content($file ?: $this->config->cfg('goto')),
-            'copyright' =>  get_copyright(),
+            'copyright' => get_copyright(),
         ]);
     }
 
-
+    /**
+     * @param $page
+     * @return string
+     */
     protected function get_content($page)
     {
         // Display Content
@@ -52,7 +77,7 @@ class PageController
 
         // Page file
         global $FD;
-        include(__DIR__."/../pages/".$page.".php");
+        include(__DIR__ . "/../pages/" . $page . ".php");
 
         // Return Content
         return $template;

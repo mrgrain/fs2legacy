@@ -2,7 +2,9 @@
 namespace Frogsystem\Legacy;
 
 use Aura\Router\Map;
-use Frogsystem\Legacy\Services\Config;
+use Frogsystem\Legacy\Bridge\Controllers\AdminController;
+use Frogsystem\Legacy\Bridge\Services\Config;
+use Frogsystem\Legacy\Controllers\PageController;
 use Frogsystem\Metamorphosis\Providers\RoutesProvider;
 use Frogsystem\Metamorphosis\Response\View;
 
@@ -15,13 +17,8 @@ class Routes extends RoutesProvider
     /**
      * @var string
      */
-    protected $controller = 'Frogsystem\Legacy\Controllers\PageController';
+    protected $controller = PageController::class;
 
-    /**
-     * @var string
-     */
-    protected $namespace = 'Frogsystem\Legacy\Controllers';
-    
     /**
      * @var string
      */
@@ -37,17 +34,17 @@ class Routes extends RoutesProvider
         $map->attach('legacy.', '/', function (Map $map) {
 
             // Admin
-            //$map->get('admin.index', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST']);
-            $map->get('admin.assets', 'admin/assets/{asset}', $this->controller('AdminController', 'assets'))
+            //$map->get('admin.index', 'admin/', $this->controller(AdminController::class, 'index'))->allows(['POST']);
+            $map->get('admin.assets', 'admin/assets/{asset}', $this->controller(AdminController::class, 'assets'))
                 ->tokens(['asset' => '.+']);
-            $map->get('admin.page', 'admin/', $this->controller('AdminController', 'index'))->allows(['POST'])
+            $map->get('admin.page', 'admin/', $this->controller(AdminController::class, 'index'))->allows(['POST'])
                 ->wildcard('page');
 
             // Index
-            $map->get('index', '', $this->controller('PageController', 'index'))->allows(['POST']);
+            $map->get('index', '', $this->controller(PageController::class, 'index'))->allows(['POST']);
 
             // Named article
-            $map->get('article', '{name}.html', $this->controller('PageController', 'articles'))
+            $map->get('article', '{name}.html', $this->controller(PageController::class, 'articles'))
                 ->tokens(['name' => '[^/.]+'])
                 ->allows(['POST']);
 

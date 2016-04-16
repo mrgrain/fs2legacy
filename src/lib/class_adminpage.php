@@ -1,7 +1,6 @@
 <?php
 //TODO: Beinhaltet fileaccess
-use Frogsystem\Legacy\Services\Lang;
-
+use Frogsystem\Legacy\Bridge\Services\Lang;
 
 /**
  * @file     class_adminpage.php

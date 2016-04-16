@@ -1,79 +1,74 @@
 <?php
 namespace Frogsystem\Legacy;
 
-use Frogsystem\Legacy\Middleware\AliasMiddleware;
-use Frogsystem\Legacy\Middleware\AnalyticsMiddleware;
-use Frogsystem\Legacy\Middleware\UrlMiddleware;
-use Frogsystem\Legacy\Services\Config;
-use Frogsystem\Legacy\Services\Database;
-use Frogsystem\Legacy\Services\Session;
-use Frogsystem\Legacy\Services\Text;
+use Frogsystem\Legacy\Bridge\Services\Config;
+use Frogsystem\Legacy\Bridge\Services\Session;
+use Frogsystem\Legacy\Bridge\Services\Text;
 use Frogsystem\Metamorphosis\WebApplication;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
- * @property Config config
+ * Class FrogsystemLegacy
  * @property Session session
+ * @property Config config
  * @property Text text
- * @property Database db
+ * @package Frogsystem\Legacy
  */
-class Legacy extends WebApplication
+class FrogsystemLegacy extends WebApplication
 {
+    /**
+     * @var array
+     */
     private $huggables = [
-        ServiceProvider::class,
-        GlobalData::class,
         Routes::class,
     ];
 
+    /**
+     * @var array
+     */
     protected $middleware = [
-        UrlMiddleware::class,
-        AliasMiddleware::class,
-        AnalyticsMiddleware::class,
     ];
-
 
     /** @var  WebApplication */
     protected $delegate;
 
-
+    /**
+     * FrogsystemLegacy constructor.
+     * @param WebApplication|null $delegate
+     */
     public function __construct(WebApplication $delegate = null)
     {
-        $delegate->set(Legacy::class, $this);
-        $this->delegate = $delegate;
-        $this->set(get_called_class(), $this);
-//        $this->delegate->set() = $delegate;
-//        $this->set(get_called_class(), $this);
-//        parent::__construct($delegate);
-
         // Constants
         $this->setConstants();
 
-        // Debugging aka environment
-        $this->setDebugMode(defined('FS2_DEBUG') ? FS2_DEBUG : false);
+        // call parent and load huggables
+        parent::__construct($delegate);
 
         // load huggables
         $this->huggables = $this->load($this->huggables);
         $this->groupHug($this->huggables);
     }
 
+    /**
+     * @param ServerRequestInterface|null $request
+     * @param ResponseInterface|null $response
+     * @param null $next
+     * @return ResponseInterface
+     */
     public function __invoke(ServerRequestInterface $request = null, ResponseInterface $response = null, $next = null)
     {
         // internals
         $this->session = $this->once(function () {
-            return $this->get(Session::class);
+            return $this->delegate->get(Session::class);
         });
 
         $this->config = $this->once(function () {
-            return $this->get(Config::class);
+            return $this->delegate->get(Config::class);
         });
 
         $this->text = $this->once(function () {
-            return $this->get(Text::class);
-        });
-
-        $this->db = $this->once(function () {
-            return $this->get(Database::class);
+            return $this->delegate->get(Text::class);
         });
 
         $this->config->loadConfigsByHook('startup');
@@ -88,6 +83,9 @@ class Legacy extends WebApplication
         return parent::__invoke($request, $response, $next);
     }
 
+    /**
+     * Set required Constants
+     */
     protected function setConstants()
     {
         // Content Constants
@@ -95,22 +93,5 @@ class Legacy extends WebApplication
         @define('FS2ADMIN', __DIR__ . '/admin');
         @define('FS2LANG', __DIR__ . '/lang');
         @define('FS2APPLETS', __DIR__ . '/applets');
-    }
-
-    protected function setDebugMode($debug)
-    {
-        error_reporting(0);
-        // Enable error_reporting
-        if ($debug) {
-            error_reporting(E_ALL);
-            ini_set('display_errors', true);
-            ini_set('display_startup_errors', true);
-        }
-    }
-
-    function __destruct()
-    {
-        // container destructs
-        $this->db->__destruct();
     }
 }
