@@ -293,7 +293,7 @@ function get_stopwords()
     $ACCESS = new fileaccess();
 
     $return_arr = array();
-    foreach ($stopfiles as $file) {
+    foreach (($stopfiles ?: []) as $file) {
         $return_arr = array_merge($return_arr, $ACCESS->getFileArray($stopfilespath . $file));
     }
     return array_map('trim', $return_arr);
