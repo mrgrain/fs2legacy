@@ -1,2 +1,0 @@
-select_user: User auswählen
-no_users_found: Keine User gefunden!
