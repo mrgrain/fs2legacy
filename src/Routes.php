@@ -67,7 +67,7 @@ class Routes extends RoutesProvider
             $map->get('register', 'register/', $this->page('register'))->allows(['POST']);
             $map->get('search', 'search/', $this->page('search'))->allows(['POST']);
             $map->get('shop', 'shop/', $this->page('shop'))->allows(['POST']);
-            $map->get('style_selection/', 'style_selection', $this->page('style_selection'))->allows(['POST']);
+            $map->get('style_selection/', 'style_selection/', $this->page('style_selection'))->allows(['POST']);
             $map->get('user', 'user/', $this->page('user'))->allows(['POST']);
             $map->get('user_edit', 'user_edit/', $this->page('user_edit'))->allows(['POST']);
             $map->get('user_list', 'user_list/', $this->page('user_list'))->allows(['POST']);
