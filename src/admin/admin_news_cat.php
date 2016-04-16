@@ -176,7 +176,7 @@ if (isset($_POST['cat_id']) && isset($_POST['cat_action'])) {
         $cat_arr['cat_description'] = killhtml($cat_arr['cat_description']);
 
         // Get User
-        $index = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . "USER WHERE user_id = '" . $cat_arr['cat_user'] . "'");
+        $index = $FD->db()->conn()->query('SELECT user_name FROM `' . $FD->db()->getPrefix() . "user` WHERE user_id = '" . $cat_arr['cat_user'] . "'");
         $cat_arr['cat_username'] = killhtml($index->fetchColumn());
 
         // Create Date-Arrays
@@ -450,7 +450,7 @@ elseif ($showdefault == TRUE) {
     // Get Categories from DB
     $index = $FD->db()->conn()->query('SELECT * FROM ' . $FD->db()->getPrefix() . 'news_cat ORDER BY cat_name');
     while ($cat_arr = $index->fetch(PDO::FETCH_ASSOC)) {
-        $index_username = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . "USER WHERE user_id = '" . $cat_arr['cat_user'] . "'");
+        $index_username = $FD->db()->conn()->query('SELECT user_name FROM `' . $FD->db()->getPrefix() . "user` WHERE user_id = '" . $cat_arr['cat_user'] . "'");
         $cat_arr['cat_user'] = $index_username->fetchColumn();
 
         // Display each Category

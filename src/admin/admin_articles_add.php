@@ -117,7 +117,7 @@ else {
 
     // Get User
     if ($_POST['article_user'] != 0) {
-        $index = $FD->db()->conn()->query('SELECT user_name, user_id FROM ' . $FD->db()->getPrefix() . "USER WHERE user_id = '" . $_POST['article_user'] . "'");
+        $index = $FD->db()->conn()->query('SELECT user_name, user_id FROM `' . $FD->db()->getPrefix() . "user` WHERE user_id = '" . $_POST['article_user'] . "'");
         $ur = $index->fetch(PDO::FETCH_ASSOC);
         $_POST['article_user_name'] = killhtml($ur['user_name']);
     } else {

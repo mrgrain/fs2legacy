@@ -121,7 +121,7 @@ elseif (isset($_POST['do']) && $_POST['do'] == 'sync') {
     $index = $FD->db()->conn()->query("SELECT SUM(s_hits) AS 'hits', SUM(s_visits) AS 'visits' FROM " . $FD->db()->getPrefix() . 'counter_stat');
     $sync_arr = $index->fetch(PDO::FETCH_ASSOC);
 
-    $index = $FD->db()->conn()->query("SELECT COUNT(user_id) AS 'user' FROM " . $FD->db()->getPrefix() . 'USER');
+    $index = $FD->db()->conn()->query("SELECT COUNT(user_id) AS 'user' FROM " . $FD->db()->getPrefix() . 'user');
     $sync_arr['user'] = $index->fetchColumn();
 
     $index = $FD->db()->conn()->query("SELECT COUNT(news_id) AS 'news' FROM " . $FD->db()->getPrefix() . 'news');

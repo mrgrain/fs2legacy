@@ -66,7 +66,7 @@ if (
         // Get User
         try {
             $user_id = $FD->db()->conn()->prepare(
-                'SELECT user_id FROM ' . $FD->db()->getPrefix() . 'USER
+                'SELECT user_id FROM ' . $FD->db()->getPrefix() . 'user
                            WHERE `user_name` = ? LIMIT 1');
             $user_id->execute(array($_POST['user_name']));
             $user_id = $user_id->fetchColumn();
@@ -197,7 +197,7 @@ if (TRUE) {
         $_POST['news_active'] = 1;
         $_POST['news_comments_allowed'] = 1;
         $_POST['user_id'] = $_SESSION['user_id'];
-        $_POST['user_name'] = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER
+        $_POST['user_name'] = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'user
                                                          WHERE user_id = ' . intval($_POST['user_id']) . ' LIMIT 1');
         $_POST['user_name'] = $_POST['user_name']->fetchColumn();
 

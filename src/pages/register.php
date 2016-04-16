@@ -33,13 +33,13 @@ elseif (isset($_POST['user_name']) && isset($_POST['user_mail']) && isset($_POST
     // user exists or existing email negative anti spam
     $stmt = $FD->db()->conn()->prepare("
                 SELECT COUNT(`user_id`) AS 'number'
-                FROM " . $FD->db()->getPrefix() . 'USER
+                FROM " . $FD->db()->getPrefix() . 'user
                 WHERE user_name = ?');
     $stmt->execute(array($_POST['user_name']));
     $existing_users = $stmt->fetchColumn();
     $stmt = $FD->db()->conn()->prepare("
                 SELECT COUNT(`user_id`) AS 'number'
-                FROM " . $FD->db()->getPrefix() . 'USER
+                FROM " . $FD->db()->getPrefix() . 'user
                 WHERE user_mail = ?');
     $stmt->execute(array($_POST['user_mail']));
     $existing_mails = $stmt->fetchColumn();
@@ -87,7 +87,7 @@ elseif (isset($_POST['user_name']) && isset($_POST['user_mail']) && isset($_POST
                         )");
         $stmt->execute(array($_POST['user_name'], $_POST['user_mail']));
 
-        $index = $FD->db()->conn()->query('SELECT COUNT(`user_id`) AS `user_number` FROM ' . $FD->db()->getPrefix() . 'USER');
+        $index = $FD->db()->conn()->query('SELECT COUNT(`user_id`) AS `user_number` FROM ' . $FD->db()->getPrefix() . 'user');
         $new_user_num = $index->fetchColumn();
         $FD->db()->conn()->exec('UPDATE `' . $FD->db()->getPrefix() . "counter` SET `user` = '" . $new_user_num . "'");
 

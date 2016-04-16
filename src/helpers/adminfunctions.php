@@ -876,7 +876,7 @@ function admin_set_cookie($username, $password)
 {
     global $FD;
 
-    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_name = ?');
+    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->db()->getPrefix() . 'user WHERE user_name = ?');
     $index->execute(array($username));
     $USER_ARR = $index->fetch(PDO::FETCH_ASSOC);
     if ($USER_ARR === false) {
@@ -915,7 +915,7 @@ function admin_login($username, $password, $iscookie)
 {
     global $FD;
 
-    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_name = ? LIMIT 1');
+    $index = $FD->db()->conn()->prepare('SELECT * FROM `' . $FD->db()->getPrefix() . 'user` WHERE user_name = ? LIMIT 1');
     $index->execute(array($username));
     $USER_ARR = $index->fetch(PDO::FETCH_ASSOC);
     if ($USER_ARR === false) {
@@ -959,7 +959,7 @@ function fillsession($uid)
 
     $USER_ARR = $FD->db()->conn()->query(
         'SELECT user_id, user_name, user_is_staff, user_group, user_is_admin
-                      FROM ' . $FD->db()->getPrefix() . 'USER
+                      FROM `' . $FD->db()->getPrefix() . 'user`
                       WHERE `user_id` = ' . intval($uid) . ' LIMIT 1');
     $USER_ARR = $USER_ARR->fetch(PDO::FETCH_ASSOC);
 

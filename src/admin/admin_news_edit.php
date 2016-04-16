@@ -64,7 +64,7 @@ function action_delete_get_data($IDS)
         $index2 = $FD->db()->conn()->query("SELECT COUNT(comment_id) AS 'number' FROM " . $FD->db()->getPrefix() . 'comments WHERE content_id = ' . $news_arr['news_id'] . ' AND content_type=\'news\'');
         $news_arr['num_comments'] = $index2->fetchColumn();
 
-        $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id = ' . $news_arr['user_id'] . "");
+        $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'user WHERE user_id = ' . $news_arr['user_id'] . "");
         $news_arr['user_name'] = $index2->fetchColumn();
 
         $index2 = $FD->db()->conn()->query('SELECT cat_name FROM ' . $FD->db()->getPrefix() . 'news_cat WHERE cat_id = ' . $news_arr['cat_id'] . "");
@@ -179,7 +179,7 @@ function action_comments_select($DATA)
 
             // Get other Data
             if ($comment_arr['comment_poster_id'] != 0) {
-                $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id = ' . $comment_arr['comment_poster_id'] . "");
+                $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'user WHERE user_id = ' . $comment_arr['comment_poster_id'] . "");
                 $comment_arr['comment_poster'] = $index2->fetchColumn();
             }
             $comment_arr['comment_date_formated'] = date('d.m.Y', $comment_arr['comment_date']) . ' um ' . date('H:i', $comment_arr['comment_date']);
@@ -235,7 +235,7 @@ function action_comments_edit($DATA)
 
     // Get other Data
     if ($comment_arr['comment_poster_id'] != 0) {
-        $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id = ' . $comment_arr['comment_poster_id']);
+        $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'user WHERE user_id = ' . $comment_arr['comment_poster_id']);
         $comment_arr['comment_poster'] = $index2->fetchColumn();
     }
     $comment_arr['comment_date_formated'] = date('d.m.Y', $comment_arr['comment_date']) . ' um ' . date('H:i', $comment_arr['comment_date']);
@@ -327,7 +327,7 @@ function action_comments_delete($DATA)
 
         // Get other Data
         if ($comment_arr['comment_poster_id'] != 0) {
-            $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id = ' . $comment_arr['comment_poster_id']);
+            $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'user WHERE user_id = ' . $comment_arr['comment_poster_id']);
             $comment_arr['comment_poster'] = $index2->fetchColumn();
         }
         $comment_arr['comment_date_formated'] = date('d.m.Y', $comment_arr['comment_date']) . ' um ' . date('H:i', $comment_arr['comment_date']);
@@ -413,7 +413,7 @@ if (
     try {
         // Get User
         $user_id = $FD->db()->conn()->prepare(
-            'SELECT user_id FROM ' . $FD->db()->getPrefix() . 'USER
+            'SELECT user_id FROM ' . $FD->db()->getPrefix() . 'user
                          WHERE `user_name` = ? LIMIT 1');
         $user_id->execute(array($_POST['user_name']));
         $user_id = $user_id->fetchColumn();
@@ -658,7 +658,7 @@ if (isset($_POST['news_id']) && isset($_POST['news_action'])) {
             putintopost($data);
 
             // Get User name
-            $_POST['user_name'] = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id=' . intval($_POST['user_id']) . ' LIMIT 1');
+            $_POST['user_name'] = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'user WHERE user_id=' . intval($_POST['user_id']) . ' LIMIT 1');
             $_POST['user_name'] = $_POST['user_name']->fetchColumn();
 
             $_POST['d'] = date('d', $_POST['news_date']);
@@ -929,7 +929,7 @@ if ($FILE_SHOW_START) {
             // extended or full
             if (in_array($config_arr['acp_view'], array(1, 2))) {
                 //get additional data
-                $user = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id=' . intval($news['user_id']) . ' LIMIT 1');
+                $user = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'user WHERE user_id=' . intval($news['user_id']) . ' LIMIT 1');
                 $user = $user->fetchColumn();
                 $cat = $FD->db()->conn()->query('SELECT cat_name FROM ' . $FD->db()->getPrefix() . 'news_cat WHERE cat_id=' . intval($news['cat_id']) . ' LIMIT 1');
                 $cat = $cat->fetchColumn();

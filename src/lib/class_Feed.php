@@ -286,7 +286,7 @@ abstract class NewsFeed extends Feed
 
         // get user name
         $news['user_name'] = $FD->db()->conn()->query(
-            'SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER
+            'SELECT user_name FROM `' . $FD->db()->getPrefix() . 'user`
                                   WHERE user_id = ' . intval($news['user_id']) . ' LIMIT 1');
         $news['user_name'] = $news['user_name']->fetchColumn();
 

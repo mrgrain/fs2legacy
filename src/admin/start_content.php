@@ -81,7 +81,7 @@ if ($num_news > 0) {
 
     $index = $FD->db()->conn()->query("
                     SELECT COUNT(N.`news_id`) AS 'best_news_poster_num', U.`user_name`
-                    FROM " . $FD->db()->getPrefix() . 'USER U, ' . $FD->db()->getPrefix() . 'news N
+                    FROM " . $FD->db()->getPrefix() . 'user U, ' . $FD->db()->getPrefix() . 'news N
                     WHERE N.`user_id` = U.`user_id`
                     GROUP BY U.`user_name`
                     ORDER BY `best_news_poster_num` DESC
@@ -106,7 +106,7 @@ $num_articles_cat = $index->fetchColumn();
 
 $index = $FD->db()->conn()->query("
                 SELECT COUNT(A.`article_id`) AS 'best_article_poster_num', U.`user_name`
-                FROM " . $FD->db()->getPrefix() . 'USER U, ' . $FD->db()->getPrefix() . 'articles A
+                FROM " . $FD->db()->getPrefix() . 'user U, ' . $FD->db()->getPrefix() . 'articles A
                 WHERE A.`article_user` = U.`user_id`
                 AND A.`article_user` > 0
                 GROUP BY U.`user_name`

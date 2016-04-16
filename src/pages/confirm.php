@@ -14,7 +14,7 @@ if (isset($_GET['h'])) {
                 //load user data from db
                 $userdata = $FD->db()->conn()->query(
                     'SELECT user_id, user_name, user_mail
-                                   FROM ' . $FD->db()->getPrefix() . 'USER
+                                   FROM ' . $FD->db()->getPrefix() . 'user
                                    WHERE user_id = ' . intval($hash->getTypeId()) . ' LIMIT 1');
                 $userdata = $userdata->fetch(PDO::FETCH_ASSOC);
 

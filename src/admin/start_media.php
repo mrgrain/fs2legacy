@@ -102,7 +102,7 @@ if ($num_dl > 0 && $num_dl_files > 0) {
 
     $index = $FD->db()->conn()->query("
 					SELECT COUNT(D.`dl_id`) AS 'best_dl_uploader_num', U.`user_name`
-					FROM " . $FD->db()->getPrefix() . 'USER U, ' . $FD->db()->getPrefix() . 'dl D
+					FROM " . $FD->db()->getPrefix() . 'user U, ' . $FD->db()->getPrefix() . 'dl D
 					WHERE D.`user_id` = U.`user_id`
 					GROUP BY U.`user_name`
 					ORDER BY `best_dl_uploader_num` DESC

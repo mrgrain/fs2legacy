@@ -149,7 +149,7 @@ function default_get_entry_data($articles_arr)
         }
 
         if ($articles_arr['article_user'] != 0) {
-            $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id = ' . $articles_arr['article_user']);
+            $index2 = $FD->db()->conn()->query('SELECT user_name FROM `' . $FD->db()->getPrefix() . 'user` WHERE user_id = ' . $articles_arr['article_user']);
             $articles_arr['user_name'] = $FD->text('admin', 'by') . ' <b>' . $index2->fetchColumn() . '</b>,';
         } else {
             $articles_arr['user_name'] = '';
@@ -374,7 +374,7 @@ function action_edit_get_data($ARTICLE_ID)
 
     // Get User
     if ($articles_arr['article_user'] != 0) {
-        $index = $FD->db()->conn()->query('SELECT user_name, user_id FROM ' . $FD->db()->getPrefix() . "USER WHERE user_id = '" . $articles_arr['article_user'] . "'");
+        $index = $FD->db()->conn()->query('SELECT user_name, user_id FROM `' . $FD->db()->getPrefix() . "user` WHERE user_id = '" . $articles_arr['article_user'] . "'");
         $articles_arr['article_user_name'] = killhtml($index->fetchColumn());
     } else {
         $articles_arr['article_user_name'] = '';
@@ -570,7 +570,7 @@ function action_delete_get_data($ARTICLE_ID)
     $articles_arr['article_text_short'] = truncate_string(strip_tags(killfs($articles_arr['article_text'])), 250, '...');
 
     if ($articles_arr['article_user'] != 0) {
-        $index2 = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_id = ' . $articles_arr['article_user']);
+        $index2 = $FD->db()->conn()->query('SELECT user_name FROM `' . $FD->db()->getPrefix() . 'user` WHERE user_id = ' . $articles_arr['article_user']);
         $articles_arr['user_name'] = $FD->text('admin', 'by') . ' <b>' . $index2->fetchColumn() . '</b>,';
     } else {
         $articles_arr['user_name'] = '';
