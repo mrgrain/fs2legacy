@@ -36,7 +36,7 @@ $temp_biggest_exists = false;
 if ($num_groups > 0) {
     $index = $FD->db()->conn()->query("
                     SELECT G.`user_group_name`, COUNT(U.`user_id`) AS 'biggest_num'
-                    FROM " . $FD->db()->getPrefix() . 'user_groups G, ' . $FD->db()->getPrefix() . "USER U
+                    FROM " . $FD->db()->getPrefix() . 'user_groups G, `' . $FD->db()->getPrefix() . "user` U
                     WHERE U.`user_group` = G.`user_group_id`
                     AND U.`user_group` > '1'
                     AND U.`user_is_staff` = '1'

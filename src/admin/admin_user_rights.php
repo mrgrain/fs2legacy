@@ -34,7 +34,7 @@ function get_group_rights_array($GROUP_ID, $IS_USER = FALSE)
     if ($IS_USER == TRUE) {
         $index = $FD->db()->conn()->query('
                         SELECT `user_group`
-                        FROM ' . $FD->db()->getPrefix() . "USER
+                        FROM `' . $FD->db()->getPrefix() . "user`
                         WHERE `user_id` = '" . intval($GROUP_ID) . "'");
         $GROUP_ID = $index->fetchColumn();
     }
@@ -123,7 +123,7 @@ if (isset ($_POST['edit_user_id'])) {
     // get user data
     $index = $FD->db()->conn()->query('
                     SELECT `user_name`, `user_id`, `user_group`, `user_is_staff`, `user_is_admin`
-                    FROM ' . $FD->db()->getPrefix() . "USER
+                    FROM `' . $FD->db()->getPrefix() . "user`
                     WHERE `user_id` = '" . $_POST['edit_user_id'] . "'
                     LIMIT 0,1");
     $user_arr = $index->fetch(PDO::FETCH_ASSOC);
@@ -289,7 +289,7 @@ else {
     // get staff-users from db
     $index = $FD->db()->conn()->query('
                     SELECT COUNT(`user_id`)
-                    FROM ' . $FD->db()->getPrefix() . "USER
+                    FROM `' . $FD->db()->getPrefix() . "user`
                     WHERE `user_is_staff` = '1' AND `user_id` != '1' AND `user_id` != '" . $_SESSION['user_id'] . "'");
 
     // users found
@@ -307,7 +307,7 @@ else {
         // display users
         $index = $FD->db()->conn()->query('
                         SELECT `user_id`, `user_name`, `user_mail`, `user_group`, `user_is_admin`
-                        FROM ' . $FD->db()->getPrefix() . "USER
+                        FROM `' . $FD->db()->getPrefix() . "user`
                         WHERE `user_is_staff` = '1' AND `user_id` != '1' AND `user_id` != '" . $_SESSION['user_id'] . "'
                         ORDER BY user_name");
         while ($user_arr = $index->fetch(PDO::FETCH_ASSOC)) {

@@ -194,7 +194,7 @@ if (isset ($_POST['user_group_id']) && isset($_POST['group_action'])) {
         }
 
         // Get User
-        $index = $FD->db()->conn()->query('SELECT user_name FROM ' . $FD->db()->getPrefix() . "USER WHERE user_id = '" . $group_arr['user_group_user'] . "'");
+        $index = $FD->db()->conn()->query('SELECT user_name FROM `' . $FD->db()->getPrefix() . "user` WHERE user_id = '" . $group_arr['user_group_user'] . "'");
         $group_arr['user_group_user_name'] = killhtml($index->fetchColumn());
 
         // Create Date-Arrays

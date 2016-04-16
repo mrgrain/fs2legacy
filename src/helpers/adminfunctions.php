@@ -915,7 +915,7 @@ function admin_login($username, $password, $iscookie)
 {
     global $FD;
 
-    $index = $FD->db()->conn()->prepare('SELECT * FROM ' . $FD->db()->getPrefix() . 'USER WHERE user_name = ? LIMIT 1');
+    $index = $FD->db()->conn()->prepare('SELECT * FROM `' . $FD->db()->getPrefix() . 'user` WHERE user_name = ? LIMIT 1');
     $index->execute(array($username));
     $USER_ARR = $index->fetch(PDO::FETCH_ASSOC);
     if ($USER_ARR === false) {

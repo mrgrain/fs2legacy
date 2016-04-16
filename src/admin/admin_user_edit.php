@@ -90,7 +90,7 @@ if (
 
     $index = $FD->db()->conn()->query('
                     SELECT `user_is_staff`, `user_is_admin`
-                    FROM ' . $FD->db()->getPrefix() . "USER
+                    FROM `' . $FD->db()->getPrefix() . "user`
                     WHERE `user_id` = '" . $_POST['user_id'] . "'
                     LIMIT 0,1");
     $row = $index->fetch(PDO::FETCH_ASSOC);
@@ -191,7 +191,7 @@ elseif (
         // get data from db
         $index = $FD->db()->conn()->query('
                         SELECT `user_name`
-                        FROM ' . $FD->db()->getPrefix() . "USER
+                        FROM `' . $FD->db()->getPrefix() . "user`
                         WHERE `user_id` = '" . $_POST['user_id'] . "'
                         LIMIT 0,1");
         $user_arr = $index->fetch(PDO::FETCH_ASSOC);
@@ -254,7 +254,7 @@ elseif (
 
         // SQL-Delete-Query
         $FD->db()->conn()->exec('
-                DELETE FROM ' . $FD->db()->getPrefix() . "USER
+                DELETE FROM `' . $FD->db()->getPrefix() . "user`
                  WHERE user_id = '" . $_POST['user_id'] . "'");
         $message = 'Benutzer wurde erfolgreich gel&ouml;scht';
 
@@ -316,7 +316,7 @@ if (isset ($_POST['user_id']) && $_POST['user_action']) {
         } else {
             $index = $FD->db()->conn()->query('
                             SELECT *
-                            FROM ' . $FD->db()->getPrefix() . "USER
+                            FROM `' . $FD->db()->getPrefix() . "user`
                             WHERE `user_id` = '" . $_POST['user_id'] . "'
                             LIMIT 0,1");
             $user_arr = $index->fetch(PDO::FETCH_ASSOC);
@@ -618,7 +618,7 @@ if (isset ($_POST['user_id']) && $_POST['user_action']) {
         // get data from db
         $index = $FD->db()->conn()->query('
                         SELECT `user_name`
-                        FROM ' . $FD->db()->getPrefix() . "USER
+                        FROM `' . $FD->db()->getPrefix() . "user`
                         WHERE `user_id` = '" . $_POST['user_id'] . "'
                         LIMIT 0,1");
         $user_arr = $index->fetch(PDO::FETCH_ASSOC);
@@ -710,7 +710,7 @@ if (!isset ($_POST['user_id'])) {
         $sql_filter = '%' . $_POST['filter'] . '%';
         $stmt = $FD->db()->conn()->prepare('
                         SELECT COUNT(`user_id`)
-                        FROM ' . $FD->db()->getPrefix() . "USER
+                        FROM `' . $FD->db()->getPrefix() . "user`
                         WHERE ( `user_name` LIKE ? OR `user_mail` LIKE ? )
                         AND `user_id` != '" . $_SESSION['user_id'] . "'
                         AND `user_id` != '1'");
@@ -732,7 +732,7 @@ if (!isset ($_POST['user_id'])) {
             // display users
             $index = $FD->db()->conn()->prepare('
                             SELECT `user_id`, `user_name`, `user_mail`, `user_is_staff`, `user_is_admin`
-                            FROM ' . $FD->db()->getPrefix() . "USER
+                            FROM `' . $FD->db()->getPrefix() . "user`
                             WHERE ( `user_name` LIKE ? OR `user_mail` LIKE ? )
                             AND `user_id` != '" . $_SESSION['user_id'] . "'
                             AND `user_id` != '1'
