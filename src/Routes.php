@@ -4,7 +4,7 @@ namespace Frogsystem\Legacy;
 use Aura\Router\Map;
 use Frogsystem\Legacy\Bridge\Controllers\AdminController;
 use Frogsystem\Legacy\Bridge\Services\Config;
-use Frogsystem\Legacy\Controllers\PageController;
+use Frogsystem\Legacy\Controllers\PagesController;
 use Frogsystem\Metamorphosis\Providers\RoutesProvider;
 use Frogsystem\Metamorphosis\Response\View;
 
@@ -17,7 +17,7 @@ class Routes extends RoutesProvider
     /**
      * @var string
      */
-    protected $controller = PageController::class;
+    protected $controller = PagesController::class;
 
     /**
      * @var string
@@ -41,10 +41,10 @@ class Routes extends RoutesProvider
                 ->wildcard('page');
 
             // Index
-            $map->get('index', '', $this->controller(PageController::class, 'index'))->allows(['POST']);
+            $map->get('index', '', $this->controller(PagesController::class, 'index'))->allows(['POST']);
 
             // Named article
-            $map->get('article', '{name}.html', $this->controller(PageController::class, 'articles'))
+            $map->get('article', '{name}.html', $this->controller(PagesController::class, 'articles'))
                 ->tokens(['name' => '[^/.]+'])
                 ->allows(['POST']);
 
