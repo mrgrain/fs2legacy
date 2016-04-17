@@ -89,7 +89,7 @@ class Routes extends RoutesProvider
             $config->setConfig('env', 'goto', $name);
 
             // call controller method
-            $controller = $this->app->find($this->controller);
+            $controller = $this->app->make($this->controller);
             return $controller->{$this->method}($response);
         };
     }
