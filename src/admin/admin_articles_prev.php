@@ -165,7 +165,7 @@ else {
     $theTemplate->setFile('0_main.tpl');
     $theTemplate->load('MAIN');
     $theTemplate->tag('content', $template_preview);
-    $theTemplate->tag('copyright', get_copyright());
+    $theTemplate->tag('copyright', Frogsystem\Legacy\Bridge\get_copyright());
 
     $template_general = (string)$theTemplate;
     $template_general = $template_general;

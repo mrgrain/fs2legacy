@@ -1,6 +1,7 @@
 <?php
 namespace Frogsystem\Legacy\Controllers;
 
+use Frogsystem\Legacy\Bridge\Controllers\PageController;
 use Frogsystem\Legacy\Bridge\Services\Config;
 use Frogsystem\Metamorphosis\Response\View;
 use Psr\Http\Message\ResponseInterface;
@@ -9,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
  * Class PageController
  * @package Frogsystem\Legacy\Controllers
  */
-class PageController
+class PagesController extends PageController
 {
     /**
      * @var Config
@@ -52,6 +53,7 @@ class PageController
     }
 
     /**
+     * Display a Page file
      * @param View $view
      * @param null $file Force to load a specific page file
      * @return ResponseInterface
@@ -59,14 +61,11 @@ class PageController
      */
     function page(View $view, $file = null)
     {
-        // Display Page
-        return $view->render('0_main.tpl/MAIN', [
-            'content' => $this->get_content($file ?: $this->config->cfg('goto')),
-            'copyright' => get_copyright(),
-        ]);
+        return $this->display($view, $this->get_content($file ?: $this->config->cfg('goto')));
     }
 
     /**
+     * Get content from a page file
      * @param $page
      * @return string
      */
