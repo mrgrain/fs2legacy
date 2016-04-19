@@ -11,14 +11,15 @@
   "prefer-stable": true,
   "autoload": {
     "files": [
-      "src/frogsystem/fs2legacy/autoload/classloader.php",
-      "src/frogsystem/fs2legacy/autoload/helpers.php"
+      "src/autoload/classloader.php",
+      "src/autoload/helpers.php"
     ],
     "psr-4": {
-      "Frogsystem\\Legacy\\": "src/frogsystem/fs2legacy"
+      "Frogsystem\\Legacy\\": "src"
     }
   },
   "require": {
-    "frogsystem/metamorphosis": "dev-master"
+    "frogsystem/metamorphosis": "dev-master",
+    "illuminate/database": "^5.1"
   }
 }
