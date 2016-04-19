@@ -1,6 +1,9 @@
 # frontend asset files
 /vendor
 composer.phar
+composer.lock
+
+# node et al
 /node_modules
 /.sass-cache
 
