@@ -4,6 +4,7 @@ namespace Frogsystem\Legacy;
 use Frogsystem\Legacy\Bridge\Services\Config;
 use Frogsystem\Legacy\Bridge\Services\Session;
 use Frogsystem\Legacy\Bridge\Services\Text;
+use Frogsystem\Legacy\Polls\Services\Routes as PollsRoutes;
 use Frogsystem\Metamorphosis\WebApplication;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -21,6 +22,7 @@ class FrogsystemLegacy extends WebApplication
      * @var array
      */
     private $huggables = [
+        PollsRoutes::class,
         Routes::class,
     ];
 
