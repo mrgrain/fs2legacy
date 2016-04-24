@@ -39,22 +39,22 @@
  * String parser mode: Search for the next character
  * @see StringParser::_parserMode
  */
-define ('STRINGPARSER_MODE_SEARCH', 1);
+define('STRINGPARSER_MODE_SEARCH', 1);
 /**
  * String parser mode: Look at each character of the string
  * @see StringParser::_parserMode
  */
-define ('STRINGPARSER_MODE_LOOP', 2);
+define('STRINGPARSER_MODE_LOOP', 2);
 /**
  * Filter type: Prefilter
  * @see StringParser::addFilter, StringParser::_prefilters
  */
-define ('STRINGPARSER_FILTER_PRE', 1);
+define('STRINGPARSER_FILTER_PRE', 1);
 /**
  * Filter type: Postfilter
  * @see StringParser::addFilter, StringParser::_postfilters
  */
-define ('STRINGPARSER_FILTER_POST', 2);
+define('STRINGPARSER_FILTER_POST', 2);
 
 /**
  * Generic string parser class
@@ -194,15 +194,6 @@ class StringParser
      * @var bool
      */
     var $_recentlyReparsed = false;
-
-    /**
-     * Constructor
-     *
-     * @access public
-     */
-    function StringParser()
-    {
-    }
 
     /**
      * Add a filter
@@ -827,19 +818,19 @@ class StringParser
  * Node type: Unknown node
  * @see StringParser_Node::_type
  */
-define ('STRINGPARSER_NODE_UNKNOWN', 0);
+define('STRINGPARSER_NODE_UNKNOWN', 0);
 
 /**
  * Node type: Root node
  * @see StringParser_Node::_type
  */
-define ('STRINGPARSER_NODE_ROOT', 1);
+define('STRINGPARSER_NODE_ROOT', 1);
 
 /**
  * Node type: Text node
  * @see StringParser_Node::_type
  */
-define ('STRINGPARSER_NODE_TEXT', 2);
+define('STRINGPARSER_NODE_TEXT', 2);
 
 /**
  * Global value that is a counter of string parser node ids. Compare it to a
@@ -935,7 +926,7 @@ class StringParser_Node
      *                        occurred at. If not determinable, it is -1.
      * @global __STRINGPARSER_NODE_ID
      */
-    function StringParser_Node($occurredAt = -1)
+    function __construct($occurredAt = -1)
     {
         $this->_id = $GLOBALS['__STRINGPARSER_NODE_ID']++;
         $this->occurredAt = $occurredAt;
@@ -1534,9 +1525,9 @@ class StringParser_Node_Text extends StringParser_Node
      *                        occurred at. If not determinable, it is -1.
      * @see StringParser_Node_Text::content
      */
-    function StringParser_Node_Text($content, $occurredAt = -1)
+    function __construct($content, $occurredAt = -1)
     {
-        parent::StringParser_Node($occurredAt);
+        parent::__construct($occurredAt);
         $this->content = $content;
     }
 
