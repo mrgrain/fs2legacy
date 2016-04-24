@@ -3,27 +3,16 @@ namespace Frogsystem\Legacy;
 
 use Aura\Router\Map;
 use Frogsystem\Legacy\Bridge\Controllers\AdminController;
+use Frogsystem\Legacy\Bridge\Providers\PagesRoutesProvider;
 use Frogsystem\Legacy\Bridge\Services\Config;
 use Frogsystem\Legacy\Controllers\PagesController;
-use Frogsystem\Metamorphosis\Providers\RoutesProvider;
-use Frogsystem\Metamorphosis\Response\View;
 
 /**
  * Class Routes
  * @package Frogsystem\Metamorphosis
  */
-class Routes extends RoutesProvider
+class Routes extends PagesRoutesProvider
 {
-    /**
-     * @var string
-     */
-    protected $controller = PagesController::class;
-
-    /**
-     * @var string
-     */
-    protected $method = 'page';
-
     /**
      * Add the legacy route
      * @param Map $map
@@ -62,7 +51,6 @@ class Routes extends RoutesProvider
             $map->get('logout', 'logout/', $this->page('logout'))->allows(['POST']);
             $map->get('news', 'news/', $this->page('news'))->allows(['POST']);
             $map->get('news_search', 'news_search/', $this->page('news_search'))->allows(['POST']);
-            $map->get('polls', 'polls/', $this->page('polls'))->allows(['POST']);
             $map->get('press', 'press/', $this->page('press'))->allows(['POST']);
             $map->get('register', 'register/', $this->page('register'))->allows(['POST']);
             $map->get('search', 'search/', $this->page('search'))->allows(['POST']);
@@ -78,19 +66,12 @@ class Routes extends RoutesProvider
     /**
      * Helper method for displaying old pages
      * @param $name
+     * @param string $controller
+     * @param string $method
      * @return \Closure
      */
-    public function page($name)
+    public function page($name, $controller = PagesController::class, $method = 'page')
     {
-        // Return closure
-        return function (View $response, Config $config) use ($name) {
-            // set old config
-            $config->setConfig('goto', $name);
-            $config->setConfig('env', 'goto', $name);
-
-            // call controller method
-            $controller = $this->app->make($this->controller);
-            return $controller->{$this->method}($response);
-        };
+        return parent::page($name, $controller, $method);
     }
 }

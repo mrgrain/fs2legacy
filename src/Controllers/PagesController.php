@@ -13,18 +13,9 @@ use Psr\Http\Message\ResponseInterface;
 class PagesController extends PageController
 {
     /**
-     * @var Config
+     * @var string
      */
-    protected $config;
-
-    /**
-     * PageController constructor.
-     * @param Config $config
-     */
-    function __construct(Config $config)
-    {
-        $this->config = $config;
-    }
+    protected $pagePath = __DIR__ . "/../pages";
 
     /**
      * @param View $response
@@ -49,36 +40,6 @@ class PagesController extends PageController
     {
         $this->config->setConfig('goto', $name);
         $this->config->setConfig('env', 'goto', $name);
-        return $this->page($response, 'articles');
-    }
-
-    /**
-     * Display a Page file
-     * @param View $view
-     * @param null $file Force to load a specific page file
-     * @return ResponseInterface
-     * @internal param ResponseInterface $response
-     */
-    function page(View $view, $file = null)
-    {
-        return $this->display($view, $this->get_content($file ?: $this->config->cfg('goto')));
-    }
-
-    /**
-     * Get content from a page file
-     * @param $page
-     * @return string
-     */
-    protected function get_content($page)
-    {
-        // Display Content
-        $template = '';
-
-        // Page file
-        global $FD;
-        include(__DIR__ . "/../pages/" . $page . ".php");
-
-        // Return Content
-        return $template;
+        return $this->display($response, $this->getPageContent('articles'));
     }
 }
