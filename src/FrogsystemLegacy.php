@@ -27,15 +27,6 @@ class FrogsystemLegacy extends WebApplication
     ];
 
     /**
-     * @var array
-     */
-    protected $middleware = [
-    ];
-
-    /** @var  WebApplication */
-    protected $delegate;
-
-    /**
      * FrogsystemLegacy constructor.
      * @param WebApplication|null $delegate
      */

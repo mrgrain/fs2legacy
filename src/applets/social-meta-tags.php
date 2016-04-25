@@ -8,7 +8,7 @@ $FD->setConfig('social_meta_tags', 'site_name', $FD->config('social_meta_tags', 
 // Detect page type
 {
     // should be less than 200 characters
-    function summeryFromContent($text, $length, $extension)
+    $summeryFromContent = function ($text, $length, $extension)
     {
 
         $text = parse_fscode($text, array(
@@ -32,9 +32,9 @@ $FD->setConfig('social_meta_tags', 'site_name', $FD->config('social_meta_tags', 
 
         $text = StringCutter::truncate(killhtml($text), $length, $extension, array('word' => true));  //less than 200 characters
         return $text;
-    }
+    };
 
-    function getImageFromContent($text)
+    $getImageFromContent = function ($text)
     {
         global $FD;
 
@@ -78,7 +78,7 @@ $FD->setConfig('social_meta_tags', 'site_name', $FD->config('social_meta_tags', 
             }
         }
         return false;
-    }
+    };
 
     // news
     if ($FD->config('social_meta_tags', 'enable_news') && 'comments' == $FD->env('goto')) {
@@ -100,11 +100,11 @@ $FD->setConfig('social_meta_tags', 'site_name', $FD->config('social_meta_tags', 
             if ($FD->config('social_meta_tags', 'use_news_cat_prepend')) {
                 $content->title = killhtml($news_arr['cat_name']) . $FD->config('social_meta_tags', 'news_cat_prepend') . $content->title;
             }
-            $content->summery = summeryFromContent($news_arr['news_text'], 207, '');
+            $content->summery = $summeryFromContent($news_arr['news_text'], 207, '');
             $content->url = get_canonical_url();
             $content->date = date('c', $news_arr['news_date']);
             $content->last_update = date('c', $news_arr['news_date'] ?: $news_arr['news_search_update']);
-            $content->image = getImageFromContent($news_arr['news_text']);
+            $content->image = $getImageFromContent($news_arr['news_text']);
         }
 
 
@@ -122,11 +122,11 @@ $FD->setConfig('social_meta_tags', 'site_name', $FD->config('social_meta_tags', 
         if (!empty($article_arr)) {
             $content = new stdClass();
             $content->title = killhtml($article_arr['article_title']);
-            $content->summery = summeryFromContent($article_arr['article_text'], 207, '');
+            $content->summery = $summeryFromContent($article_arr['article_text'], 207, '');
             $content->url = get_canonical_url();
             $content->date = date('c', $article_arr['article_date'] ?: $article_arr['article_search_update']);
             $content->last_update = date('c', $article_arr['article_date'] ?: $article_arr['article_search_update']);
-            $content->image = getImageFromContent($article_arr['article_text']);
+            $content->image = $getImageFromContent($article_arr['article_text']);
         }
 
 
@@ -145,7 +145,7 @@ $FD->setConfig('social_meta_tags', 'site_name', $FD->config('social_meta_tags', 
         if (!empty($downloads)) {
             $content = new stdClass();
             $content->title = killhtml($downloads['dl_name']);
-            $content->summery = summeryFromContent($downloads['dl_text'], 207, '');
+            $content->summery = $summeryFromContent($downloads['dl_text'], 207, '');
             $content->url = get_canonical_url();
             $content->date = date('c', $downloads['dl_date'] ?: $downloads['dl_search_update']);
             $content->last_update = date('c', $downloads['dl_date'] ?: $downloads['dl_search_update']);
